@@ -3,7 +3,7 @@ Dieses Git-Repository stellt die Lösungen zur Vorlesung Verteilte Algorithmen u
 
 ## 1.Aufgabe
 Die Aufgabe besteht darin ein Programm zu erstellen, dass  mehrere Prozesse anhand einer Datei initialisieren soll. Diese sollen eigenständig, also nicht als Threads ablaufen.
-Die dazu einzulesende Datei sieht wi folgt aus:
+Die dazu einzulesende Datei sieht wi folgt aus:  
   *1 isl-s-01:5000*  
   *2 isl-s-01:5001*  
   *3 isl-s-01:5002*  
