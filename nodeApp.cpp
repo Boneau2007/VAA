@@ -67,6 +67,10 @@ int handleOutgoingMessages(int socket){
     
 }
 
+void connectWithNeighbors(){
+	//TODO: Implement Websocket connection with the neigbohrs. OR Should i just make simple http requests?
+}
+
 int main(int argc, char* argv[]){
     const string NODELINE_REGEX = "(([0-9]*)\s(.*):([0-9]*)(\n|))";
     if(argc != 3){
@@ -107,26 +111,22 @@ int main(int argc, char* argv[]){
         }
         fileStream.close();
     }
-	try{
-	    if((tcpListener = initTcpSocket(nodeList.at(ownId).getPort())) < 0){
-                exit(tcpListener);
-            }
-	    for( auto const& [key, value] : nodeList ){
-	    	if(nodeList.at(ownId).getNeigbors.getSize() != MAX_NEIGBOHR_NODES && key != ownId){
-		    nodeList.at(ownId).addNeighbor(value);
-		}
-	    }
-	}catch(out_of_range e){
-	    cout << e.what() << endl;
-	}
+    if((tcpListener = initTcpSocket(nodeList.at(ownId).getPort())) < 0){
+        exit(tcpListener);
     }
-    bool idSendToNeigbohrs = false;
+    for( auto const& [key, value] : nodeList ){
+        if(nodeList.at(ownId).getNeighbors.getSize() != MAX_NEIGBOHR_NODES && key != ownId){
+            nodeList.at(ownId).addNeighbor(value);
+        }
+    }
+    connectWithNeighbors();
+    bool idSendToNeighbors = false;
     while(true){
         acceptSocket(&tcpListener, &tcpListener);
         handleIncommingMessages(tcpListener);
-        if(!idSendToNeigbohrs){
+        if(!idSendToNeighbors){
             //TODO: Sende an die nachbarn
-            idSendToNeigbohrs = true;
+            idSendToNeighbors = true;
         }
     }
     exit(EXIT_SUCCESS);
