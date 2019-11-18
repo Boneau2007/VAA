@@ -73,12 +73,10 @@ int main(int argc, char* argv[]){
         cout << "usage: ./" << argv[0]  << " [FILE] [ID]" << endl;
         cout << "e.g: ./"<< argv[0] << " nodes.txt 4" << endl;
         cout << "[ID]: must be contained in File" << endl;
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
     int tcpListener;
-    Uebung1::Node ownNode;
-    vector<Uebung1::Node> neigbohrNodes[MAX_NEIGBOHR_NODES];
-    map<unsigned int,Uebung1::Node> nodeList;
+    map<unsigned int,Uebung1::Node> nodeListInFile;
     string fileName(argv[1]);
     unsigned int ownId = atoi(argv[2]);
     ifstream fileStream;
@@ -86,7 +84,7 @@ int main(int argc, char* argv[]){
     
     if(!fileStream.is_open()){
         cout << "Error: Can't open file" << endl;
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }else{
         string line;
         cmatch matches;
@@ -100,20 +98,24 @@ int main(int argc, char* argv[]){
                 unsigned int id = atoi(matches.str(1).c_str());
                 string ipAddress(matches[2]);
                 unsigned int port = atoi(matches.str(3).c_str());
-                nodeList[i] = Uebung1::Node(id, ipAddress, port);
+                nodeListInFile.insert(id,Uebung1::Node(id, ipAddress, port));
             }else{
                 cout << "No matching Regex in line: " << line << endl;
                 cout << "Please edit your file.";
-                return EXIT_FAILURE;
+                exit(EXIT_FAILURE);
             }
         }
         fileStream.close();
     }
 	try{
 	    if((tcpListener = initTcpSocket(nodeList.at(ownId).getPort())) < 0){
-                return tcpListener;
-            }neighbors
-	    nodeList.at(ownId).setNeighbors(MAX_NEIGHBORS);
+                exit(tcpListener);
+            }
+	    for( auto const& [key, value] : nodeList ){
+	    	if(nodeList.at(ownId).getNeigbors.getSize() != MAX_NEIGBOHR_NODES && key != ownId){
+		    nodeList.at(ownId).addNeighbor(value);
+		}
+	    }
 	}catch(out_of_range e){
 	    cout << e.what() << endl;
 	}
@@ -127,5 +129,5 @@ int main(int argc, char* argv[]){
             idSendToNeigbohrs = true;
         }
     }
-    return EXIT_SUCCESS;
+    exit(EXIT_SUCCESS);
 }
