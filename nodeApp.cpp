@@ -111,6 +111,9 @@ int main(int argc, char* argv[]){
         }
         fileStream.close();
     }
+    if(){
+        cout << "Not enough Nodes in file for Network : Is" << nodeListInFile.size() << " Min: "<< MAX_NEIGBOHR_NODES+1 << endl;
+    }
     if((tcpListener = initTcpSocket(nodeList.at(ownId).getPort())) < 0){
         exit(tcpListener);
     }
