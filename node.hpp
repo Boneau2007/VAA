@@ -7,6 +7,7 @@ namespace Uebung1{
       unsigned int id;
       string ipAddress;
       unsigned int port;
+      vector<Node> neigbohrList;
      
      public:
       Node(unsigned int id, string ipAddress, unsigned int port);
@@ -22,5 +23,10 @@ namespace Uebung1{
       unsigned int getPort(){return port;}
       void setPort(unsigned int port){this->port = port;}
   
+      Node getNeighbors(){return neihborList;}
+      void setNeighbors(vecor<Node> neighborsList){this->neighborList = neighborList;}
+    
+      Node getNeighbor();
+      void addNeighbor(Node neighbor);
   }
 }
