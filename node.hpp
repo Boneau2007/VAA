@@ -1,5 +1,4 @@
-#include <iostream>
-
+#include <string>
 using namespace std;
 
 namespace Uebung1{
@@ -7,20 +6,21 @@ namespace Uebung1{
     private:
       unsigned int id;
       string ipAddress;
-      unsinged int port;
+      unsigned int port;
      
      public:
-      Node(unsigned int id, string ipAdrress, unsigned int port);
-      
+      Node(unsigned int id, string ipAddress, unsigned int port);
+      Node();
+      ~Node();
       //Inline-Elementfunctions
       unsigned int getId(){return id;}
-      void setId(){this->id = id;}
+      void setId(unsigned int id){this->id = id;}
       
-      string getIpAddress{return ipAddress;}
-      void setIpAddress{this->ipAddress = ipAddress;}
+      string getIpAddress(){return ipAddress;}
+      void setIpAddress(string ipAddress){this->ipAddress = ipAddress;}
       
-      unsinged int getPort{return port;}
-      void setPort{this->port = port;}
+      unsigned int getPort(){return port;}
+      void setPort(unsigned int port){this->port = port;}
   
   }
 }
