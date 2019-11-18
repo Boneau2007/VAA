@@ -7,12 +7,14 @@ namespace Uebung1{
       unsigned int id;
       string ipAddress;
       unsigned int port;
-      vector<Node> neigbohrList;
+      map<unsigned int,Node> neighborList;
      
-     public:
+    public:
+      //Constructors
       Node(unsigned int id, string ipAddress, unsigned int port);
       Node();
       ~Node();
+    
       //Inline-Elementfunctions
       unsigned int getId(){return id;}
       void setId(unsigned int id){this->id = id;}
@@ -23,10 +25,14 @@ namespace Uebung1{
       unsigned int getPort(){return port;}
       void setPort(unsigned int port){this->port = port;}
   
-      Node getNeighbors(){return neihborList;}
-      void setNeighbors(vecor<Node> neighborsList){this->neighborList = neighborList;}
+      map<unsigned int, Node> getNeighbors(){return neighborList;}
+      void setNeighbors(map<unsigned int, Node> neighborList){this->neighborList = neighborList;}
     
+      //Memberfunctions
       Node getNeighbor();
       void addNeighbor(Node neighbor);
+      void removeNeighbor(unsigned id);
+      void updateNeighbor(unsigned int id, Node neighbor);
+
   }
 }
