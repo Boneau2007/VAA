@@ -2,9 +2,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include <map>
 #include <regex>
 #include <cstdlib>
 #include <chrono>
+#include <stdexcept>
 #include "node.hpp"
 extern "C" { 
 #include "linuxsocket.h"
@@ -63,10 +66,7 @@ int handleIncommingMessages(int socket){
 int handleOutgoingMessages(int socket){
     
 }
-//TODO: Funktion soll nachbarn einfügen
-void addNeigbohrs(){
 
-}
 int main(int argc, char* argv[]){
     const string NODELINE_REGEX = "(([0-9]*)\s(.*):([0-9]*)(\n|))";
     if(argc != 3){
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]){
     int tcpListener;
     Uebung1::Node ownNode;
     vector<Uebung1::Node> neigbohrNodes[MAX_NEIGBOHR_NODES];
-    vector<Uebung1::Node> nodeList;
+    map<unsigned int,Uebung1::Node> nodeList;
     string fileName(argv[1]);
     unsigned int ownId = atoi(argv[2]);
     ifstream fileStream;
@@ -109,15 +109,15 @@ int main(int argc, char* argv[]){
         }
         fileStream.close();
     }
-    //Set in Listen mode
-    for(int i; i < nodeList.size(); i++){
-        if(nodeList[i].getId == ownId){
-            if((tcpListener = initTcpSocket(nodeList[i].getPort())) < 0){
-                return EXIT_FAILURE;
-            }
-        }
+	try{
+	    if((tcpListener = initTcpSocket(nodeList.at(ownId).getPort())) < 0){
+                return tcpListener;
+            }neighbors
+	    nodeList.at(ownId).setNeighbors(MAX_NEIGHBORS);
+	}catch(out_of_range e){
+	    cout << e.what() << endl;
+	}
     }
-    //TODO: GET 3 Neigbohrs
     bool idSendToNeigbohrs = false;
     while(true){
         acceptSocket(&tcpListener, &tcpListener);
