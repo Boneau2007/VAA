@@ -15,7 +15,6 @@ namespace Uebung1{
       //Constructors
       Node(unsigned int id, string ipAddress, unsigned int port);
       Node();
-      ~Node();
     
       //Inline-Elementfunctions
       unsigned int getId(){return id;}
@@ -31,10 +30,9 @@ namespace Uebung1{
       void setNeighbors(map<unsigned int, Node> neighborList){this->neighborList = neighborList;}
     
       //Memberfunctions
-      Node getNeighbor();
+      Node getNeighbor(unsigned int id);
       void addNeighbor(Node neighbor);
-      void removeNeighbor(unsigned id);
+      void removeNeighbor(unsigned int id);
       void updateNeighbor(unsigned int id, Node neighbor);
-
-  }
+  };
 }

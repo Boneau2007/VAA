@@ -1,4 +1,3 @@
-
 #include "node.hpp"
 
 Uebung1::Node::Node(unsigned int id, string ipAddress, unsigned int port){
@@ -7,14 +6,13 @@ Uebung1::Node::Node(unsigned int id, string ipAddress, unsigned int port){
     setPort(port);
 }
 
-
 Uebung1::Node Uebung1::Node::getNeighbor(unsigned int id){
     return getNeighbors().at(id);
 }
       
 void Uebung1::Node::addNeighbor(Node neighbor){
     //TODO: Fehlerbehandlung
-    getNeighbors().insert(neighbor.getId(), neighbor);
+    getNeighbors().insert(make_pair(neighbor.getId(), neighbor));
 }
 
 void Uebung1::Node::removeNeighbor(unsigned int id){

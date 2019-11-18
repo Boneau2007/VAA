@@ -9,9 +9,7 @@
 #include <chrono>
 #include <stdexcept>
 #include "node.hpp"
-extern "C" { 
 #include "linuxsocket.h"
-}
 #define BUFF_SIZE 256
 const int MAX_NEIGBOHR_NODES = 3;
 
@@ -59,12 +57,13 @@ int handleIncommingMessages(int socket){
         chrono::system_clock::time_point now = chrono::system_clock::now();
         time_t time = chrono::system_clock::to_time_t(now);
         cout << buff << " : " << asctime(gmtime(&time)) << endl;
-
+        return EXIT_SUCCESS;
     }
 }
 
 int handleOutgoingMessages(int socket){
-    
+    //Handle outgoing messages
+    return EXIT_SUCCESS;
 }
 
 void connectWithNeighbors(){
@@ -72,7 +71,7 @@ void connectWithNeighbors(){
 }
 
 int main(int argc, char* argv[]){
-    const string NODELINE_REGEX = "(([0-9]*)\s(.*):([0-9]*)(\n|))";
+    const string NODELINE_REGEX = "(([0-9]*)\\s(.*):([0-9]*)(\n|))";
     if(argc != 3){
         cout << "usage: ./" << argv[0]  << " [FILE] [ID]" << endl;
         cout << "e.g: ./"<< argv[0] << " nodes.txt 4" << endl;
@@ -91,18 +90,18 @@ int main(int argc, char* argv[]){
         exit(EXIT_FAILURE);
     }else{
         string line;
-        cmatch matches;
-        const regex isNodeLine(NODELINE_REGEX);
+        smatch matches;
+        const regex isNodeLineRegex(NODELINE_REGEX);
         for(int i=0; getline(fileStream, line); i++){
             if(line.empty()){
                 cout << "Skip empty line";
                 break;
             }
-            if(regex_match(line, matches, isNodeLine)){
+            if(regex_match(line, matches, isNodeLineRegex)){
                 unsigned int id = atoi(matches.str(1).c_str());
                 string ipAddress(matches[2]);
                 unsigned int port = atoi(matches.str(3).c_str());
-                nodeListInFile.insert(id,Uebung1::Node(id, ipAddress, port));
+                nodeListInFile.insert(make_pair(id,Uebung1::Node(id, ipAddress, port)));
             }else{
                 cout << "No matching Regex in line: " << line << endl;
                 cout << "Please edit your file.";
@@ -111,15 +110,15 @@ int main(int argc, char* argv[]){
         }
         fileStream.close();
     }
-    if(){
+    if(nodeListInFile.size() <= MAX_NEIGBOHR_NODES){
         cout << "Not enough Nodes in file for Network : Is" << nodeListInFile.size() << " Min: "<< MAX_NEIGBOHR_NODES+1 << endl;
     }
-    if((tcpListener = initTcpSocket(nodeList.at(ownId).getPort())) < 0){
+    if((tcpListener = initTcpSocket(nodeListInFile.at(ownId).getPort())) < 0){
         exit(tcpListener);
     }
-    for( auto const& [key, value] : nodeList ){
-        if(nodeList.at(ownId).getNeighbors.getSize() != MAX_NEIGBOHR_NODES && key != ownId){
-            nodeList.at(ownId).addNeighbor(value);
+    for( auto const& [key, value] : nodeListInFile ){
+        if(nodeListInFile.at(ownId).getNeighbors().size() != MAX_NEIGBOHR_NODES && key != ownId){
+            nodeListInFile.at(ownId).addNeighbor(value);
         }
     }
     connectWithNeighbors();

@@ -1,28 +1,29 @@
 # Makefile for program
-
 ## Compiler configuration
+CPP = g++
 CC = gcc
-CFLAGS = -Wall -pedantic
+CFLAGS = -Wall -pedantic -std=c++17
 OBJ = *.o
 
 # Artefacts
-all: localNode *.o
+all: nodeApp *.o
 
-localNode:
-${CC} ${CFLAGS} main.c -o localNode linuxsocket.o
+nodeApp: linuxsocket.o node.o nodeApp.o
+	${CPP} ${CFLAGS} -o nodeApp linuxsocket.o node.o nodeApp.o
+
+nodeApp.o: 
+	${CPP} ${CFLAGS} -c nodeApp.cpp
+
+node.o:
+	${CPP} ${CFLAGS} -c node.cpp 
 
 linuxsocket.o:
-${CC} ${CFLAGS} -c linuxsocket.c
-
-main.o:
-${CC} ${CFLAGS} -c main.c
+	${CC} -Wall -pedantic -c linuxsocket.c 
 
 # Cleans the directory
 
 *.o:
-	@ echo "\nLösche dateien mit Endung ${OBJ}"
 	rm -f ${OBJ}
 
 clean:
-	@ echo "\nLösche alle Artefakte"
-  rm -f ${OBJ} server serverT client
+	rm -f ${OBJ} server serverT client
