@@ -12,6 +12,7 @@
 #include <unistd.h> // C
 #include <fcntl.h> // C
 #include "node.hpp"
+#include "graph.hpp"
 #include "linuxsocket.h"
 #define BUFF_SIZE 256
 const string NODELINE_REGEX = "(([0-9]*)\\s(.*):([0-9]*)(\n|))";
@@ -19,6 +20,10 @@ const unsigned int END = 0;
 const unsigned int UPGRADE = 1;
 const unsigned int REMOTE_SHUTDOWN = 2;
 const unsigned int REMOTE_SHUTDOWN_ALL = 3;
+
+void readGraphviz(istringstream stream, graph_t graph, graphProperty_t graphProperty){
+
+}
 
 void setHostAddress(struct sockaddr_in* host_addr, string host, unsigned int port){
   struct hostent* host_info;
