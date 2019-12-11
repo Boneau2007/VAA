@@ -1,4 +1,4 @@
-#include "linuxsocket.h"
+#include "include/linuxsocket.h"
 
 /*
  * @function	acceptSocket
@@ -44,7 +44,7 @@ int createSocket(int family, int type, int protocol) {
 		fprintf(stderr,"Error, couldn't create Socket from type [%d]: [%i]\n", type, sock);
 		return -1;
 	}
-	fprintf(stdout,"Socket successfully created.\n");
+	//fprintf(stdout,"Socket successfully created.\n");
 	return sock;
 }
 
@@ -67,7 +67,7 @@ int bindSocket(int* socket, unsigned int address, int port) {
 		fprintf(stderr,"Error, couldn't bind Socket :\n");
 		return EXIT_FAILURE;
 	}else{
-		fprintf(stdout,"Socket successfully bound.\n");
+		//fprintf(stdout,"Socket successfully bound.\n");
 		return EXIT_SUCCESS;
 	}
 }
@@ -80,12 +80,12 @@ int bindSocket(int* socket, unsigned int address, int port) {
  * @param		socket		The pointer from the Id of the socket
  * @result		Results an EXIT_FAILURE or EXIT_SUCCESS
  */
-int listenSocket(int* socket) {
-	if(listen(*socket, 0) == -1) {
+int listenSocket(int socket) {
+	if(listen(socket, 0) == -1) {
 		fprintf(stderr,"Error, couldn't set Socket in listen mode :\n");
 		return EXIT_FAILURE;
 	}else{
-		fprintf(stdout,"Socket is now in listen mode.\n");
+		//fprintf(stdout,"Socket is now in listen mode.\n");
 		return EXIT_SUCCESS;
 	}
 }
@@ -100,12 +100,30 @@ int listenSocket(int* socket) {
  * @param		socket		The pointer from the Id of the socket
  * @result		Results an EXIT_FAILURE or EXIT_SUCCESS
  */
-int closeSocket(int* socket) {
-	if(close(*socket) == -1) {
+int closeSocket(int socket) {
+	if(close(socket) == -1) {
 		fprintf(stderr,"Error, couldn't close Socket.\n");
 		return EXIT_FAILURE;
 	}else{
-		fprintf(stdout,"Socket is now closed.\n");
+		//fprintf(stdout,"Socket is now closed.\n");
 		return EXIT_SUCCESS;
 	}
+}
+
+/*
+ * @function	closeConnection
+ * @abstract	Closes communication to client
+ * @discuss 	This function handles the tcp close call, to shutdown a
+ * 				communication with a client and frees the Socket.
+ * @param		socket		Pointer-Id of the socket
+ * @result		Results an EXIT_FAILURE or EXIT_SUCCESS
+ */
+int closeConnection(int socket){
+	if(shutdown(socket,SHUT_RDWR) < 0){
+		fprintf(stderr,"\nError on shutdown connection\n");
+		return EXIT_FAILURE;
+	}
+	socket = -1;
+	//fprintf(stdout,"\nConnection has been shutdown\n");
+	return EXIT_SUCCESS;
 }

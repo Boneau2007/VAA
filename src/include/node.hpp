@@ -1,3 +1,6 @@
+
+#ifndef NODE_HPP
+#define NODE_HPP
 #include <string>
 #include <map>
 
@@ -19,19 +22,19 @@ namespace Uebung1{
       Node();
     
       //Inline-Elementfunctions
-      unsigned int getId(){ return id; }
+      const unsigned int getId() const { return id; }
       void setId(unsigned int id){ this->id = id; }
       
-      string getIpAddress() { return ipAddress; }
+      const string getIpAddress() const { return ipAddress; }
       void setIpAddress(string ipAddress){ this->ipAddress = ipAddress; }
       
-      unsigned int getPort() { return port; }
+      const unsigned int getPort() const { return port; }
       void setPort(unsigned int port){ this->port = port; }
 
       bool getInitiator() const { return initiator; }
       void setInitiator(bool initiator){ this->initiator = initiator; }
   
-      map<unsigned int, Node> getNeighbors(){ return neighborList; }
+      const map<unsigned int, Node> getNeighbors() const { return neighborList; }
       void setNeighbors(map<unsigned int, Node> neighborList){ this->neighborList = neighborList; }
     
       //Memberfunctions
@@ -41,3 +44,4 @@ namespace Uebung1{
       void updateNeighbor(unsigned int id, Node neighbor);
   };
 }
+#endif // NODE_HPP

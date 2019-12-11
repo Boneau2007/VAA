@@ -14,11 +14,12 @@ extern "C" {
 #include <errno.h>
 
 int createSocket(int family, int type, int protocol);
-int listenSocket(int* socket);
+int listenSocket(int socket);
 int bindSocket(int* socket, unsigned int address, int port);
 int acceptSocket(int* listener, int* worker);
-int closeSocket(int* socket);
-    
+int closeSocket(int socket);
+int closeConnection(int socket);
+
 #endif // SOCKETS_H
 #ifdef __cplusplus
 }

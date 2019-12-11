@@ -2,6 +2,16 @@
     "files.associations": {
         "regex": "cpp",
         "iostream": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "iosfwd": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "chrono": "cpp",
+        "future": "cpp"
     }
 }
