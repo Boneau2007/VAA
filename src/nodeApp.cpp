@@ -15,7 +15,7 @@ const unsigned int REMOTE_SHUTDOWN = 1;
 const unsigned int UPGRADE = 2;
 const unsigned int TRIGGER_MESSAGE_SEND = 3;
 
-Uebung1::Graph readGraphviz(string path){
+Uebung1::Graph& readGraphviz(string path){
     ifstream fileStream;
     fileStream.open(path, ios::out);
     if(!fileStream.is_open()){
