@@ -1,6 +1,6 @@
 #include "include/graph.hpp"
 
-Uebung1::Graph::Graph(string name, edge edgeList[], unsigned int edgesCount, unsigned int nodeCount){
+Uebung1::Graph::Graph(string name, vector<Edge> edgeList, map<unsigned int, Uebung1::Node> nodeList){
     this->name = name;
     head = new adjNode*[nodeCount]();
     this->nodeCount = nodeCount;
@@ -8,8 +8,8 @@ Uebung1::Graph::Graph(string name, edge edgeList[], unsigned int edgesCount, uns
         head[i]=nullptr;
     }
     for(unsigned int i=0;i<edgesCount;i++){
-        int fromNode = edgeList[i].fromNode;
-        int toNode = edgeList[i].toNode;
+        Uebung1::Node fromNode = edgeList[i].fromNode;
+        Uebung1::Node toNode = edgeList[i].toNode;
         insertNode(toNode,head[fromNode]);
     }
 }
