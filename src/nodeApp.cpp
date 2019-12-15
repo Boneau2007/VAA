@@ -13,66 +13,17 @@ const static int TASK4 = 4;
 const unsigned int SHUTDOWN_ALL = 0;
 const unsigned int REMOTE_SHUTDOWN = 1;
 const unsigned int UPGRADE = 2;
-const unsigned int TRIGGER_MESSAGE_SEND = 3;
-
-Uebung1::Graph& readGraphviz(string path){
-    ifstream fileStream;
-    string::size_type sz;
-    fileStream.open(path, ios::out);
-    if(!fileStream.is_open()){
-        cout << "Error: Can't open file" << endl;
-        exit(EXIT_FAILURE);
-    }else{
-        string line;
-        smatch matches;
-        const regex isNodeLineRegex(GRAPHVIZ_NODE_REGEX);
-        const regex isNameLineRegex(GRAPHVIZ_NAME_REGEX);
-        const regex isEndLineRegex(GRAPHVIZ_END_REGEX);
-        string name;
-        vector<Uebung1::edge> edgeList;
-        vector<unsigned int> nodeList;
-        for(int i=0; getline(fileStream, line); i++){
-            if(line.empty()){
-                cout << "Skip empty line";
-                continue;
-            }
-            if(regex_match(line, matches, isNameLineRegex)){
-                name = matches.str(1);
-            }else if(regex_match(line, matches, isNodeLineRegex) && i != 0){
-                int nodeFrom = stoi(matches.str(1), &sz);
-                int nodeTo = stoi(matches.str(2), &sz);
-                Uebung1::edge* newEdge = new Uebung1::edge();
-                newEdge->fromNode = nodeFrom;
-                newEdge->toNode = nodeTo;
-                edgeList.push_back(*newEdge);
-                if(find(nodeList.begin(), nodeList.end(), nodeFrom) == nodeList.end()){
-                    nodeList.push_back(nodeFrom);
-                }
-                if(find(nodeList.begin(), nodeList.end(), nodeTo) == nodeList.end()){
-                    nodeList.push_back(nodeTo);
-                }
-            }else if(regex_match(line, matches, isEndLineRegex)){
-                fileStream.close();
-                Uebung1::Graph graph(name, &edgeList[0], edgeList.size(), nodeList.size());
-                return graph;
-            }else{
-                cout << "No matching Regex in line: " << line << endl;
-                cout << "Please edit your file.";
-                fileStream.close();
-                exit(EXIT_FAILURE);
-            }
-        }
-        throw new runtime_error("File was empty");
-    }
-}
+const unsigned int TRIGGER_MESSAGE_BROADCAST = 4;
 
 void setHostAddress(struct sockaddr_in* host_addr, string host, unsigned int port){
   struct hostent* host_info;
   unsigned long address;
   const char* cHost = host.c_str();
+  //Known Bug by 255.255.255.255
   if((address = inet_addr(cHost)) != INADDR_NONE){
     memcpy((char *)&host_addr->sin_addr, &address, sizeof(address));
   }else{
+    //deprecated
     host_info = gethostbyname(cHost);
     if(host_info==NULL){
       throw new runtime_error("Unknown Server");
@@ -113,16 +64,16 @@ int initTcpSocket(int port){
 }
 
 int handleIncommingMessages(int socket, bool* idSend ,map<unsigned int, Uebung1::Node>* nodeList, unsigned int ownId){
-	char* buff = (char*)calloc(BUFF_SIZE, sizeof(char));
+    char* buff = (char*)calloc(BUFF_SIZE, sizeof(char));
     int messageLength = 0 ;
     if((messageLength = recv(socket, buff, BUFF_SIZE, 0)) == -1){
-		switch (errno){
-		case EWOULDBLOCK: fprintf(stderr,"\nOperation would block. Try again\n");
-						  return EWOULDBLOCK;
-		default: fprintf(stderr,"\nError, recv() failed.\n");
-				 return -1;
-		}
-	}else{
+	switch (errno){
+	    case EWOULDBLOCK: fprintf(stderr,"\nOperation would block. Try again\n");
+   		              return EWOULDBLOCK;
+	    default: fprintf(stderr,"\nError, recv() failed.\n");
+		     return -1;
+	}
+    }else{
         chrono::system_clock::time_point now = chrono::system_clock::now();
         time_t time = chrono::system_clock::to_time_t(now);
         cout << buff << " : " << asctime(gmtime(&time)) << endl;
@@ -138,14 +89,13 @@ int handleIncommingMessages(int socket, bool* idSend ,map<unsigned int, Uebung1:
 }
 
 
-map<unsigned int, Uebung1::Node> getNodesInFile(string path){
-    map<unsigned int, Uebung1::Node> nodeList;
+Uebung1::Graph getGraphFromFile(string path, regex format){
     ifstream fileStream;
     fileStream.open(path, ios::out);
     if(!fileStream.is_open()){
-    cout << "Error: Can't open file" << endl;
-    exit(EXIT_FAILURE);
+        throw new runtime_error("Can't open file");
     }else{
+        string::size_type sz;
         string line;
         smatch matches;
         const regex isNodeLineRegex(NODELINE_REGEX);
@@ -168,6 +118,41 @@ map<unsigned int, Uebung1::Node> getNodesInFile(string path){
         fileStream.close();
     }
     return nodeList;
+
+const regex isNodeLineRegex(GRAPHVIZ_NODE_REGEX);
+        const regex isNameLineRegex(GRAPHVIZ_NAME_REGEX);
+        const regex isEndLineRegex(GRAPHVIZ_END_REGEX);
+        string name;
+        vector<Uebung1::edge> edgeList;
+        vector<unsigned int> nodeList;
+            if(regex_match(line, matches, isNameLineRegex)){
+                name = matches.str(1);
+            }else if(regex_match(line, matches, isNodeLineRegex) && i != 0){
+                int nodeFrom = stoi(matches.str(1), &sz);
+                int nodeTo = stoi(matches.str(2), &sz);
+                Uebung1::edge* newEdge = new Uebung1::edge();
+                newEdge->fromNode = nodeFrom;
+                newEdge->toNode = nodeTo;
+                edgeList.push_back(*newEdge);
+                if(find(nodeList.begin(), nodeList.end(), nodeFrom) == nodeList.end()){
+                    nodeList.push_back(nodeFrom);
+                }
+                if(find(nodeList.begin(), nodeList.end(), nodeTo) == nodeList.end()){
+                    nodeList.push_back(nodeTo);
+                }
+            }else if(regex_match(line, matches, isEndLineRegex)){
+                fileStream.close();
+                Uebung1::Graph graph(name, &edgeList[0], edgeList.size(), nodeList.size());
+                return graph;
+            }else{
+                cout << "No matching Regex in line: " << line << endl;
+                cout << "Please edit your file.";
+                fileStream.close();
+                exit(EXIT_FAILURE);
+            }
+        }
+        throw new runtime_error("File was empty");
+    }
 }
 
 int handleOutgoingMessages(int socket, sockaddr_in host_addr, string message){
