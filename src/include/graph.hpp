@@ -31,19 +31,19 @@ namespace Uebung1 {
         private:
             string name;
             adjNode** head;
-            map<unsigned int, node> nodeList;
-            vector<edge> edgeList;
+            map<unsigned int, node_t> nodeList;
+            vector<edge_t> edgeList;
            
         public:
             Graph();
             Graph(string name);
-            Graph(string name, map<unsigned int, node> nodeList);
-            Graph(string name, map<unsigned int, node> nodeList, vector<edge> edgeList);
+            Graph(string name, map<unsigned int, node_t> nodeList);
+            Graph(string name, map<unsigned int, node_t> nodeList, vector<edge_t> edgeList);
             ~Graph();
     
             void addNode(node_t node);
             void removeNode(unsigned int nodeId);
-            void updateNode(unsigned int nodeId, node node);
+            void updateNode(unsigned int nodeId, node_t node);
             
             void addEdge(edge_t edge);
             void removeEdge(unsigned int edgeListItemId);
@@ -52,7 +52,7 @@ namespace Uebung1 {
             adjNode** getHead(){ return head; }
             string toString();
         private:
-            void insertNode(Uebung1::Node value, adjNode* head);
+            void insertNode(node_t value, adjNode* head);
     };
 }
 #endif // GRAPH_HPP
