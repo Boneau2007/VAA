@@ -16,14 +16,21 @@ namespace Uebung1 {
     };
 
     struct edge {
-       Uebung1::Node fromNode, toNode;
+       node fromNode, toNode;
+    };
+
+    struct node {
+        unsigned int id;
+        string ipAddress;
+        unsigned int port;
     };
 
     class Graph{
         private:
             string name;
             adjNode** head;
-            map<unsigned int, Uebung::Node> nodeList;
+            map<unsigned int, node> nodeList;
+            vector<edge> edgeList;
            
         public:
             Graph(string name, vector<edge> edgeList, <unsigned int, Uebung1::Node> nodeList);
