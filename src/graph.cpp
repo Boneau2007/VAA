@@ -1,5 +1,5 @@
 #include "include/graph.hpp"
-Uebung1::Graph::Graph(){}
+
 Uebung1::Graph::Graph(string name){
     setName(name);
 }
