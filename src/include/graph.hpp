@@ -11,7 +11,7 @@ using namespace std;
 namespace Uebung1 {
     
     struct adjNode {
-        unsigned int value;
+        int value;
         adjNode* next;
     };
 
@@ -31,7 +31,7 @@ namespace Uebung1 {
             unsigned int getNodeCount(){ return nodeCount; }
             string toString();
         private:
-            void insertNode(unsigned int value, adjNode* head);
+            void insertNode(int value, adjNode* head);
     };
 }
 #endif // GRAPH_HPP
