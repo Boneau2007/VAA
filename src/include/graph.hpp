@@ -23,6 +23,8 @@ namespace Uebung1 {
         unsigned int id;
         string ipAddress;
         unsigned int port;
+        bool initiator;
+        vector<node> neighbourList;
     };
 
     class Graph{
