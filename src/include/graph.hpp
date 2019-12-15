@@ -24,7 +24,7 @@ namespace Uebung1 {
         string ipAddress;
         unsigned int port;
         bool initiator;
-        vector<node> neighbourList;
+        vector<node_t> neighbourList;
     }node_t;
 
     class Graph{
