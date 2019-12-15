@@ -17,6 +17,7 @@ const unsigned int TRIGGER_MESSAGE_SEND = 3;
 
 Uebung1::Graph& readGraphviz(string path){
     ifstream fileStream;
+    std::string::size_t sz;
     fileStream.open(path, ios::out);
     if(!fileStream.is_open()){
         cout << "Error: Can't open file" << endl;
@@ -38,8 +39,8 @@ Uebung1::Graph& readGraphviz(string path){
             if(regex_match(line, matches, isNameLineRegex)){
                 name = matches.str(1);
             }else if(regex_match(line, matches, isNodeLineRegex) && i != 0){
-                int nodeFrom = stoi(matches.str(1));
-                int nodeTo = stoi(matches.str(2));
+                int nodeFrom = stoi(matches.str(1), &sz);
+                int nodeTo = stoi(matches.str(2), &sz);
                 Uebung1::edge* newEdge = new Uebung1::edge();
                 newEdge->fromNode = nodeFrom;
                 newEdge->toNode = nodeTo;
