@@ -16,22 +16,22 @@ namespace Uebung1 {
     };
 
     struct edge {
-       int fromNode, toNode;
+       Uebung1::Node fromNode, toNode;
     };
 
     class Graph{
         private:
             string name;
             adjNode** head;
-            unsigned int nodeCount;
+            map<unsigned int, Uebung::Node> nodeList;
+           
         public:
-            Graph(string name, edge edges[], unsigned int edgesCount, unsigned int nodeCount);
+            Graph(string name, vector<edge> edgeList, <unsigned int, Uebung1::Node> nodeList);
             ~Graph();
             adjNode** getHead(){ return head; }
-            unsigned int getNodeCount(){ return nodeCount; }
             string toString();
         private:
-            void insertNode(int value, adjNode* head);
+            void insertNode(Uebung1::Node value, adjNode* head);
     };
 }
 #endif // GRAPH_HPP
