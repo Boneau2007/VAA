@@ -44,12 +44,10 @@ Uebung1::Graph& readGraphviz(string path){
                 newEdge->fromNode = nodeFrom;
                 newEdge->toNode = nodeTo;
                 edgeList.push_back(*newEdge);
-                if(find(nodeList.begin(), nodeList.end(), nodeFrom) != nodeList.end()){
-                }else{
+                if(find(nodeList.begin(), nodeList.end(), nodeFrom) == nodeList.end()){
                     nodeList.push_back(nodeFrom);
                 }
-                if(find(nodeList.begin(), nodeList.end(), nodeTo) != nodeList.end()){
-                }else{
+                if(find(nodeList.begin(), nodeList.end(), nodeTo) == nodeList.end()){
                     nodeList.push_back(nodeTo);
                 }
             }else if(regex_match(line, matches, isEndLineRegex)){
