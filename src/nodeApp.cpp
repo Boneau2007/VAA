@@ -17,11 +17,11 @@ const unsigned int TRIGGER_MESSAGE_SEND = 3;
 
 Uebung1::Graph& readGraphviz(string path){
     ifstream fileStream;
-    std::string::size_t sz;
+    string::size_type sz;
     fileStream.open(path, ios::out);
     if(!fileStream.is_open()){
         cout << "Error: Can't open file" << endl;
-        std::exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }else{
         string line;
         smatch matches;
@@ -59,23 +59,23 @@ Uebung1::Graph& readGraphviz(string path){
                 cout << "No matching Regex in line: " << line << endl;
                 cout << "Please edit your file.";
                 fileStream.close();
-                std::exit(EXIT_FAILURE);
+                exit(EXIT_FAILURE);
             }
         }
-        throw new exception();
+        throw new runtime_error("File was empty");
     }
 }
 
 void setHostAddress(struct sockaddr_in* host_addr, string host, unsigned int port){
   struct hostent* host_info;
   unsigned long address;
-  if((address = inet_addr(host.c_str())) != INADDR_NONE){
+  const char* cHost = host.c_str();
+  if((address = inet_addr(cHost)) != INADDR_NONE){
     memcpy((char *)&host_addr->sin_addr, &address, sizeof(address));
   }else{
-    host_info = gethostbyname(host.c_str());
+    host_info = gethostbyname(cHost);
     if(host_info==NULL){
-      printf("\nUnknown Server");
-      return;
+      throw new runtime_error("Unknown Server");
     }else{
       memcpy((char *)&host_addr->sin_addr, &host_info->h_name, host_info->h_length);
     }
