@@ -47,6 +47,11 @@ namespace Uebung1 {
             void removeEdge(unsigned int edgeListItemId);
             void updateEdge(unsigned int edgeListItemId, edge_t edge);
 
+            void setNodeList(map<unsigned int, node_t> nodeList){ this->nodeList = nodeList; }
+            map<unsigned int, node_t> getNodeList(){ return nodeList; }
+            void setEdgeList(vector<edge_t> edgeList){ this->edgeList = edgeList; }
+            vector<edge_t> getEdgeList(){ return edgeList; }
+
             adjNode** getHead(){ return head; }
             string toString();
         private:
