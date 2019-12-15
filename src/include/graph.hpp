@@ -24,7 +24,6 @@ namespace Uebung1 {
         string ipAddress;
         unsigned int port;
         bool initiator;
-        vector<node_t> neighbourList;
     }node_t;
 
     class Graph{
@@ -35,7 +34,6 @@ namespace Uebung1 {
             vector<edge_t> edgeList;
            
         public:
-            Graph();
             Graph(string name);
             Graph(string name, map<unsigned int, node_t> nodeList);
             Graph(string name, map<unsigned int, node_t> nodeList, vector<edge_t> edgeList);
