@@ -8,8 +8,8 @@ Uebung1::Graph::Graph(string name, edge edgeList[], unsigned int edgesCount, uns
         head[i]=nullptr;
     }
     for(unsigned int i=0;i<edgesCount;i++){
-        unsigned int fromNode = edgeList[i].fromNode;
-        unsigned int toNode = edgeList[i].toNode;
+        int fromNode = edgeList[i].fromNode;
+        int toNode = edgeList[i].toNode;
         insertNode(toNode,head[fromNode]);
     }
 }
@@ -21,7 +21,7 @@ Uebung1::Graph::~Graph(){
     }
 }
 
-void Uebung1::Graph::insertNode(unsigned int value, adjNode* head){
+void Uebung1::Graph::insertNode(int value, adjNode* head){
     adjNode* newNode = new adjNode;
     newNode->value = value;
     newNode->next = head;
