@@ -16,7 +16,7 @@ namespace Uebung1 {
     };
 
     struct edge {
-        unsigned int fromNode, toNode;
+       int fromNode, toNode;
     };
 
     class Graph{
