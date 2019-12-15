@@ -38,8 +38,8 @@ Uebung1::Graph& readGraphviz(string path){
             if(regex_match(line, matches, isNameLineRegex)){
                 name = matches.str(1);
             }else if(regex_match(line, matches, isNodeLineRegex) && i != 0){
-                unsigned int nodeFrom = atoi(matches.str(1).c_str());
-                unsigned int nodeTo = atoi(matches.str(2).c_str());
+                unsigned int nodeFrom = stoi(matches.str(1));
+                unsigned int nodeTo = stoi(matches.str(2));
                 Uebung1::edge* newEdge = new Uebung1::edge();
                 newEdge->fromNode = nodeFrom;
                 newEdge->toNode = nodeTo;
