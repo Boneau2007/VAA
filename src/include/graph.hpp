@@ -17,7 +17,7 @@ namespace Uebung1 {
 
     struct edge {
        node fromNode, toNode;
-    };
+    }edge_t;
 
     struct node {
         unsigned int id;
@@ -25,7 +25,7 @@ namespace Uebung1 {
         unsigned int port;
         bool initiator;
         vector<node> neighbourList;
-    };
+    }node_t;
 
     class Graph{
         private:
@@ -41,9 +41,14 @@ namespace Uebung1 {
             Graph(string name, map<unsigned int, node> nodeList, vector<edge> edgeList);
             ~Graph();
     
-            void addNode(node node);
-            void removeNode(unsigned int);
-            void updateNode(unsigned int, node node);
+            void addNode(node_t node);
+            void removeNode(unsigned int nodeId);
+            void updateNode(unsigned int nodeId, node node);
+            
+            void addEdge(edge_t edge);
+            void removeEdge(unsigned int edgeListItemId);
+            void updateEdge(unsigned int edgeListItemId, edge_t edge);
+
             adjNode** getHead(){ return head; }
             string toString();
         private:
