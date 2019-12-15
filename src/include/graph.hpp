@@ -11,7 +11,7 @@ using namespace std;
 namespace Uebung1 {
     
     struct adjNode {
-        int value;
+        node value; 
         adjNode* next;
     };
 
@@ -35,8 +35,15 @@ namespace Uebung1 {
             vector<edge> edgeList;
            
         public:
-            Graph(string name, vector<edge> edgeList, <unsigned int, Uebung1::Node> nodeList);
+            Graph();
+            Graph(string name);
+            Graph(string name, map<unsigned int, node> nodeList);
+            Graph(string name, map<unsigned int, node> nodeList, vector<edge> edgeList);
             ~Graph();
+    
+            void addNode(node node);
+            void removeNode(unsigned int);
+            void updateNode(unsigned int, node node);
             adjNode** getHead(){ return head; }
             string toString();
         private:
