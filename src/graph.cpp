@@ -1,7 +1,16 @@
 #include "include/graph.hpp"
-
-Uebung1::Graph::Graph(string name, vector<Edge> edgeList, map<unsigned int, Uebung1::Node> nodeList){
-    this->name = name;
+Uebung1::Graph::Graph(){}
+Uebung1::Graph::Graph(string name){
+    setName(name);
+}
+Uebung1::Graph::Graph(String name, map<unsigned int, node_t> nodeList){
+    setName(name);
+    setNodeList(nodeList);
+}
+Uebung1::Graph::Graph(string name, map<unsigned int, node_t> nodeList, vector<edge_t> edgeList){
+    setName(name);
+    setNodeList(nodeList);
+    setEdgeList(edgeList);
     head = new adjNode*[nodeCount]();
     this->nodeCount = nodeCount;
     for(unsigned int i=0 ;i < nodeCount; i++){
