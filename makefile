@@ -1,41 +1,20 @@
-# Makefile for program
-## Compiler configuration
-CPP = g++
-CC = gcc
-CFLAGS = -Wall -pedantic
-CPPFLAGS = ${CFLAGS} -std=c++17
-OBJ = *.o
-INCLUDE_PATH=include
-OBJECT_PATH=obj/
-BIN_PATH=bin/
-SRC_PATH=src/
+# Copyright 2019 Alexander Huber
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# Artefacts
-all: makeBuild build
-
-makeBuild:
-	rm -Rf ${OBJECT_PATH}
-	mkdir ${OBJECT_PATH}
-
-build: linuxsocket.o node.o graph.o nodeApp.o 
-	${CPP} ${CPPFLAGS} -o nodeApp ${OBJECT_PATH}linuxsocket.o ${OBJECT_PATH}graph.o ${OBJECT_PATH}node.o ${OBJECT_PATH}nodeApp.o -pthread
-
-nodeApp.o: 
-	${CPP} ${CPPFLAGS} -c  ${SRC_PATH}nodeApp.cpp -o ${OBJECT_PATH}nodeApp.o
-
-node.o:
-	${CPP} ${CPPFLAGS} -c  ${SRC_PATH}node.cpp -o ${OBJECT_PATH}node.o
-
-graph.o:
-	${CPP} ${CPPFLAGS} -c  ${SRC_PATH}graph.cpp -o ${OBJECT_PATH}graph.o
-
-linuxsocket.o:
-	${CC} ${CFLAGS}    -c  ${SRC_PATH}linuxsocket.c -o ${OBJECT_PATH}linuxsocket.o
-
-# Cleans the directory
-
-*.o:
-	rm -f ${OBJ}
+all: 
+	cd src && make
+	#cd test && make
 
 clean:
-	rm -Rf ${OBJ} ${OBJECT_PATH} nodeApp
+	cd src && make clean
+	#cd test && make clean

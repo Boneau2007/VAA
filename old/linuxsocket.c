@@ -1,4 +1,4 @@
-#include "include/linuxsocket.h"
+#include "linuxsocket.h"
 
 /*
  * @function	acceptSocket
@@ -64,10 +64,8 @@ int bindSocket(int* socket, unsigned int address, int port) {
 	serverAddress.sin_addr.s_addr = htonl(address);
 	serverAddress.sin_port = htons(port);
 	if (bind(*socket, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) == -1){
-		fprintf(stderr,"Error, couldn't bind Socket :\n");
 		return EXIT_FAILURE;
 	}else{
-		//fprintf(stdout,"Socket successfully bound.\n");
 		return EXIT_SUCCESS;
 	}
 }
