@@ -17,11 +17,13 @@ namespace Uebung1{
       std::string ipAddress;
       unsigned int port;
       unsigned int maxNeighbor;
-      Uebung1::Node* initNode;
+      unsigned int initNodePort;
       Uebung1::FileHandler* fileHandler;
       std::vector<Uebung1::Node> neighbors;      
       unsigned int maxSend;
       unsigned int believerEpsilon;
+      unsigned int recvRumors;
+      bool hasSend;
 
     public:
       // Constructors  
@@ -52,8 +54,8 @@ namespace Uebung1{
       unsigned int getPort() const { return port; }
       void setPort(unsigned int port){ this->port = port; }
 
-      Uebung1::Node* getInitNode() { return initNode; }
-      void setInitNode(Uebung1::Node* initNode) { this->initNode = initNode; }
+      unsigned int getInitPort() const { return initNodePort; }
+      void setInitPort(unsigned int initNodePort){ this->initNodePort = initNodePort; }
 
       std::vector<Node> getNeighbors() { return neighbors; }
       void setNeighbors(std::vector<Node> neighbors){ this->neighbors = neighbors; }
@@ -61,11 +63,18 @@ namespace Uebung1{
       unsigned int getBelieverEpsilon() const { return believerEpsilon; }
       void setBelieverEpsilon(unsigned int believerEpsilon){ this->believerEpsilon = believerEpsilon; }
 
+      unsigned int getRecvRumors() const { return recvRumors; }
+      void setRecvRumors(unsigned int recvRumors) { this->recvRumors=recvRumors; }
+
+      bool getHasSend(){ return hasSend; }
+      void setHasSend(bool hasSend){ this->hasSend=hasSend; }
+
       // Memberfunctions
       void startHandle();
       void selectNeighbors();
       void startCommunication();
       void sendOwnIdMessage(Message msg);
+      void incrementRecvRumors(){ recvRumors++; }
       std::string toString() const;
  
     private:
@@ -73,7 +82,6 @@ namespace Uebung1{
       void initTcpSocket(int& socketFd, unsigned int port);
       void executePingThread();
       void executeWorkerThread(int socketFd);
-      void executeComHandleThread(std::string message);
       void executeSendMessageThread(Message message, Node node);
   };
 }

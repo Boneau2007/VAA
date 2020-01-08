@@ -92,6 +92,7 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id){
         return nodeList;
     }
 }
+
 Node FileHandler::getNodeFromFile(const unsigned int id){
     for(unsigned int i=0;i < nodeList.size();i++){
         if(nodeList.at(i).getId() == id){
