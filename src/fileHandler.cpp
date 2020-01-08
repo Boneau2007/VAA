@@ -21,6 +21,9 @@ FileHandler::FileHandler(const string nodeFile, const string graphFile)
         nodeList = readNodes();
     }
 
+/*
+ * This function parses a node file in a List of Nodes
+ */
 vector<Node> FileHandler::readNodes(){
     vector<Node> nodeList;
     string line;
@@ -51,6 +54,10 @@ vector<Node> FileHandler::readNodes(){
     return nodeList;
 }
 
+
+/*
+ * This function parses a graphviz file and sets the neighbors to the given Id
+ */
 vector<Node> FileHandler::readGraphviz(const unsigned int id){
     ifstream fileStream;
     string::size_type sz;
@@ -93,6 +100,9 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id){
     }
 }
 
+/*
+ * This function helps to find a Node in the nodeList with a given id
+ */
 Node FileHandler::getNodeFromFile(const unsigned int id){
     for(unsigned int i=0;i < nodeList.size();i++){
         if(nodeList.at(i).getId() == id){
@@ -102,6 +112,10 @@ Node FileHandler::getNodeFromFile(const unsigned int id){
     throw runtime_error("Node not found");
 }
 
+
+/*
+ * This function generates a graphviz file with a given name, the nodeList and the number of edges
+ */
 void FileHandler::graphgen(const string fileName, const unsigned int edgeCount){
     vector<Edge> edgeList;
     srand(time(0));
@@ -136,6 +150,9 @@ bool FileHandler::containsEdge(const vector<Edge> edgeList, const unsigned int i
     return false;
 }
 
+/*
+ * This function helps to write a file to the directory
+ */
 void FileHandler::writeGraphvizFile(const string fileName, const vector<Edge> edgeList){
 ostringstream stream;
     if(fileName.empty()){
