@@ -6,14 +6,17 @@ using namespace std;
 using namespace Uebung1;
 
 int main(int argc, char** argv){
-    if(argc != 4){
-        cout << "usage: ./" << argv[0]  << " [NodeFileName] [OutputFileName] [EdgeCount]" << endl;
+    if(argc != 5){
+        cout << "usage: ./" << argv[0]  << " [NodeFileName] [OutputSize] [EdgeCount] [OutputFileName] " << endl;
         return EXIT_FAILURE;
     }
-    string nodeFile(argv[1]);
-    string fileName(argv[2]);
-    unsigned int edgeCount = atoi(argv[3]);
+
+    const string nodeFile(argv[1]);
+    const unsigned int outputSize = atoi(argv[2]);
+    const unsigned int edgeCount = atoi(argv[3]);
+    const string fileName(argv[4]);
+
     FileHandler handler(nodeFile);
-    handler.graphgen(fileName, edgeCount);
+    handler.graphgen(fileName, handler.readNodes(outputSize), edgeCount);
     return EXIT_SUCCESS;
 }

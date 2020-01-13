@@ -10,21 +10,16 @@ FileHandler::FileHandler()
 
 FileHandler::FileHandler(const string nodeFile) 
     : nodeFile(nodeFile), graphFile(""){
-        nodeList = readNodes();
-        // for(unsigned int i=0;i < nodeList.size();i++){
-        //     cout << nodeList.at(i).toString() << endl;
-        // }
-    }
+}
 
 FileHandler::FileHandler(const string nodeFile, const string graphFile) 
     : nodeFile(nodeFile), graphFile(graphFile){
-        nodeList = readNodes();
-    }
+}
 
 /*
  * This function parses a node file in a List of Nodes
  */
-vector<Node> FileHandler::readNodes(){
+vector<Node> FileHandler::readNodes(const unsigned int maxNodesToRead){
     vector<Node> nodeList;
     string line;
     smatch matches;
@@ -37,7 +32,8 @@ vector<Node> FileHandler::readNodes(){
     if(!fileStream.is_open()){
         throw  runtime_error("Can't open file");
     }else{
-            for(unsigned int i=0; getline(fileStream, line); i++){
+            // Are there more lines in file and is the requested nodeListSize reached 
+            for(unsigned int i=0; getline(fileStream, line) ||  nodeList.size() < maxNodesToRead; i++){
                 if(line.empty()){
                     //cout << "Skip empty line" << endl;
                     continue;
@@ -49,6 +45,9 @@ vector<Node> FileHandler::readNodes(){
                     throw runtime_error("ERROR: No matching line");
                 }
             }
+            if(nodeList.size() < maxNodesToRead){
+                throw runtime_error("ERROR: Less nodes in File than required");
+            }
     }
     fileStream.close();
     return nodeList;
@@ -58,12 +57,12 @@ vector<Node> FileHandler::readNodes(){
 /*
  * This function parses a graphviz file and sets the neighbors to the given Id
  */
-vector<Node> FileHandler::readGraphviz(const unsigned int id){
+vector<Node> FileHandler::readGraphviz(const unsigned int id, vector<Node> nodeList){
     ifstream fileStream;
     string::size_type sz;
     string line;
     smatch matches;
-    vector<Node> nodeList;
+    vector<Node> neighborList;
     const regex nameLine(R"(graph ([a-zA-z]+) \{)");
     const regex graphvizNodeLine(R"(([0-9]+) -- ([0-9]+);)");
     const regex endLine(R"(})");
@@ -84,9 +83,9 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id){
                 unsigned int fromId = stoi(matches.str(1), &sz);
                 unsigned int toId = stoi(matches.str(2), &sz);
                 if(fromId == id){
-                    nodeList.push_back(getNodeFromFile(toId));
+                    neighborList.push_back(getNodeFromFile(toId, nodeList));
                 }else if(toId == id){
-                    nodeList.push_back(getNodeFromFile(fromId));
+                    neighborList.push_back(getNodeFromFile(fromId, nodeList));
                 }
             }else if(regex_match(line, matches, endLine)){
                 continue;
@@ -96,14 +95,14 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id){
             }
         }
         fileStream.close();
-        return nodeList;
+        return neighborList;
     }
 }
 
 /*
  * This function helps to find a Node in the nodeList with a given id
  */
-Node FileHandler::getNodeFromFile(const unsigned int id){
+Node FileHandler::getNodeFromFile(vector<Node> nodeList, const unsigned int id){
     for(unsigned int i=0;i < nodeList.size();i++){
         if(nodeList.at(i).getId() == id){
             return nodeList.at(i);
@@ -116,7 +115,7 @@ Node FileHandler::getNodeFromFile(const unsigned int id){
 /*
  * This function generates a graphviz file with a given name, the nodeList and the number of edges
  */
-void FileHandler::graphgen(const string fileName, const unsigned int edgeCount){
+void FileHandler::graphgen(const string fileName, const vector<Node> nodeList, const unsigned int edgeCount){
     vector<Edge> edgeList;
     srand(time(0));
     //Ausnahme bei N < 4

@@ -5,32 +5,24 @@
 #include <unistd.h> // C
 #include <fcntl.h> // C
 #include "networkApp.hpp"
-#include "fileHandler.hpp"
+#include "filenodeList.hpp"
 
 using namespace std;
 using namespace Uebung1;
 
-const unsigned int INITIATOR = 1;
-const unsigned int RUMOR = 2;
-const unsigned int REMOTE_SHUTDOWN = 3;
-const unsigned int SHUTDOWN_ALL = 4;
-
-unsigned int receivedRumors = 0;
-unsigned int trustMinimum = 0;
-unsigned int maxEdges = 0;
-
-NetworkApp::NetworkApp(const string programName, const unsigned int port, const string nodeFileName, 
-                         const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust)
+NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, 
+                        const unsigned int numOfNodesInFile, const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust)
     :   programName(programName), port(port), nodeFileName(nodeFileName), neighborSize(neighborSize), doneNumber(0),
-        believeingNodes(0), unbelieveingNodes(0), maxSend(maxSend), minTrust(minTrust), handler(FileHandler(nodeFileName)){
-            messageHandler = new MessageHandler(new Node(0, "127.0.0.1", port));
+        believeingNodes(0), unbelieveingNodes(0), maxSend(maxSend), minTrust(minTrust)){
+            nodeList = new FilenodeList(nodeFileName).readNodes(numOfNodesInFile);
+            messagenodeList = new MessagenodeList(new Node(0, "127.0.0.1", port));
 }
 
-NetworkApp::NetworkApp(const string programName, const unsigned int port, const string nodeFileName, 
+NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, const unsigned int numOfNodesInFile,
                         const string graphvizFileName, const unsigned int maxSend, const unsigned int minTrust)
     :   programName(programName), port(port), nodeFileName(nodeFileName), graphvizFileName(graphvizFileName), doneNumber(0),
-        believeingNodes(0), unbelieveingNodes(0), maxSend(maxSend), minTrust(minTrust),handler(FileHandler(nodeFileName)){
-            messageHandler = new MessageHandler(new Node(0, "127.0.0.1", port));
+        believeingNodes(0), unbelieveingNodes(0), maxSend(maxSend), minTrust(minTrust)){
+            messagenodeList = new MessagenodeList(new Node(0, "127.0.0.1", port));
 }
 
 /*
@@ -38,14 +30,12 @@ NetworkApp::NetworkApp(const string programName, const unsigned int port, const 
  */
 string NetworkApp::messageDialog(){
     ostringstream stream;
-    stream << INITIATOR             << ". Initiat node" << endl;
-    stream << RUMOR                 << ". Tell a rumor" << endl;
-    stream << REMOTE_SHUTDOWN       << ". Terminate node" << endl;
-    stream << SHUTDOWN_ALL          << ". Terminate all nodes" << endl;
-    stream <<                          "Input: ";
+    for(int i=0;;i++){
+        stream << i << ". " << menueList.at(i) << endl;
+    }
+    stream << "Input: ";
     return stream.str();  
 }
-
 
 /*
  * This function handles incomming messages for the initNode
@@ -57,8 +47,12 @@ void NetworkApp::executeListingThread(){
     int addrLenght = sizeof(address);
     initTcpSocket(listenFd, port);
     while(true){
-        int workerFd = accept(listenFd,(struct sockaddr *)&address, (socklen_t *)&addrLenght);
-        threadPool.push_back(thread(&NetworkApp::executeWorkerThread, this, workerFd));
+        try{
+            int workerFd = accept(listenFd,(struct sockaddr *)&address, (socklen_t *)&addrLenght);
+            threadPool.push_back(thread(&NetworkApp::executeWorkerThread, this, workerFd));
+        }catch(exception& e){
+            cout << e.what() << endl;
+        }
     }
     for(unsigned int i=0; i < threadPool.size();i++){
         threadPool.at(i).join();
@@ -93,15 +87,15 @@ void NetworkApp::executeWorkerThread(int socketFd){
     }else{
         cout << "Unknown Cotrol content: " << message.getContent() << endl;
     }
-    if(believeingNodes+unbelieveingNodes == handler.getNodeList().size()){
+    if(believeingNodes+unbelieveingNodes == nodeList.size()){
         cout << "Believing Nodes : " << believeingNodes << endl;
         cout << "Unbelieving Nodes : " << unbelieveingNodes << endl;
         reset();
     }
-    if(doneNumber == handler.getNodeList().size()){
+    if(doneNumber == nodeList.size()){
         Message message(0U, MESSAGE_TYPE::CONTROL, "evaluate");
-        for(unsigned int i=0;i < handler.getNodeList().size();i++){
-            messageHandler->sendMessage(message, handler.getNodeList().at(i));
+        for(unsigned int i=0;i < nodeList.size();i++){
+            messagenodeList->sendMessage(message, nodeList.at(i));
         }
     }
     
@@ -124,9 +118,9 @@ void NetworkApp::start(){
     unsigned int nodeId = -1;
     int command = -1;
     thread listenThread = thread(&NetworkApp::executeListingThread, this);
-    for(unsigned int i = 0;i < handler.getNodeList().size(); i++){
+    for(unsigned int i = 0;i < nodeList.size(); i++){
         ostringstream stream;
-        stream << programName.c_str() << " " << handler.getNodeList().at(i).getId() << " " << port << " " << nodeFileName << " " << maxSend << " " << minTrust;
+        stream << programName.c_str() << " " << nodeList.at(i).getId() << " " << port << " " << nodeFileName << " " << maxSend << " " << minTrust;
         graphvizFileName.empty() ? stream << " " << neighborSize : stream<< " "  << graphvizFileName;
         pid_t pid = fork();
         if(pid==0){
@@ -146,26 +140,26 @@ void NetworkApp::start(){
 
             if(command==SHUTDOWN_ALL){
                 message.setContent("end");
-                for(unsigned int i=0; i  < handler.getNodeList().size();i++){
-                    messageHandler->sendMessage(message, handler.getNodeList().at(i));
+                for(unsigned int i=0; i  < nodeList.size();i++){
+                    messagenodeList->sendMessage(message, nodeList.at(i));
                 }
                 _Exit(EXIT_SUCCESS);
             }
 
 		    cout << "Enter Id: ";
 		    cin >> nodeId;
-            Node recvNode = handler.getNodeFromFile(nodeId);
+            Node recvNode = nodeList.getNodeFromFile(nodeId);
             if(command==INITIATOR){
                 message.setContent("initiator"); 
-                messageHandler->sendMessage(message, recvNode);
+                messagenodeList->sendMessage(message, recvNode);
 
             }else if(command==RUMOR){
                 message.setContent("rumor");
-                messageHandler->sendMessage(message, recvNode);
+                messagenodeList->sendMessage(message, recvNode);
 
             }else if(command==REMOTE_SHUTDOWN){
                 message.setContent("end");
-                messageHandler->sendMessage(message, recvNode);
+                messagenodeList->sendMessage(message, recvNode);
 
             }else{
                 cout << "Unknown command" << endl;
@@ -206,14 +200,15 @@ void NetworkApp::initTcpSocket(int& socketFd, unsigned int port){
 }
 
 int main(int argc, char* argv[]){
-    if(argc != 7){
-        cout << "usage: ./" << argv[0] << " networkPort nodeAppPath nodeFileName (nodeNumbers|graphizFileName) maxSend minTrust" << endl;
+    if(argc != 8){
+        cout << "usage: ./" << argv[0] << " networkPort nodeAppPath nodeFileName numOfNodesInFile (neighborNumber|graphizFileName) maxSend minTrust" << endl;
         exit(EXIT_FAILURE);
     }
     //cout << "NODE: " << argv[0] << " " << argv[1] << " " << argv[2] << " " << argv[3] << " "<< argv[4] << endl;
     unsigned int port = atoi(argv[1]);
     string programName(argv[2]);
     string nodeFileName(argv[3]);
+    unsigned int numOfNodesInFile = atoi(argv[4]);
     unsigned int neighborSize = atoi(argv[4]);
     string graphvizFileName = "";
     if(neighborSize == 0){
@@ -222,9 +217,9 @@ int main(int argc, char* argv[]){
     unsigned int maxSend = atoi(argv[5]);
     unsigned int minTrust = atoi(argv[6]);
     NetworkApp* a1;
-    a1 = graphvizFileName.empty() ? new NetworkApp(programName, port, nodeFileName, neighborSize, maxSend, minTrust) :
-                                    new NetworkApp(programName, port, nodeFileName, graphvizFileName, maxSend, minTrust);
-    
+    a1 = graphvizFileName.empty() ? new NetworkApp(programName, port, nodeFileName, numOfNodesInFile, neighborSize, maxSend, minTrust) :
+                                    new NetworkApp(programName, port, nodeFileName, numOfNodesInFile, graphvizFileName, maxSend, minTrust);
+    numOfNodesInFile, 
     a1->start();
     delete a1;
     return EXIT_SUCCESS;
