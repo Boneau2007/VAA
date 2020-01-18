@@ -16,10 +16,8 @@ namespace Uebung1{
       unsigned int id;
       std::string ipAddress;
       unsigned int port;
-      unsigned int maxNeighbor;
+      std::vector<Uebung1::Node> neighbors;
       unsigned int initNodePort;
-      Uebung1::FileHandler* fileHandler;
-      std::vector<Uebung1::Node> neighbors;      
       unsigned int maxSend;
       unsigned int believerEpsilon;
       unsigned int recvRumors;
@@ -30,10 +28,10 @@ namespace Uebung1{
       Node();
       Node(const unsigned int id);  
       Node(const unsigned int id, const std::string ipAddress, const unsigned int port);
-      Node(const unsigned int id, const unsigned int initNodeId, const std::string nodeFile, 
-            const unsigned int maxNeighbor, const unsigned int maxSend, const unsigned int believerEpsilon);
-      Node(const unsigned int id, const unsigned int initNodeId, const std::string nodeFile, 
-            const std::string graphizFile, const unsigned int maxSend, const unsigned int believerEpsilon);
+      Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
+            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon);
+      Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
+            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon);
       Node(const Node& node);
       Node& operator= (const Node& node){
         return *this;

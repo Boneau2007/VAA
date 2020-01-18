@@ -3,6 +3,25 @@
 using namespace std;
 using namespace Uebung1;
 
+void Node::selectNeighbors(){
+    if(fileHandler->getGraphFile().empty()){
+        srand (time(NULL));
+        for(unsigned int i=0;i < maxNeighbor;i++){
+            bool foundNeighbor = false;
+            while(!foundNeighbor){
+                unsigned int num = rand()%fileHandler->getNodeList().size(); 
+                Node randNode = fileHandler->getNodeList().at(num);
+                if(randNode.getId() != id && !hasNeighbor(randNode.getId())){ 
+                    neighbors.push_back(randNode);
+                    foundNeighbor = true;
+                }
+            }
+        }
+    }else{
+        neighbors = fileHandler->readGraphviz(id);
+    }   
+}
+
 int main(int argc, char** argv){
     if(argc != 7){
         cout << "usage: ./" << argv[0] << " ownId initNodeId nodeFileName maxSend minTrust  (maxNodes|graphizFileName)" << endl;
@@ -16,6 +35,7 @@ int main(int argc, char** argv){
         unsigned int minTrust =  atoi(argv[5]);
         unsigned int maxNeighbor = atoi(argv[6]);
         string graphvizFileName = "";
+        
         if(maxNeighbor == 0){
             graphvizFileName = argv[6]; // is Filename
             //cout << ownId << " " << initNodePort << " " << nodeFileName << " " << graphvizFileName << " " << maxSend << " " << minTrust; //<< " " << maxNeighbor << endl;

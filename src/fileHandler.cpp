@@ -102,7 +102,7 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id, vector<Node> nodeL
 /*
  * This function helps to find a Node in the nodeList with a given id
  */
-Node FileHandler::getNodeFromFile(vector<Node> nodeList, const unsigned int id){
+Node FileHandler::getNodeFromFile( const unsigned int id, vector<Node> nodeList){
     for(unsigned int i=0;i < nodeList.size();i++){
         if(nodeList.at(i).getId() == id){
             return nodeList.at(i);

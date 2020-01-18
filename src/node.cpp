@@ -17,59 +17,37 @@
 using namespace std;
 using namespace Uebung1;
 
-Node::Node() :  id(0), ipAddress(""), port(0),  
-                maxNeighbor(0), initNodePort(0), 
+Node::Node() :  id(0), ipAddress(""), port(0), initNodePort(0), 
                 maxSend(0), believerEpsilon(0), recvRumors(0), hasSend(false){}
 
-Node::Node(const unsigned int id) : id(id), ipAddress(""), port(0), 
-                                    maxNeighbor(0), initNodePort(0), 
+Node::Node(const unsigned int id) : id(id), ipAddress(""), port(0), initNodePort(0), 
                                     maxSend(0), believerEpsilon(0), recvRumors(0), hasSend(false){}
 
 Node::Node(const unsigned int id, const string ipAddress, const unsigned int port)
-    :   id(id), ipAddress(ipAddress), port(port),
-        maxNeighbor(0), initNodePort(0), maxSend(0), 
+    :   id(id), ipAddress(ipAddress), port(port), initNodePort(0), maxSend(0), 
         believerEpsilon(0), recvRumors(0), hasSend(false){
 }
 
-Node::Node(const unsigned int ownId, const unsigned int initNodePort, const std::string nodeFile, 
-            const unsigned int maxNeighbor, const unsigned int maxSend, const unsigned int believerEpsilon)
-    : maxNeighbor(maxNeighbor), initNodePort(initNodePort),
-      maxSend(maxSend), believerEpsilon(believerEpsilon), recvRumors(0), hasSend(false){
-    fileHandler = new FileHandler(nodeFile);
-    // for(unsigned int i=0;i < fileHandler->getNodeList().size();i++){
-    //         cout << fileHandler->getNodeList().at(i).toString() << endl;
-    //     }
-
-    Node ownNode = fileHandler->getNodeFromFile(ownId);
-    id = ownNode.getId();
-    ipAddress = ownNode.getIpAddress();
-    port = ownNode.getPort();
-    selectNeighbors();
+Node::Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
+            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon)
+    : initNodePort(initNodePort), maxSend(maxSend), believerEpsilon(believerEpsilon), recvRumors(0), hasSend(false){
     startHandle();
 }
 
-Node::Node(const unsigned int ownId, const unsigned int initNodePort, const std::string nodeFile, 
-            const std::string graphizFile, const unsigned int maxSend, const unsigned int believerEpsilon)
-         : initNodePort(initNodePort), maxSend(maxSend), believerEpsilon(believerEpsilon){
-    fileHandler = new FileHandler(nodeFile, graphizFile);
-    Node ownNode = fileHandler->getNodeFromFile(ownId);
-    id = ownNode.getId();
-    ipAddress = ownNode.getIpAddress();
-    port = ownNode.getPort();
-    selectNeighbors();
-    // for(unsigned int i=0; i < neighbors.size(); i++){
-    //     cout << "FROM: " << id <<" "<<neighbors.at(i).toString() << endl;
-    // }
+Node::Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
+            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon)
+         : initNodePort(initNodePort), maxSend(maxSend), believerEpsilon(believerEpsilon),
+           id(ownId), ipAddress(ipAddress), port(port){
     startHandle();
+    
 }
 Node::Node(const Node& node){
-    maxSend = node.maxSend;
-    believerEpsilon = node.believerEpsilon;
     id = node.id;
-    fileHandler = node.fileHandler;
-    neighbors = node.neighbors;
     ipAddress = node.ipAddress;
     port = node.port;
+    maxSend = node.maxSend;
+    believerEpsilon = node.believerEpsilon;
+    neighbors = node.neighbors;
 }
 
 void Node::startHandle(){
@@ -97,25 +75,6 @@ void Node::startHandle(){
     for(unsigned int i=0;i < threadPool.size();i++){
         threadPool.at(i).join();
     }
-}
-
-void Node::selectNeighbors(){
-    if(fileHandler->getGraphFile().empty()){
-        srand (time(NULL));
-        for(unsigned int i=0;i < maxNeighbor;i++){
-            bool foundNeighbor = false;
-            while(!foundNeighbor){
-                unsigned int num = rand()%fileHandler->getNodeList().size(); 
-                Node randNode = fileHandler->getNodeList().at(num);
-                if(randNode.getId() != id && !hasNeighbor(randNode.getId())){ 
-                    neighbors.push_back(randNode);
-                    foundNeighbor = true;
-                }
-            }
-        }
-    }else{
-        neighbors = fileHandler->readGraphviz(id);
-    }   
 }
 
 void Node::sendOwnIdMessage(Message msg){
