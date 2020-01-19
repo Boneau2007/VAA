@@ -1,3 +1,2 @@
-./createNodeFile.sh $1
-bin/graphGenApp nodeFile.txt graph.dot $2
+bin/graphGenApp nodeFile.txt $1 $2 graph.dot 
 dot -Tpng -O graph.dot

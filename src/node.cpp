@@ -18,29 +18,28 @@ using namespace std;
 using namespace Uebung1;
 
 Node::Node() :  id(0), ipAddress(""), port(0), initNodePort(0), 
-                maxSend(0), believerEpsilon(0), recvRumors(0), hasSend(false){}
+                maxSend(0), believerEpsilon(0), recvRumors(0), 
+                hasSend(false), virtualParentId(0), startMessageNumber(0){}
 
 Node::Node(const unsigned int id) : id(id), ipAddress(""), port(0), initNodePort(0), 
-                                    maxSend(0), believerEpsilon(0), recvRumors(0), hasSend(false){}
+                                    maxSend(0), believerEpsilon(0), recvRumors(0), 
+                                    hasSend(false), virtualParentId(0), startMessageNumber(0){}
 
 Node::Node(const unsigned int id, const string ipAddress, const unsigned int port)
     :   id(id), ipAddress(ipAddress), port(port), initNodePort(0), maxSend(0), 
-        believerEpsilon(0), recvRumors(0), hasSend(false){
+        believerEpsilon(0), recvRumors(0), hasSend(false), 
+        virtualParentId(0), startMessageNumber(0){
 }
 
-Node::Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon)
-    : initNodePort(initNodePort), maxSend(maxSend), believerEpsilon(believerEpsilon), recvRumors(0), hasSend(false){
+Node::Node( const unsigned int id, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
+            const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon)
+    :   id(id), ipAddress(ipAddress), port(port),
+        neighbors(neighbors), initNodePort(initNodePort), 
+        maxSend(maxSend), believerEpsilon(believerEpsilon),
+        recvRumors(0), hasSend(false), virtualParentId(0), startMessageNumber(0){
     startHandle();
 }
 
-Node::Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon)
-         : initNodePort(initNodePort), maxSend(maxSend), believerEpsilon(believerEpsilon),
-           id(ownId), ipAddress(ipAddress), port(port){
-    startHandle();
-    
-}
 Node::Node(const Node& node){
     id = node.id;
     ipAddress = node.ipAddress;
@@ -51,6 +50,7 @@ Node::Node(const Node& node){
 }
 
 void Node::startHandle(){
+    //  cout << "id " << id <<  " "<< ipAddress << " "<< port << " "<< initNodePort<<  endl;    
     struct sockaddr_in address;
 	int addrLenght = sizeof(address);
     vector<thread> threadPool;
@@ -97,15 +97,6 @@ void Node::executeWorkerThread(int socketFd) {
     MessageHandler handler(this, msg);
     handler.handleIncommingMessage();
     close(socketFd);
-}
-
-bool Node::hasNeighbor(const unsigned int id){
-    for(unsigned int i=0;i < neighbors.size();i++){
-        if(neighbors.at(i).getId() == id){
-            return true;
-        }
-    }
-    return false;
 }
 
 /*

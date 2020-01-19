@@ -18,20 +18,25 @@ namespace Uebung1{
       unsigned int port;
       std::vector<Uebung1::Node> neighbors;
       unsigned int initNodePort;
+
       unsigned int maxSend;
       unsigned int believerEpsilon;
       unsigned int recvRumors;
       bool hasSend;
+
+      time_t preferedTime;
+      unsigned int virtualParentId;
+      unsigned int startMessageNumber;
+      unsigned int philosopherNumber;
+      unsigned int voteCount;
 
     public:
       // Constructors  
       Node();
       Node(const unsigned int id);  
       Node(const unsigned int id, const std::string ipAddress, const unsigned int port);
-      Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon);
-      Node( const unsigned int ownId, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const Node thisNode, const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon);
+      Node( const unsigned int ownId, const std::string ipAddress, const unsigned int port, const unsigned int initNodePort, 
+            const std::vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon);
       Node(const Node& node);
       Node& operator= (const Node& node){
         return *this;
@@ -66,6 +71,9 @@ namespace Uebung1{
 
       bool getHasSend(){ return hasSend; }
       void setHasSend(bool hasSend){ this->hasSend=hasSend; }
+
+      unsigned int getVirtualParentId() const { return virtualParentId; }
+      void setVirtualParentId(unsigned int virtualParentId) { this->VirtualParentIdvirtualParentId=virtualParentId; }
 
       // Memberfunctions
       void startHandle();

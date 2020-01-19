@@ -33,10 +33,11 @@ vector<Node> FileHandler::readNodes(const unsigned int maxNodesToRead){
         throw  runtime_error("Can't open file");
     }else{
             // Are there more lines in file and is the requested nodeListSize reached 
-            for(unsigned int i=0; getline(fileStream, line) ||  nodeList.size() < maxNodesToRead; i++){
+            for(unsigned int i=0; getline(fileStream, line); i++){
                 if(line.empty()){
-                    //cout << "Skip empty line" << endl;
                     continue;
+                }else if(nodeList.size() == maxNodesToRead){
+                    break;
                 }else if(regex_match(line, matches, isNodeLineRegex)){
                     //cout << matches.str(1) << " " << matches.str(2)  << " " << matches.str(3) << endl;
                     Node node(stoi(matches.str(1)), matches.str(2), stoi(matches.str(3)));
@@ -115,24 +116,30 @@ Node FileHandler::getNodeFromFile( const unsigned int id, vector<Node> nodeList)
 /*
  * This function generates a graphviz file with a given name, the nodeList and the number of edges
  */
-void FileHandler::graphgen(const string fileName, const vector<Node> nodeList, const unsigned int edgeCount){
+void FileHandler::graphgen(const string fileName, vector<Node> nodeList, const unsigned int nodesNumber, const unsigned int edgeCount){
     vector<Edge> edgeList;
     srand(time(0));
     //Ausnahme bei N < 4
-    if(edgeCount <= nodeList.size() || edgeCount > (nodeList.size()*nodeList.size()-nodeList.size())/2){
+    if(edgeCount <= nodesNumber || edgeCount > (nodesNumber*nodesNumber-nodesNumber)/2){
         throw runtime_error("ERROR: Num of edges to large or to small");
     }
-        for(unsigned int i=0; i < nodeList.size(); i++){
-            while(true){
-                unsigned int randId = rand()%nodeList.size();
-                if(nodeList.at(i).getId() != nodeList.at(randId).getId() && !containsEdge(edgeList,nodeList.at(i).getId(), nodeList.at(randId).getId())){
-                Edge edge(nodeList.at(i).getId(), nodeList.at(randId).getId(),1);
-                edgeList.push_back(edge);
-                break;
+    while(edgeList.size() < edgeCount){
+        for(unsigned int i=0; i < nodesNumber; i++){
+        // cout << nodesNumber<<  " " << edgeCount << " " << edgeList.size()<< endl;
+            while(edgeList.size() < edgeCount){
+                unsigned int randId = rand()%nodesNumber;
+                if(nodeList.at(i).getId() != nodeList.at(randId).getId() && !containsEdge(edgeList, nodeList.at(i).getId(), nodeList.at(randId).getId())){
+                    Edge edge(nodeList.at(i).getId(), nodeList.at(randId).getId(),1);
+                    edgeList.push_back(edge);
+                    break;
+                }
+                if(maxEdgesPerNode(edgeList, nodeList.at(i).getId(), nodesNumber-1)){
+                    break;
                 }
             }
         }
-    cout << nodeList.size()<<  " " << edgeCount << " " << edgeList.size()<< endl;
+    }
+    // cout << nodesNumber<<  " " << edgeCount << " " << edgeList.size()<< endl;
     writeGraphvizFile(fileName, edgeList);
 }
 
@@ -145,6 +152,21 @@ bool FileHandler::containsEdge(const vector<Edge> edgeList, const unsigned int i
                edgeList.at(i).getFromNodeId() == idTo) {
                    return true;
             }
+    }
+    return false;
+}
+
+bool FileHandler::maxEdgesPerNode(const vector<Edge> edgeList, const unsigned int id, unsigned int nodesNumber){
+    for(unsigned int i=0;i < edgeList.size(); i++){
+    //cout <<"ID: "<< id << "EDGE:" << nodesNumber << " " << edgeList.at(i).getFromNodeId() << "<->"<< edgeList.at(i).getToNodeId() << endl;
+        if(edgeList.at(i).getFromNodeId() == id || 
+           edgeList.at(i).getToNodeId() == id){
+               nodesNumber--;
+        }
+    }
+    //cout << "END Count: " << nodesNumber << endl;
+    if(nodesNumber == 0){
+        return true;
     }
     return false;
 }

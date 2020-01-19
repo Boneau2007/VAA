@@ -7,3 +7,4 @@ for i in `seq 1 $1`
 do
     echo "$i 127.0.0.1:$(($port+$i))" >> nodeFile.txt
 done
+sudo netstat -plnt

@@ -32,6 +32,8 @@ namespace Uebung1{
 
         private:
             void sendBelieve();
+            void sendExplorer(const unsigned int senderId);
+            void sendEcho();
             void initRumor();
             void forwardRumor(const unsigned int senderId);
             void setHostAddress(const Uebung1::Node& node);

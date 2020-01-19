@@ -35,6 +35,23 @@ void MessageHandler::handleIncommingMessage(){
     switch(message.getMessageType()){
         case APPLICATION:   if(message.getContent().compare("rumor") == 0){
                                 forwardRumor(message.getSenderId());
+                            }else if(message.getContent().compare("explorer") == 0){
+                                if(node->getNeighbors().size() == 1){
+                                //TODO: PARSE ID out of explorer and set it to M
+                                    sendEcho();
+                                }else{
+                                    // if(parsedId > node->getVirtualParentId()){
+                                        // node->setVirtualParentId(parsedId);
+                                        // sendExplorer(message.getSenderId());
+                                    // }else if(){
+                                        //set incomming as accepted, if the last is incomming send echo to baum
+                                    // }
+                                }
+                            }else if(message.getContent().compare("echo") == 0){
+                                // if(node->getVirtualParentId() == parsedincommingId){
+                                    //setIncomming as accepted, if the last send to virtualparedn echo()
+                                // }
+                                    //if(initiator) then winner
                             }else{
                                 std::cout << "["<< node->getId() <<"]:" << message.getContent() << " [" << timeS <<"]" << endl;
                             }
@@ -47,6 +64,9 @@ void MessageHandler::handleIncommingMessage(){
                             initRumor();
                         }else if(message.getContent().compare("evaluate") == 0){
                             sendBelieve();
+                        }else if(message.getContent().compare("election") == 0){
+                            node->setVirtualParentId(node->getId());
+                            sendExplorer(message.getSenderId());
                         }else if(message.getContent().compare("end") == 0){
                             cout << "End Node " << node->getId() << endl;
                             exit(EXIT_SUCCESS);
@@ -148,4 +168,26 @@ void MessageHandler::sendBelieve(){
     node->setHasSend(false);
     Message message(node->getId(), MESSAGE_TYPE::CONTROL, believeS);
     sendMessage(message, initNode);
+}
+
+/*
+ * This function sends a true or false message to the Network initialisation Node.
+ */
+void MessageHandler::sendExplorer(const unsigned int senderId){
+    stringstream ss;
+    ss << "explorer " << node->getVirtualParentId();
+    Message message(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
+        for(unsigned int i=0;i< node->getNeighbors().size();i++){
+            if(node->getNeighbors().at(i).getId() != senderId){
+                sendMessage(message , node->getNeighbors().at(i));
+            }
+        }
+}
+
+/*
+ * This function sends a true or false message to the Network initialisation Node.
+ */
+void MessageHandler::sendEcho(){
+    Message message(node->getId(), MESSAGE_TYPE::APPLICATION, "echo");
+    sendMessage(message , node->getNeighbors().at(0));
 }

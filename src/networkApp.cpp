@@ -5,24 +5,25 @@
 #include <unistd.h> // C
 #include <fcntl.h> // C
 #include "networkApp.hpp"
-#include "filenodeList.hpp"
+#include "fileHandler.hpp"
 
 using namespace std;
 using namespace Uebung1;
 
 NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, 
-                        const unsigned int numOfNodesInFile, const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust)
+                        const unsigned int nodeNumber, const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust)
     :   programName(programName), port(port), nodeFileName(nodeFileName), neighborSize(neighborSize), doneNumber(0),
-        believeingNodes(0), unbelieveingNodes(0), maxSend(maxSend), minTrust(minTrust)){
-            nodeList = new FilenodeList(nodeFileName).readNodes(numOfNodesInFile);
-            messagenodeList = new MessagenodeList(new Node(0, "127.0.0.1", port));
+        believeingNodes(0), unbelieveingNodes(0), nodeNumber(nodeNumber), maxSend(maxSend), minTrust(minTrust){
+            nodeList = FileHandler(nodeFileName).readNodes(nodeNumber);
+            messageHandler = new MessageHandler(new Node(0, "127.0.0.1", port));
 }
 
-NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, const unsigned int numOfNodesInFile,
+NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, const unsigned int nodeNumber,
                         const string graphvizFileName, const unsigned int maxSend, const unsigned int minTrust)
     :   programName(programName), port(port), nodeFileName(nodeFileName), graphvizFileName(graphvizFileName), doneNumber(0),
-        believeingNodes(0), unbelieveingNodes(0), maxSend(maxSend), minTrust(minTrust)){
-            messagenodeList = new MessagenodeList(new Node(0, "127.0.0.1", port));
+        believeingNodes(0), unbelieveingNodes(0), nodeNumber(nodeNumber), maxSend(maxSend), minTrust(minTrust){
+            nodeList = FileHandler(nodeFileName).readNodes(nodeNumber);
+            messageHandler = new MessageHandler(new Node(0, "127.0.0.1", port));
 }
 
 /*
@@ -30,7 +31,7 @@ NetworkApp::NetworkApp( const string programName, const unsigned int port, const
  */
 string NetworkApp::messageDialog(){
     ostringstream stream;
-    for(int i=0;;i++){
+    for(int i=0; i < menueList.size();i++){
         stream << i << ". " << menueList.at(i) << endl;
     }
     stream << "Input: ";
@@ -95,7 +96,7 @@ void NetworkApp::executeWorkerThread(int socketFd){
     if(doneNumber == nodeList.size()){
         Message message(0U, MESSAGE_TYPE::CONTROL, "evaluate");
         for(unsigned int i=0;i < nodeList.size();i++){
-            messagenodeList->sendMessage(message, nodeList.at(i));
+            messageHandler->sendMessage(message, nodeList.at(i));
         }
     }
     
@@ -120,8 +121,13 @@ void NetworkApp::start(){
     thread listenThread = thread(&NetworkApp::executeListingThread, this);
     for(unsigned int i = 0;i < nodeList.size(); i++){
         ostringstream stream;
-        stream << programName.c_str() << " " << nodeList.at(i).getId() << " " << port << " " << nodeFileName << " " << maxSend << " " << minTrust;
-        graphvizFileName.empty() ? stream << " " << neighborSize : stream<< " "  << graphvizFileName;
+        stream << programName << " " << nodeList.at(i).getId() << " ";
+        stream << nodeList.at(i).getIpAddress() << " ";
+        stream << nodeList.at(i).getPort() << " " << port << " ";
+        stream << nodeNumber << " " << nodeFileName << " "; 
+        graphvizFileName.empty() ? stream << neighborSize : stream << graphvizFileName;
+        stream << " " << maxSend << " " << minTrust;
+        //cout << stream.str() << endl;
         pid_t pid = fork();
         if(pid==0){
             system(stream.str().c_str());
@@ -138,28 +144,40 @@ void NetworkApp::start(){
             cin >> command;
             Message message(0, MESSAGE_TYPE::CONTROL);
 
-            if(command==SHUTDOWN_ALL){
+            if(command == 0){
                 message.setContent("end");
                 for(unsigned int i=0; i  < nodeList.size();i++){
-                    messagenodeList->sendMessage(message, nodeList.at(i));
+                    messageHandler->sendMessage(message, nodeList.at(i));
                 }
                 _Exit(EXIT_SUCCESS);
+            }else if(command == 3){
+                message.setContent("election");
+                srand (time(NULL));
+                unsigned int num = rand()%nodeList.size(); 
+                for(unsigned int i=0; i < num; i++){
+                    messageHandler->sendMessage(message, nodeList.at(i));
+                }
             }
 
 		    cout << "Enter Id: ";
 		    cin >> nodeId;
-            Node recvNode = nodeList.getNodeFromFile(nodeId);
-            if(command==INITIATOR){
+            unsigned int i = 0;
+            for(;i < nodeList.size();i++){
+                if(nodeList.at(i).getId() == nodeId){
+                    break;
+                }
+            }
+            if(command == 1){
                 message.setContent("initiator"); 
-                messagenodeList->sendMessage(message, recvNode);
+                messageHandler->sendMessage(message, nodeList.at(i));
 
-            }else if(command==RUMOR){
+            }else if(command == 2){
                 message.setContent("rumor");
-                messagenodeList->sendMessage(message, recvNode);
+                messageHandler->sendMessage(message, nodeList.at(i));
 
-            }else if(command==REMOTE_SHUTDOWN){
+            }else if(command == 4){
                 message.setContent("end");
-                messagenodeList->sendMessage(message, recvNode);
+                messageHandler->sendMessage(message, nodeList.at(i));
 
             }else{
                 cout << "Unknown command" << endl;
@@ -201,25 +219,24 @@ void NetworkApp::initTcpSocket(int& socketFd, unsigned int port){
 
 int main(int argc, char* argv[]){
     if(argc != 8){
-        cout << "usage: ./" << argv[0] << " networkPort nodeAppPath nodeFileName numOfNodesInFile (neighborNumber|graphizFileName) maxSend minTrust" << endl;
+        cout << "usage: ./" << argv[0] << " networkPort nodeAppPath nodeFileName maxNumOfNodes (neighborNumber|graphizFileName) maxSend minTrust" << endl;
         exit(EXIT_FAILURE);
     }
     //cout << "NODE: " << argv[0] << " " << argv[1] << " " << argv[2] << " " << argv[3] << " "<< argv[4] << endl;
     unsigned int port = atoi(argv[1]);
     string programName(argv[2]);
     string nodeFileName(argv[3]);
-    unsigned int numOfNodesInFile = atoi(argv[4]);
-    unsigned int neighborSize = atoi(argv[4]);
+    unsigned int nodeNumber = atoi(argv[4]);
+    unsigned int neighborSize = atoi(argv[5]);
     string graphvizFileName = "";
     if(neighborSize == 0){
-        graphvizFileName = argv[4]; // is Filename
+        graphvizFileName = argv[5]; // is Filename
     }
-    unsigned int maxSend = atoi(argv[5]);
-    unsigned int minTrust = atoi(argv[6]);
+    unsigned int maxSend = atoi(argv[6]);
+    unsigned int minTrust = atoi(argv[7]);
     NetworkApp* a1;
-    a1 = graphvizFileName.empty() ? new NetworkApp(programName, port, nodeFileName, numOfNodesInFile, neighborSize, maxSend, minTrust) :
-                                    new NetworkApp(programName, port, nodeFileName, numOfNodesInFile, graphvizFileName, maxSend, minTrust);
-    numOfNodesInFile, 
+    a1 = graphvizFileName.empty() ? new NetworkApp(programName, port, nodeFileName, nodeNumber, neighborSize, maxSend, minTrust) :
+                                    new NetworkApp(programName, port, nodeFileName, nodeNumber, graphvizFileName, maxSend, minTrust);
     a1->start();
     delete a1;
     return EXIT_SUCCESS;

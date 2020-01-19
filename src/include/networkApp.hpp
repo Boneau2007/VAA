@@ -16,7 +16,7 @@ namespace Uebung1{
     class NetworkApp{
 
         private:
-            const vector<string> menueList = {"Terminate all nodes", "Initiat node", "Tell a rumor", "Start philosopher meeting", "Terminate node"};
+            const std::vector<std::string> menueList = {"Terminate all nodes", "Initiat node", "Tell a rumor", "Start philosopher meeting", "Terminate node"};
             unsigned int receivedRumors = 0;
             unsigned int trustMinimum = 0;
             unsigned int maxEdges = 0;
@@ -30,6 +30,7 @@ namespace Uebung1{
             unsigned int doneNumber;
             unsigned int believeingNodes;
             unsigned int unbelieveingNodes;
+            unsigned int nodeNumber;
             unsigned int maxSend;
             unsigned int minTrust;
             Uebung1::Node node;
