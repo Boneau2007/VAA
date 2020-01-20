@@ -24,8 +24,8 @@ namespace Uebung1{
       unsigned int recvRumors;
       bool hasSend;
 
-      bool initiator;
       bool winner;
+      bool initiator;
       unsigned int virtualParentId;
       unsigned int voteCount;
       time_t preferedTime;
@@ -89,6 +89,9 @@ namespace Uebung1{
       unsigned int getMaxStartNumber() const { return maxStartNumber; }
       void setMaxStartNumber(unsigned int maxStartNumber) { this->maxStartNumber=maxStartNumber; }
 
+      unsigned int getVoteCount() const { return voteCount; }
+      void setVoteCount(unsigned int voteCount) { this->voteCount=voteCount; }
+
       time_t getPreferedTime() const { return preferedTime; }
       void setPreferedTime(time_t preferedTime) { this->preferedTime=preferedTime; }
 
@@ -104,7 +107,8 @@ namespace Uebung1{
       void startCommunication();
       void sendOwnIdMessage(Message msg);
       void incrementRecvRumors(){ recvRumors++; }
-      std::vector getRandNodeList(const unsigned int maxNumber);
+      void incrementVoteCount(){ voteCount++; }
+      std::vector<unsigned int> getRandNodeList(const unsigned int maxNumber);
       std::string toString() const;
  
     private:

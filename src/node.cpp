@@ -37,7 +37,7 @@ Node::Node( const unsigned int id, const string ipAddress, const unsigned int po
     :   id(id), ipAddress(ipAddress), port(port),
         neighbors(neighbors), initNodePort(initNodePort), 
         maxSend(maxSend), believerEpsilon(believerEpsilon),
-        recvRumors(0), hasSend(false), winner(false), initiator(false), virtualParentId(0),
+        recvRumors(0), hasSend(false), winner(false), initiator(false), virtualParentId(0), voteCount(0),
         preferedTime(preferedTime), maxStartNumber(maxStartNumber), maxPhilosopherNumber(maxPhilosopherNumber), done(false){
     startHandle();
 }

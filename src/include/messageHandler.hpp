@@ -31,7 +31,8 @@ namespace Uebung1{
             void handleIncommingMessage();
 
         private:
-            bool wasLastNodeEdge();
+            bool wasLastNotVirtualNodeEdge();
+            std::vector<unsigned int> getRandNodeIdList(const unsigned int maxNumber);
             void sendBelieve();
             void startUnificationProcess();
             void sendExplorer(const unsigned int senderId);
