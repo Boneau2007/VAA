@@ -33,6 +33,9 @@ namespace Uebung1{
             unsigned int nodeNumber;
             unsigned int maxSend;
             unsigned int minTrust;
+            std::string timesFile;
+            unsigned int maxStartNumber;
+            unsigned int maxPhilosopherNumber;
             Uebung1::Node node;
             MessageHandler* messageHandler;
             std::mutex workerMutex;
@@ -43,9 +46,11 @@ namespace Uebung1{
         public: 
             // Constructors
             NetworkApp( const std::string programName,const unsigned int port, const std::string nodeFileName, const unsigned int numOfNodesInFile,
-                        const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust);
+                        const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust, std::string timesFile, 
+                        const unsigned int maxStartNumber, const unsigned int maxPhilosopherNumber);
             NetworkApp( const std::string programName,const unsigned int port, const std::string nodeFileName, const unsigned int numOfNodesInFile,
-                        const std::string graphvizFileName, const unsigned int maxSend, const unsigned int minTrust);
+                        const std::string graphvizFileName, const unsigned int maxSend, const unsigned int minTrust, std::string timesFile,
+                        const unsigned int maxStartNumber, const unsigned int maxPhilosopherNumber);
             
             // Deconstructors
 
@@ -62,9 +67,10 @@ namespace Uebung1{
             // Memberfunctions
             void start();
             std::string messageDialog();
-            void executeListingThread();        
+            void executeListingThread();   
 
         private:
+            std::vector<unsigned int> getRandNodeIdList(const unsigned int maxNumber);     
             void reset();
             void executeWorkerThread(int socketFd);
             void executeStartNodeThread(unsigned int nodeId);

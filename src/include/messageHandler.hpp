@@ -31,9 +31,11 @@ namespace Uebung1{
             void handleIncommingMessage();
 
         private:
+            bool wasLastNodeEdge();
             void sendBelieve();
+            void startUnificationProcess();
             void sendExplorer(const unsigned int senderId);
-            void sendEcho();
+            void sendEcho(const unsigned int senderId, const unsigned int virtualId);
             void initRumor();
             void forwardRumor(const unsigned int senderId);
             void setHostAddress(const Uebung1::Node& node);

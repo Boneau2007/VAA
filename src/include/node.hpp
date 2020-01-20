@@ -24,11 +24,14 @@ namespace Uebung1{
       unsigned int recvRumors;
       bool hasSend;
 
-      time_t preferedTime;
+      bool initiator;
+      bool winner;
       unsigned int virtualParentId;
-      unsigned int startMessageNumber;
-      unsigned int philosopherNumber;
       unsigned int voteCount;
+      time_t preferedTime;
+      unsigned int maxStartNumber;
+      unsigned int maxPhilosopherNumber;
+      bool done;
 
     public:
       // Constructors  
@@ -36,11 +39,13 @@ namespace Uebung1{
       Node(const unsigned int id);  
       Node(const unsigned int id, const std::string ipAddress, const unsigned int port);
       Node( const unsigned int ownId, const std::string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const std::vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon);
+            const std::vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon, 
+            const time_t preferedTime, const unsigned maxStartNumber, const unsigned int maxPhilosopherNumber);
       Node(const Node& node);
       Node& operator= (const Node& node){
         return *this;
       }
+
       // Deconstructors
       // ~Node(){
       //   delete initNode;
@@ -72,8 +77,26 @@ namespace Uebung1{
       bool getHasSend(){ return hasSend; }
       void setHasSend(bool hasSend){ this->hasSend=hasSend; }
 
+      bool getInitiator(){ return initiator; }
+      void setInitiator(bool initiator){ this->initiator=initiator; }
+
+      bool getWinner(){ return winner; }
+      void setWinner(bool winner){ this->winner=winner; }
+      
       unsigned int getVirtualParentId() const { return virtualParentId; }
-      void setVirtualParentId(unsigned int virtualParentId) { this->VirtualParentIdvirtualParentId=virtualParentId; }
+      void setVirtualParentId(unsigned int virtualParentId) { this->virtualParentId=virtualParentId; }
+
+      unsigned int getMaxStartNumber() const { return maxStartNumber; }
+      void setMaxStartNumber(unsigned int maxStartNumber) { this->maxStartNumber=maxStartNumber; }
+
+      time_t getPreferedTime() const { return preferedTime; }
+      void setPreferedTime(time_t preferedTime) { this->preferedTime=preferedTime; }
+
+      unsigned int getMaxPhilosopherNumber() const { return maxPhilosopherNumber; }
+      void setMaxPhilosopherNumber(unsigned int maxPhilosopherNumber) { this->maxPhilosopherNumber=maxPhilosopherNumber; }
+
+      bool getDone(){ return done; }
+      void setDone(bool done){ this->done=done; }
 
       // Memberfunctions
       void startHandle();
@@ -81,6 +104,7 @@ namespace Uebung1{
       void startCommunication();
       void sendOwnIdMessage(Message msg);
       void incrementRecvRumors(){ recvRumors++; }
+      std::vector getRandNodeList(const unsigned int maxNumber);
       std::string toString() const;
  
     private:

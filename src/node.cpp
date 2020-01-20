@@ -19,24 +19,26 @@ using namespace Uebung1;
 
 Node::Node() :  id(0), ipAddress(""), port(0), initNodePort(0), 
                 maxSend(0), believerEpsilon(0), recvRumors(0), 
-                hasSend(false), virtualParentId(0), startMessageNumber(0){}
+                hasSend(false), virtualParentId(0){}
 
 Node::Node(const unsigned int id) : id(id), ipAddress(""), port(0), initNodePort(0), 
                                     maxSend(0), believerEpsilon(0), recvRumors(0), 
-                                    hasSend(false), virtualParentId(0), startMessageNumber(0){}
+                                    hasSend(false), virtualParentId(0){}
 
 Node::Node(const unsigned int id, const string ipAddress, const unsigned int port)
     :   id(id), ipAddress(ipAddress), port(port), initNodePort(0), maxSend(0), 
         believerEpsilon(0), recvRumors(0), hasSend(false), 
-        virtualParentId(0), startMessageNumber(0){
+        virtualParentId(0){
 }
 
 Node::Node( const unsigned int id, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon)
+            const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon, 
+            const time_t preferedTime, const unsigned maxStartNumber, const unsigned maxPhilosopherNumber)
     :   id(id), ipAddress(ipAddress), port(port),
         neighbors(neighbors), initNodePort(initNodePort), 
         maxSend(maxSend), believerEpsilon(believerEpsilon),
-        recvRumors(0), hasSend(false), virtualParentId(0), startMessageNumber(0){
+        recvRumors(0), hasSend(false), winner(false), initiator(false), virtualParentId(0),
+        preferedTime(preferedTime), maxStartNumber(maxStartNumber), maxPhilosopherNumber(maxPhilosopherNumber), done(false){
     startHandle();
 }
 
@@ -67,8 +69,12 @@ void Node::startHandle(){
 
     //Listen on socket and accept incomming connections
     while(true){
-        int worker = accept(listenFd,(struct sockaddr *)&address, (socklen_t *)&addrLenght);
-        threadPool.push_back(thread(&Node::executeWorkerThread, this, worker));
+        try{
+            int worker = accept(listenFd,(struct sockaddr *)&address, (socklen_t *)&addrLenght);
+            threadPool.push_back(thread(&Node::executeWorkerThread, this, worker));
+        }catch(exception& e){
+            cout << e.what() << endl;
+        }
     }
 
     //Wait for all threads to be finished

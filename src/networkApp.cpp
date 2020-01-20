@@ -11,17 +11,20 @@ using namespace std;
 using namespace Uebung1;
 
 NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, 
-                        const unsigned int nodeNumber, const unsigned int neighborSize, const unsigned int maxSend, const unsigned int minTrust)
+                        const unsigned int nodeNumber, const unsigned int neighborSize, const unsigned int maxSend,
+                        const unsigned int minTrust, std::string timesFile, 
+                        const unsigned maxStartNumber, const unsigned int maxPhilosopherNumber)
     :   programName(programName), port(port), nodeFileName(nodeFileName), neighborSize(neighborSize), doneNumber(0),
-        believeingNodes(0), unbelieveingNodes(0), nodeNumber(nodeNumber), maxSend(maxSend), minTrust(minTrust){
+        believeingNodes(0), unbelieveingNodes(0), nodeNumber(nodeNumber), maxSend(maxSend), minTrust(minTrust), timesFile(timesFile), maxStartNumber(maxStartNumber), maxPhilosopherNumber(maxPhilosopherNumber){
             nodeList = FileHandler(nodeFileName).readNodes(nodeNumber);
             messageHandler = new MessageHandler(new Node(0, "127.0.0.1", port));
 }
 
 NetworkApp::NetworkApp( const string programName, const unsigned int port, const string nodeFileName, const unsigned int nodeNumber,
-                        const string graphvizFileName, const unsigned int maxSend, const unsigned int minTrust)
+                        const string graphvizFileName, const unsigned int maxSend, const unsigned int minTrust, std::string timesFile,
+                        const unsigned maxStartNumber, const unsigned int maxPhilosopherNumber)
     :   programName(programName), port(port), nodeFileName(nodeFileName), graphvizFileName(graphvizFileName), doneNumber(0),
-        believeingNodes(0), unbelieveingNodes(0), nodeNumber(nodeNumber), maxSend(maxSend), minTrust(minTrust){
+        believeingNodes(0), unbelieveingNodes(0), nodeNumber(nodeNumber), maxSend(maxSend), minTrust(minTrust), timesFile(timesFile), maxStartNumber(maxStartNumber), maxPhilosopherNumber(maxPhilosopherNumber){
             nodeList = FileHandler(nodeFileName).readNodes(nodeNumber);
             messageHandler = new MessageHandler(new Node(0, "127.0.0.1", port));
 }
@@ -31,7 +34,7 @@ NetworkApp::NetworkApp( const string programName, const unsigned int port, const
  */
 string NetworkApp::messageDialog(){
     ostringstream stream;
-    for(int i=0; i < menueList.size();i++){
+    for(unsigned int i=0; i < menueList.size();i++){
         stream << i << ". " << menueList.at(i) << endl;
     }
     stream << "Input: ";
@@ -60,6 +63,20 @@ void NetworkApp::executeListingThread(){
     }
 }
 
+
+std::vector<unsigned int> NetworkApp::getRandNodeIdList(const unsigned int maxNumber){
+    vector<unsigned int> randNodeIdList;
+    srand (time(NULL));
+    while (randNodeIdList.size() < maxNumber){
+        unsigned int num = rand()%nodeList.size();
+        for(unsigned int i=0; i < randNodeIdList.size(); i++){
+            if(nodeList.at(num).getId() != randNodeIdList.at(i)){
+                randNodeIdList.push_back(nodeList.at(num).getId());
+            }
+        }
+    }
+    return randNodeIdList;
+}
 
 /*
  * This function exectues what should be done by the incomming message content
@@ -126,7 +143,7 @@ void NetworkApp::start(){
         stream << nodeList.at(i).getPort() << " " << port << " ";
         stream << nodeNumber << " " << nodeFileName << " "; 
         graphvizFileName.empty() ? stream << neighborSize : stream << graphvizFileName;
-        stream << " " << maxSend << " " << minTrust;
+        stream << " " << maxSend << " " << minTrust << " " << timesFile << " " << maxStartNumber << " " << maxPhilosopherNumber;
         //cout << stream.str() << endl;
         pid_t pid = fork();
         if(pid==0){
@@ -153,9 +170,15 @@ void NetworkApp::start(){
             }else if(command == 3){
                 message.setContent("election");
                 srand (time(NULL));
-                unsigned int num = rand()%nodeList.size(); 
-                for(unsigned int i=0; i < num; i++){
-                    messageHandler->sendMessage(message, nodeList.at(i));
+                unsigned int num = rand()%nodeList.size();
+                //Get a random subset of the nodeList with max num NodeIds 
+                vector<unsigned int> randNodeIdList = getRandNodeIdList(num);
+                for(unsigned int i=0; i < randNodeIdList.size(); i++){ 
+                    for(unsigned int j=0; j  < nodeList.size(); j++){
+                        if(randNodeIdList.at(i) == nodeList.at(j).getId()){
+                            messageHandler->sendMessage(message, nodeList.at(j));
+                        }
+                    }
                 }
             }
 
@@ -218,8 +241,8 @@ void NetworkApp::initTcpSocket(int& socketFd, unsigned int port){
 }
 
 int main(int argc, char* argv[]){
-    if(argc != 8){
-        cout << "usage: ./" << argv[0] << " networkPort nodeAppPath nodeFileName maxNumOfNodes (neighborNumber|graphizFileName) maxSend minTrust" << endl;
+    if(argc != 11){
+        cout << "usage: ./" << argv[0] << " networkPort nodeAppPath nodeFileName maxNumOfNodes (neighborNumber|graphizFileName) maxSend minTrust timesFile maxStartNumber maxPhilosopherNumber" << endl;
         exit(EXIT_FAILURE);
     }
     //cout << "NODE: " << argv[0] << " " << argv[1] << " " << argv[2] << " " << argv[3] << " "<< argv[4] << endl;
@@ -234,9 +257,12 @@ int main(int argc, char* argv[]){
     }
     unsigned int maxSend = atoi(argv[6]);
     unsigned int minTrust = atoi(argv[7]);
+    string timesFile = argv[8];
+    unsigned int maxStartNumber = atoi(argv[9]);
+    unsigned int maxPhilosopherNumber = atoi(argv[10]);
     NetworkApp* a1;
-    a1 = graphvizFileName.empty() ? new NetworkApp(programName, port, nodeFileName, nodeNumber, neighborSize, maxSend, minTrust) :
-                                    new NetworkApp(programName, port, nodeFileName, nodeNumber, graphvizFileName, maxSend, minTrust);
+    a1 = graphvizFileName.empty() ? new NetworkApp(programName, port, nodeFileName, nodeNumber, neighborSize, maxSend, minTrust, timesFile, maxStartNumber, maxPhilosopherNumber) :
+                                    new NetworkApp(programName, port, nodeFileName, nodeNumber, graphvizFileName, maxSend, minTrust, timesFile, maxStartNumber, maxPhilosopherNumber);
     a1->start();
     delete a1;
     return EXIT_SUCCESS;

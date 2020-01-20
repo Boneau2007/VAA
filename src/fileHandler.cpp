@@ -32,23 +32,23 @@ vector<Node> FileHandler::readNodes(const unsigned int maxNodesToRead){
     if(!fileStream.is_open()){
         throw  runtime_error("Can't open file");
     }else{
-            // Are there more lines in file and is the requested nodeListSize reached 
-            for(unsigned int i=0; getline(fileStream, line); i++){
-                if(line.empty()){
-                    continue;
-                }else if(nodeList.size() == maxNodesToRead){
-                    break;
-                }else if(regex_match(line, matches, isNodeLineRegex)){
-                    //cout << matches.str(1) << " " << matches.str(2)  << " " << matches.str(3) << endl;
-                    Node node(stoi(matches.str(1)), matches.str(2), stoi(matches.str(3)));
-                    nodeList.push_back(node);
-                }else{
-                    throw runtime_error("ERROR: No matching line");
-                }
+        // Are there more lines in file and is the requested nodeListSize reached 
+        for(unsigned int i=0; getline(fileStream, line); i++){
+            if(line.empty()){
+                continue;
+            }else if(nodeList.size() == maxNodesToRead){
+                break;
+            }else if(regex_match(line, matches, isNodeLineRegex)){
+                //cout << matches.str(1) << " " << matches.str(2)  << " " << matches.str(3) << endl;
+                Node node(stoi(matches.str(1)), matches.str(2), stoi(matches.str(3)));
+                nodeList.push_back(node);
+            }else{
+                throw runtime_error("ERROR: No matching line");
             }
-            if(nodeList.size() < maxNodesToRead){
-                throw runtime_error("ERROR: Less nodes in File than required");
-            }
+        }
+        if(nodeList.size() < maxNodesToRead){
+            throw runtime_error("ERROR: Less nodes in File than required");
+        }
     }
     fileStream.close();
     return nodeList;
