@@ -28,9 +28,11 @@ namespace Uebung1{
       bool initiator;
       unsigned int virtualParentId;
       unsigned int voteCount;
+      unsigned int resultCount;
       time_t preferedTime;
       unsigned int maxStartNumber;
       unsigned int maxPhilosopherNumber;
+      std::vector<Uebung1::Node> echoNeighbors;
       bool done;
 
     public:
@@ -89,8 +91,14 @@ namespace Uebung1{
       unsigned int getMaxStartNumber() const { return maxStartNumber; }
       void setMaxStartNumber(unsigned int maxStartNumber) { this->maxStartNumber=maxStartNumber; }
 
+      std::vector<Node> getEchoNeighbors() { return echoNeighbors; }
+      void setEchoNeighbors(std::vector<Node> echoNeighbors){ this->echoNeighbors = echoNeighbors; }
+
       unsigned int getVoteCount() const { return voteCount; }
       void setVoteCount(unsigned int voteCount) { this->voteCount=voteCount; }
+
+      unsigned int getResultCount() const { return resultCount; }
+      void setResultCount(unsigned int resultCount) { this->resultCount=resultCount; }
 
       time_t getPreferedTime() const { return preferedTime; }
       void setPreferedTime(time_t preferedTime) { this->preferedTime=preferedTime; }
@@ -108,7 +116,9 @@ namespace Uebung1{
       void sendOwnIdMessage(Message msg);
       void incrementRecvRumors(){ recvRumors++; }
       void incrementVoteCount(){ voteCount++; }
+      void incrementResultCount(){ resultCount++; }
       std::vector<unsigned int> getRandNodeList(const unsigned int maxNumber);
+      void addEchoNeighborMsg(std::string nodeEchoMsg);
       std::string toString() const;
  
     private:

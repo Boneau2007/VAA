@@ -32,7 +32,9 @@ namespace Uebung1{
 
         private:
             bool wasLastNotVirtualNodeEdge();
-            std::vector<unsigned int> getRandNodeIdList(const unsigned int maxNumber);
+            std::vector<Uebung1::Node> getRandNodeIdList(const unsigned int maxNumber);
+            
+            bool hasElement(std::vector<Uebung1::Node> neighbors, const unsigned int id);
             void sendBelieve();
             void startUnificationProcess();
             void sendExplorer(const unsigned int senderId);

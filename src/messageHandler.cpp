@@ -1,4 +1,5 @@
 #include <sstream>
+#include <regex>
 #include <algorithm>    // begin(), end(), find()
 #include <chrono>   // time
 #include <netdb.h>  // gethostbyname()
@@ -31,61 +32,69 @@ void MessageHandler::handleIncommingMessage(){
     timeS.pop_back();
     ostringstream ss;
     ss << "[ID:"<<node->getId() << "] RECV: " << message.toString() << " [" << timeS <<"]"  << endl;
-    //cout << ss.str();
+    cout << ss.str();
     switch(message.getMessageType()){
         case APPLICATION:   if(message.getContent().compare("rumor") == 0){
                                 forwardRumor(message.getSenderId());
                             }else if(message.getContent().compare(0,8,"explorer") == 0){
                                 unsigned int recvVirtualId = atoi(message.getContent().substr(9, message.getContent().size()).c_str());
+                                // Grad == 1, hat keine Nachbarn
                                 if(node->getNeighbors().size() == 1){
                                     sendEcho(message.getSenderId(), recvVirtualId);
+                                // Grad > 1, hat Nachbarn
                                 }else{
+                                    // j > i Knoten wird von starkerem Initiator erobert
                                     if(recvVirtualId > node->getVirtualParentId()){
                                         node->setVirtualParentId(recvVirtualId);
                                         sendExplorer(message.getSenderId());
+                                    // j == i, d.h. zwei Explorer identischer Markierung begegnen sich
                                     }else if(recvVirtualId == node->getVirtualParentId()){
                                         for(unsigned int i=0; i < node->getNeighbors().size(); i++){
                                             if(node->getNeighbors().at(i).getId() == message.getSenderId()){
                                                 node->getNeighbors().at(i).setDone(true);
+                                                break;
                                             }
                                         }
                                         if(wasLastNotVirtualNodeEdge()){
-                                            sendEcho(node->getVirtualParentId(),node->getVirtualParentId());
+                                            sendEcho(node->getId(), node->getVirtualParentId());
                                         }
                                     }
                                 }
                             }else if(message.getContent().compare(0, 4, "echo") == 0){
-                                unsigned int recvVirtualId = atoi(message.getContent().substr(5, message.getContent().size()).c_str());
+                                stringstream ss; 
+                                ss << message.getContent();
+                                char delemiter(';');
+                                string command;
+                                getline(ss, command , delemiter);
+                                unsigned int recvVirtualId = atoi(command.substr(5, command.size()).c_str());
                                 if(node->getVirtualParentId() == recvVirtualId){
+                                    string contentSubString = message.getContent().substr(command.size(), message.getContent().size());
+                                    node->addEchoNeighborMsg(contentSubString);
                                     for(unsigned int i=0; i < node->getNeighbors().size(); i++){
                                         if(node->getNeighbors().at(i).getId() == message.getSenderId()){
                                             node->getNeighbors().at(i).setDone(true);
                                             break;
                                         }
                                     }
-                                    if(node->getInitiator()){
+                                    if(wasLastNotVirtualNodeEdge() && !node->getInitiator()){
+                                        sendEcho(node->getId(),node->getVirtualParentId());
+                                    }else if(wasLastNotVirtualNodeEdge() && node->getInitiator()){
                                         node->setWinner(true);
-                                        //TODO: ADD ALL Nodes to this node as neighbor
                                         startUnificationProcess();
-                                    }else{
-                                        sendEcho(node->getVirtualParentId(),node->getVirtualParentId());
                                     }
                                 }
                             }else if(message.getContent().compare("election") == 0){
                                 stringstream ss;
                                 ss << "vote " << node->getPreferedTime();
-                                Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str()); 
-                                vector<unsigned int> randNeighbors = getRandNodeIdList(node->getMaxPhilosopherNumber());
+                                Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
+                                // Wählt p random nachbarn
+                                vector<Node> randNeighbors = getRandNodeIdList(node->getMaxPhilosopherNumber());
                                 for(unsigned int i=0; i < randNeighbors.size(); i++){
-                                    for(unsigned int j=0; j  < node->getNeighbors().size(); j++){
-                                        if(randNeighbors.at(i) == node->getNeighbors().at(j).getId()){
-                                            sendMessage(messageOut , node->getNeighbors().at(j));
-                                        }
-                                    }
+                                    sendMessage(messageOut , randNeighbors.at(i));
                                 }
                             }else if(message.getContent().compare(0,4, "vote") == 0){
                                 if(node->getMaxPhilosopherNumber() > node->getVoteCount()){
-                                     time_t recvTime = atoi(message.getContent().substr(5, message.getContent().size()).c_str());
+                                    time_t recvTime = atoi(message.getContent().substr(5, message.getContent().size()).c_str());
                                     stringstream ss;
                                     ss << "back " << node->getPreferedTime();
                                     Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str()); 
@@ -95,7 +104,12 @@ void MessageHandler::handleIncommingMessage(){
                                             break;
                                         }
                                     }
+                                    //Mittelwertberechnung
                                     time_t diff = (recvTime + node->getPreferedTime()) >> 2;
+                                    // Aufrunden des Mittelwerts wenn dieser ungerade war
+                                    if((recvTime + node->getPreferedTime()) % 2 != 0){
+                                        diff++;
+                                    }
                                     node->setPreferedTime(diff);
                                     node->incrementVoteCount();
                                 }
@@ -103,10 +117,42 @@ void MessageHandler::handleIncommingMessage(){
 
                             }else if(message.getContent().compare(0,4, "back") == 0){
                                 time_t recvTime = atoi(message.getContent().substr(5, message.getContent().size()).c_str());
+                                //Mittelwertberechnung
                                 time_t diff = (recvTime + node->getPreferedTime()) >> 2;
+                                // Aufrunden des Mittelwerts wenn dieser ungerade war
+                                if((recvTime + node->getPreferedTime()) % 2 != 0){
+                                    diff++;
+                                }
                                 node->setPreferedTime(diff);
-                                startUnificationProcess();
+                                // Pb führt die Abstimmung auf gleiche Weise fort
+                                stringstream ss;
+                                ss << "vote " << node->getPreferedTime();
+                                Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
+                                // Wählt p random nachbarn
+                                vector<Node> randNeighbors = getRandNodeIdList(node->getMaxPhilosopherNumber());
+                                for(unsigned int i=0; i < randNeighbors.size(); i++){
+                                    sendMessage(messageOut , randNeighbors.at(i));
+                                }
 
+                            }else if(message.getContent().compare(0,7,"inquiry") == 0){
+                                stringstream ss; 
+                                ss << message.getContent();
+                                char delemiter(';');
+                                string nodeAsString;
+                                smatch matches;
+                                getline(ss, nodeAsString , delemiter);
+                                nodeAsString = message.getContent().substr(nodeAsString.size(), message.getContent().size());
+                                const regex isNodeString("([0-9]+) ([0-9]+.[0-9]+.[0-9]+.[0-9]+) ([0-9]+)");
+                                regex_match(nodeAsString, matches, isNodeString);
+                                Node observerNode(atoi(matches.str(1).c_str()), matches.str(2), atoi(matches.str(3).c_str()));
+            
+                                stringstream sOut; 
+                                sOut << "result " << (node->getMaxPhilosopherNumber() > node->getVoteCount()) ;
+                                Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, sOut.str());
+                                sendMessage(messageOut , observerNode);
+                            }else if(message.getContent().compare(0,6,"result") == 0){
+                                //TODO: Set echoNeighbor variable so it can be used in other function
+                                node->incrementResultCount();
                             }else{
                                 std::cout << "["<< node->getId() <<"]:" << message.getContent() << " [" << timeS <<"]" << endl;
                             }
@@ -181,11 +227,30 @@ bool MessageHandler::wasLastNotVirtualNodeEdge(){
 }
 
 void MessageHandler::startUnificationProcess(){
-    srand (time(NULL));
+    vector<Node> randList = getRandNodeIdList(node->getMaxStartNumber());
     Message message(node->getId(), MESSAGE_TYPE::APPLICATION, "election"); 
-    for(unsigned int i=0; i < node->getMaxStartNumber(); i++){
-        unsigned int num = rand() % node->getNeighbors().size();
-        sendMessage(message , node->getNeighbors().at(num));
+    for(unsigned int i=0; i < randList.size(); i++){
+        sendMessage(message , node->getEchoNeighbors().at(i));
+    }
+    string content = "inquiry;" + node->toString() + ";";
+    message.setContent(content);
+    bool voteEnd = false;
+    while(!voteEnd){
+        sleep(1);
+        for(unsigned int i = 0;i < node->getEchoNeighbors().size(); i++){
+            sendMessage(message, node->getEchoNeighbors().at(i));
+        }
+        while(node->getResultCount() < node->getEchoNeighbors().size());
+
+        sleep(1);
+        for(unsigned int i = 0;i < node->getEchoNeighbors().size(); i++){
+            sendMessage(message, node->getEchoNeighbors().at(i));
+        }
+        while(node->getResultCount() < node->getEchoNeighbors().size());
+        
+        //compare
+        //collect
+        //evaluate
     }
 }
 
@@ -250,7 +315,7 @@ void MessageHandler::sendExplorer(const unsigned int senderId){
     stringstream ss;
     ss << "explorer " << node->getVirtualParentId();
     Message message(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
-        for(unsigned int i=0;i< node->getNeighbors().size();i++){
+        for(unsigned int i=0;i< node->getNeighbors().size(); i++){
             if(node->getNeighbors().at(i).getId() != senderId){
                 sendMessage(message , node->getNeighbors().at(i));
             }
@@ -262,7 +327,10 @@ void MessageHandler::sendExplorer(const unsigned int senderId){
  */
 void MessageHandler::sendEcho(const unsigned int senderId, const unsigned int virtualId){
     stringstream ss;
-    ss << "echo " << virtualId;
+    ss << "echo " << virtualId << ";" << node->toString() << ";";
+    for(unsigned int i=0;i < node->getEchoNeighbors().size(); i++){
+        ss << node->getEchoNeighbors().at(i).toString() << ";";
+    }
     Message message(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
     for(unsigned int i=0;i< node->getNeighbors().size();i++){
             if(node->getNeighbors().at(i).getId() == senderId){
@@ -271,16 +339,25 @@ void MessageHandler::sendEcho(const unsigned int senderId, const unsigned int vi
         }
 }
 
+bool MessageHandler::hasElement(vector<Node> neighbors, const unsigned int id){
+    for(unsigned int i=0;i < neighbors.size();i++){
+        if(neighbors.at(i).getId() == id){
+            return true;
+        }
+    }
+    return false;
+}
 
 
-std::vector<unsigned int> MessageHandler::getRandNodeIdList(const unsigned int maxNumber){
-    vector<unsigned int> randNodeIdList;
+std::vector<Node> MessageHandler::getRandNodeIdList(const unsigned int maxNumber){
+    vector<Node> randNodeIdList;
     srand (time(NULL));
     while (randNodeIdList.size() < maxNumber){
-        unsigned int num = rand()%node->getNeighbors().size();
+        unsigned int num = rand()%node->getEchoNeighbors().size();
         for(unsigned int i=0; i < randNodeIdList.size(); i++){
-            if(node->getNeighbors().at(num).getId() != randNodeIdList.at(i)){
-                randNodeIdList.push_back(node->getNeighbors().at(num).getId());
+            if( node->getEchoNeighbors().at(num).getId() != randNodeIdList.at(i).getId() &&
+                !hasElement(randNodeIdList, node->getEchoNeighbors().at(num).getId())){
+                randNodeIdList.push_back(node->getEchoNeighbors().at(num));
             }
         }
     }

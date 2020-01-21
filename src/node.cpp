@@ -1,6 +1,7 @@
 
 
 #include <sstream>
+#include <regex>
 #include <thread>         // std::thread
 #include <future>         // std::future
 #include <queue>         // std::queue
@@ -37,7 +38,7 @@ Node::Node( const unsigned int id, const string ipAddress, const unsigned int po
     :   id(id), ipAddress(ipAddress), port(port),
         neighbors(neighbors), initNodePort(initNodePort), 
         maxSend(maxSend), believerEpsilon(believerEpsilon),
-        recvRumors(0), hasSend(false), winner(false), initiator(false), virtualParentId(0), voteCount(0),
+        recvRumors(0), hasSend(false), winner(false), initiator(false), virtualParentId(0), voteCount(0), resultCount(0),
         preferedTime(preferedTime), maxStartNumber(maxStartNumber), maxPhilosopherNumber(maxPhilosopherNumber), done(false){
     startHandle();
 }
@@ -100,6 +101,7 @@ void Node::executeWorkerThread(int socketFd) {
     char buff[256] = {'\0'};
     read(socketFd, buff, 256);
     string msg(buff);
+    //TODO: MUTEX? sodass jede Nachricht nacheinander abgearbeitet wird
     MessageHandler handler(this, msg);
     handler.handleIncommingMessage();
     close(socketFd);
@@ -133,8 +135,22 @@ void Node::initTcpSocket(int& socketFd, unsigned int port){
 	}
 }
 
+void Node::addEchoNeighborMsg(string nodeEchoMsg){
+    stringstream ss; 
+    ss << nodeEchoMsg;
+    char delemiter(';');
+    string line;
+    smatch matches;
+    const regex isNodeString("([0-9]+) ([0-9]+.[0-9]+.[0-9]+.[0-9]+) ([0-9]+)");
+    for(unsigned int i=0; getline(ss, line, delemiter); i++){
+        regex_match(line, matches, isNodeString);
+        Node node(atoi(matches.str(1).c_str()), matches.str(2), atoi(matches.str(3).c_str()));
+        echoNeighbors.push_back(node);
+    }
+}
+
 string Node::toString() const {
     ostringstream ss;
-    ss  << "ID: "<< id <<  " IP: " << ipAddress << " Port: " << port;
+    ss  << id <<  " " << ipAddress << " " << port;
     return ss.str();
 }
