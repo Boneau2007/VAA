@@ -18,8 +18,8 @@ namespace Uebung1 {
         public:
             // Constructors
             FileHandler();
-            FileHandler(const std::string fileName);
-            FileHandler(const std::string nodeFile, const std::string graphFile);
+            FileHandler(const std::string& fileName);
+            FileHandler(const std::string& nodeFile, const std::string& graphFile);
             // Deconstructors
             
             // Inline-Elemtfunctions
@@ -32,7 +32,7 @@ namespace Uebung1 {
             // Memberfunctions
             void graphgen(const std::string fileName, std::vector<Uebung1::Node> nodeList, const unsigned int nodesNmber, const unsigned int edgeCount);
             std::vector<Uebung1::Node> readNodes(const unsigned int maxNodesToRead);
-            std::vector<Uebung1::Node> readGraphviz(const unsigned int id, std::vector<Uebung1::Node> nodeList);
+            std::vector<Uebung1::Node> readGraphviz(const unsigned int id, const std::vector<Uebung1::Node>& nodeList);
             Uebung1::Node getNodeFromFile(const unsigned int id, std::vector<Uebung1::Node> nodeList);
         private:
             bool maxEdgesPerNode(const std::vector<Uebung1::Edge> edgeList, const unsigned int id, unsigned int edgeCount);

@@ -25,7 +25,7 @@ namespace Uebung1{
             std::string programName;
             unsigned int port;
             std::string nodeFileName;
-            unsigned int neighborSize;
+            unsigned int neighborSize{};
             std::string graphvizFileName;
             unsigned int doneNumber;
             unsigned int believeingNodes;
@@ -70,11 +70,12 @@ namespace Uebung1{
             void executeListingThread();   
 
         private:
+            static bool contains(const std::vector<unsigned int>& list, const unsigned int number);
             std::vector<unsigned int> getRandNodeIdList(const unsigned int maxNumber);     
             void reset();
             void executeWorkerThread(int socketFd);
             void executeStartNodeThread(unsigned int nodeId);
-            void initTcpSocket(int& socketFd, unsigned int port);
+            static void initTcpSocket(int& socketFd, unsigned int port);
     };
 }
 #endif // NODEAPP_HPP

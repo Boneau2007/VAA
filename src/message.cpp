@@ -19,7 +19,7 @@ Message::Message(const std::string message){
     const regex isMessageRegex(R"(([0-9]*);(app|ctrl);(.*))");
     if(regex_match(message, matches, isMessageRegex)){
         senderId = stoi(matches.str(1));
-        matches.str(2).compare("app")==0 ? type=APPLICATION : type=CONTROL;
+        matches.str(2)=="app" ? type=APPLICATION : type=CONTROL;
         content = matches.str(3);
     }else{
         throw runtime_error("ERROR: No matching line");

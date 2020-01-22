@@ -76,9 +76,10 @@ int main(int argc, char** argv){
         vector<Node> neighbors;
 
         if(maxNeighbor == 0){
-            string graphvizFileName = argv[6]; // is Filename
+            string graphvizFileName = argv[7]; // is Filename
             FileHandler handler(nodeFileName, graphvizFileName);
-            neighbors = handler.readGraphviz(id, handler.readNodes(maxNodes));
+            vector<Node> nodeList = handler.readNodes(maxNodes);
+            neighbors = handler.readGraphviz(id, nodeList);
         }else{
             neighbors = selectNeighbors(id, maxNeighbor, nodeFileName, maxNodes);
         }

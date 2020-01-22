@@ -1,8 +1,6 @@
 #include <sstream>
 #include <regex>
-#include <algorithm>    // begin(), end(), find()
 #include <chrono>   // time
-#include <netdb.h>  // gethostbyname()
 #include <cstring>  // memcpy()
 #include <unistd.h>     // close() write()
 #include <sys/socket.h> // inet_addr
@@ -34,7 +32,7 @@ void MessageHandler::handleIncommingMessage(){
     ss << "[ID:"<<node->getId() << "] RECV: " << message.toString() << " [" << timeS <<"]"  << endl;
     cout << ss.str();
     switch(message.getMessageType()){
-        case APPLICATION:   if(message.getContent().compare("rumor") == 0){
+        case APPLICATION:   if(message.getContent() == "rumor"){
                                 forwardRumor(message.getSenderId());
                             }else if(message.getContent().compare(0,8,"explorer") == 0){
                                 unsigned int recvVirtualId = atoi(message.getContent().substr(9, message.getContent().size()).c_str());
@@ -83,14 +81,14 @@ void MessageHandler::handleIncommingMessage(){
                                         startUnificationProcess();
                                     }
                                 }
-                            }else if(message.getContent().compare("election") == 0){
+                            }else if(message.getContent() == "election"){
                                 stringstream ss;
                                 ss << "vote " << node->getPreferedTime();
                                 Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
                                 // Wählt p random nachbarn
                                 vector<Node> randNeighbors = getRandNodeIdList(node->getMaxPhilosopherNumber());
-                                for(unsigned int i=0; i < randNeighbors.size(); i++){
-                                    sendMessage(messageOut , randNeighbors.at(i));
+                                for(auto & randNeighbor : randNeighbors){
+                                    sendMessage(messageOut , randNeighbor);
                                 }
                             }else if(message.getContent().compare(0,4, "vote") == 0){
                                 if(node->getMaxPhilosopherNumber() > node->getVoteCount()){
@@ -130,8 +128,8 @@ void MessageHandler::handleIncommingMessage(){
                                 Message messageOut(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str());
                                 // Wählt p random nachbarn
                                 vector<Node> randNeighbors = getRandNodeIdList(node->getMaxPhilosopherNumber());
-                                for(unsigned int i=0; i < randNeighbors.size(); i++){
-                                    sendMessage(messageOut , randNeighbors.at(i));
+                                for(auto & randNeighbor : randNeighbors){
+                                    sendMessage(messageOut , randNeighbor);
                                 }
 
                             }else if(message.getContent().compare(0,7,"inquiry") == 0){
@@ -157,19 +155,19 @@ void MessageHandler::handleIncommingMessage(){
                                 std::cout << "["<< node->getId() <<"]:" << message.getContent() << " [" << timeS <<"]" << endl;
                             }
                             break;
-        case CONTROL:   if(message.getContent().compare("initiator") == 0){
+        case CONTROL:   if(message.getContent() == "initiator"){
                             ostringstream ss;
                             ss << "Neighbor Id: " << node->getId();
                             node->sendOwnIdMessage(Message( node->getId(), MESSAGE_TYPE::APPLICATION, ss.str()));
-                        }else if(message.getContent().compare("rumor") == 0){
+                        }else if(message.getContent() == "rumor"){
                             initRumor();
-                        }else if(message.getContent().compare("evaluate") == 0){
+                        }else if(message.getContent() == "evaluate"){
                             sendBelieve();
-                        }else if(message.getContent().compare("election") == 0){
+                        }else if(message.getContent() == "election"){
                             node->setVirtualParentId(node->getId());
                             node->setInitiator(true);
                             sendExplorer(message.getSenderId());
-                        }else if(message.getContent().compare("end") == 0){
+                        }else if(message.getContent() == "end"){
                             cout << "End Node " << node->getId() << endl;
                             exit(EXIT_SUCCESS);
                         }else{
@@ -351,7 +349,7 @@ bool MessageHandler::hasElement(vector<Node> neighbors, const unsigned int id){
 
 std::vector<Node> MessageHandler::getRandNodeIdList(const unsigned int maxNumber){
     vector<Node> randNodeIdList;
-    srand (time(NULL));
+    srand (time(nullptr));
     while (randNodeIdList.size() < maxNumber){
         unsigned int num = rand()%node->getEchoNeighbors().size();
         for(unsigned int i=0; i < randNodeIdList.size(); i++){

@@ -1,0 +1,88 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/include/edge.hpp
+
+../src/include/fileHandler.hpp
+string
+-
+vector
+-
+node.hpp
+../src/include/node.hpp
+edge.hpp
+../src/include/edge.hpp
+
+../src/include/message.hpp
+iostream
+-
+string
+-
+
+../src/include/messageHandler.hpp
+iostream
+-
+string
+-
+vector
+-
+mutex
+-
+node.hpp
+../src/include/node.hpp
+message.hpp
+../src/include/message.hpp
+
+../src/include/networkApp.hpp
+string
+-
+vector
+-
+thread
+-
+mutex
+-
+messageHandler.hpp
+../src/include/messageHandler.hpp
+
+../src/include/node.hpp
+iostream
+-
+string
+-
+vector
+-
+fileHandler.hpp
+../src/include/fileHandler.hpp
+message.hpp
+../src/include/message.hpp
+
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp
+fstream
+-
+regex
+-
+fileHandler.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
+
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp
+iostream
+-
+netdb.h
+-
+bits/stdc++.h
+-
+unistd.h
+-
+fcntl.h
+-
+networkApp.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.hpp
+fileHandler.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
+

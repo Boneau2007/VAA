@@ -8,11 +8,11 @@ using namespace Uebung1;
 FileHandler::FileHandler()
     : nodeFile(""), graphFile("") {}
 
-FileHandler::FileHandler(const string nodeFile) 
+FileHandler::FileHandler(const string& nodeFile)
     : nodeFile(nodeFile), graphFile(""){
 }
 
-FileHandler::FileHandler(const string nodeFile, const string graphFile) 
+FileHandler::FileHandler(const string& nodeFile, const string& graphFile)
     : nodeFile(nodeFile), graphFile(graphFile){
 }
 
@@ -33,21 +33,16 @@ vector<Node> FileHandler::readNodes(const unsigned int maxNodesToRead){
         throw  runtime_error("Can't open file");
     }else{
         // Are there more lines in file and is the requested nodeListSize reached 
-        for(unsigned int i=0; getline(fileStream, line); i++){
+        for(unsigned int i=0; nodeList.size() < maxNodesToRead; i++){
+            getline(fileStream, line);
             if(line.empty()){
                 continue;
-            }else if(nodeList.size() == maxNodesToRead){
-                break;
             }else if(regex_match(line, matches, isNodeLineRegex)){
                 //cout << matches.str(1) << " " << matches.str(2)  << " " << matches.str(3) << endl;
-                Node node(stoi(matches.str(1)), matches.str(2), stoi(matches.str(3)));
-                nodeList.push_back(node);
+                nodeList.emplace_back(stoi(matches.str(1)), matches.str(2), stoi(matches.str(3)));
             }else{
-                throw runtime_error("ERROR: No matching line");
+                throw runtime_error("ERROR: No matching node line");
             }
-        }
-        if(nodeList.size() < maxNodesToRead){
-            throw runtime_error("ERROR: Less nodes in File than required");
         }
     }
     fileStream.close();
@@ -58,7 +53,7 @@ vector<Node> FileHandler::readNodes(const unsigned int maxNodesToRead){
 /*
  * This function parses a graphviz file and sets the neighbors to the given Id
  */
-vector<Node> FileHandler::readGraphviz(const unsigned int id, vector<Node> nodeList){
+vector<Node> FileHandler::readGraphviz(const unsigned int id, const vector<Node>& nodeList){
     ifstream fileStream;
     string::size_type sz;
     string line;
@@ -92,7 +87,7 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id, vector<Node> nodeL
                 continue;
             }else{
                 fileStream.close();
-                throw runtime_error("ERROR: No matching regex");
+                throw runtime_error("ERROR: No matching graph regex");
             }
         }
         fileStream.close();

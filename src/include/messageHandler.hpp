@@ -21,7 +21,7 @@ namespace Uebung1{
         public:
             // Constructors
             MessageHandler();
-            MessageHandler(Uebung1::Node* node);
+            explicit MessageHandler(Uebung1::Node* node);
             MessageHandler(Uebung1::Node* node, std::string message);
 
             // Deconstructors
@@ -32,16 +32,15 @@ namespace Uebung1{
 
         private:
             bool wasLastNotVirtualNodeEdge();
-            std::vector<Uebung1::Node> getRandNodeIdList(const unsigned int maxNumber);
+            std::vector<Uebung1::Node> getRandNodeIdList(unsigned int maxNumber);
             
-            bool hasElement(std::vector<Uebung1::Node> neighbors, const unsigned int id);
+            static bool hasElement(std::vector<Uebung1::Node> neighbors, unsigned int id);
             void sendBelieve();
             void startUnificationProcess();
-            void sendExplorer(const unsigned int senderId);
-            void sendEcho(const unsigned int senderId, const unsigned int virtualId);
+            void sendExplorer(unsigned int senderId);
+            void sendEcho(unsigned int senderId, unsigned int virtualId);
             void initRumor();
-            void forwardRumor(const unsigned int senderId);
-            void setHostAddress(const Uebung1::Node& node);
+            void forwardRumor(unsigned int senderId);
     };
 }
 #endif // MESSAGE_HANDLER_HPP
