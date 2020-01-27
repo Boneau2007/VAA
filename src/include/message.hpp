@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-
+#include "node.cpp"
 namespace Uebung1{
     
     enum MESSAGE_TYPE {APPLICATION, CONTROL};
@@ -15,15 +15,16 @@ namespace Uebung1{
             unsigned int senderId; 
             MESSAGE_TYPE type;
             std::string content;
-        
-        public:
+            unsigned int originId;
+            std::vector<unsigned int> hopedNodeIdList;
+
+    public:
             // Constructors
             Message();
-            Message(const unsigned int senderId, const MESSAGE_TYPE type);
-            Message(const unsigned int senderId, const MESSAGE_TYPE type, const std::string content);
-            Message(const MESSAGE_TYPE type, const std::string content);
-            Message(const std::string message);
-            
+            Message(std::string content);
+            Message(unsigned int senderId, MESSAGE_TYPE type, std::string content);
+            Message(unsigned int senderId, MESSAGE_TYPE type, std::string content, unsigned int originId);
+
             // Deconstructors
             //virtual ~Message();
 
@@ -36,6 +37,12 @@ namespace Uebung1{
 
             std::string getContent() const { return content; }
             void setContent(std::string content){ this->content = content; }
+
+            unsigned int getOriginId() const { return originId; }
+            void setOriginId(unsigned int originId){ this->originId = originId; }
+
+            std::vector<unsigned int> getHopedNodeIdList() const { return hopedNodeIdList; }
+            void setHopedNodeIdList(std::vector<unsigned int> hopedNodeIdList){ this->hopedNodeIdList = hopedNodeIdList; }
 
             // Memberfunctions
             std::string toString();

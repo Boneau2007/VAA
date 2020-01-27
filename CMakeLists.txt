@@ -4,7 +4,6 @@ project(VAA)
 set(CMAKE_CXX_STANDARD 14)
 SET(CMAKE_CXX_FLAGS -pthread)
 include_directories(src/include)
-
 add_executable(networkNode
         src/include/edge.hpp
         src/include/fileHandler.hpp

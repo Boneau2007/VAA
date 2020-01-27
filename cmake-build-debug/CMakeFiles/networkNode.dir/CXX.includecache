@@ -38,18 +38,6 @@ node.hpp
 message.hpp
 ../src/include/message.hpp
 
-../src/include/networkApp.hpp
-string
--
-vector
--
-thread
--
-mutex
--
-messageHandler.hpp
-../src/include/messageHandler.hpp
-
 ../src/include/node.hpp
 iostream
 -
@@ -62,27 +50,23 @@ fileHandler.hpp
 message.hpp
 ../src/include/message.hpp
 
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp
-fstream
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp
+sstream
 -
 regex
 -
-fileHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp
-iostream
+chrono
 -
-netdb.h
--
-bits/stdc++.h
+cstring
 -
 unistd.h
 -
-fcntl.h
+sys/socket.h
 -
-networkApp.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.hpp
-fileHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
+netinet/in.h
+-
+arpa/inet.h
+-
+messageHandler.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.hpp
 

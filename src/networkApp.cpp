@@ -179,9 +179,9 @@ void NetworkApp::start(){
             }else if(command == 3){
                 message.setContent("election");
                 srand (time(nullptr));
-                unsigned int num = rand()%nodeList.size()+1;
+                //unsigned int num = rand()%nodeList.size()+1;
                 //Get a random subset of the nodeList with max num NodeIds
-                vector<unsigned int> randNodeIdList = getRandNodeIdList(num);
+                vector<unsigned int> randNodeIdList = getRandNodeIdList(1);
                 cout << randNodeIdList.size() << endl;
                 for(unsigned int i : randNodeIdList){
                     for(auto & j : nodeList){

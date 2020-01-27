@@ -7,34 +7,30 @@
 #include <vector>
 #include "fileHandler.hpp"
 #include "message.hpp"
+#include "messageHandler.hpp"
+#include "doubleCounting.hpp"
 
 namespace Uebung1{
   class FileHandler;
   class Node{
     private:
-      // Classattributes
-      unsigned int id;
-      std::string ipAddress;
-      unsigned int port;
-      std::vector<Uebung1::Node> neighbors;
-      unsigned int initNodePort;
+        // Classattributes
+        unsigned int id;
+        std::string ipAddress;
+        unsigned int port;
+        std::vector<Uebung1::Node> neighbors;
+        unsigned int initNodePort;
 
-      unsigned int maxSend;
-      unsigned int believerEpsilon;
-      unsigned int recvRumors;
-      bool hasSend;
+        unsigned int maxSend;
+        unsigned int believerEpsilon;
+        unsigned int recvRumors;
+        bool hasSend;
 
-      bool winner;
-      bool initiator;
-      unsigned int virtualParentId;
-      unsigned int voteCount;
-      unsigned int resultCount;
-      time_t preferedTime;
-      unsigned int maxStartNumber;
-      unsigned int maxPhilosopherNumber;
-      std::vector<Uebung1::Node> echoNeighbors;
-      bool done;
-
+        time_t preferedTime;
+        unsigned maxStartNumber;
+        unsigned int maxPhilosopherNumber;
+        MessageHandler handler;
+        DoubleCounting doubleCounting;
     public:
       // Constructors  
       Node();
@@ -49,10 +45,6 @@ namespace Uebung1{
       }
 
       // Deconstructors
-      // ~Node(){
-      //   delete initNode;
-      //   delete fileHandler;
-      // }
       
       // Inline-Elementfunctions
       unsigned int getId() const { return id; }
@@ -113,20 +105,19 @@ namespace Uebung1{
       void startHandle();
       void selectNeighbors();
       void startCommunication();
-      void sendOwnIdMessage(Message msg);
+      void sendToNeighbors(Message msg);
       void incrementRecvRumors(){ recvRumors++; }
       void incrementVoteCount(){ voteCount++; }
       void incrementResultCount(){ resultCount++; }
-      std::vector<unsigned int> getRandNodeList(const unsigned int maxNumber);
-      void addEchoNeighborMsg(std::string nodeEchoMsg);
       std::string toString() const;
+      void sendMessageToNode(Message message, const Node& targetNode);
  
     private:
       bool hasNeighbor(const unsigned int id);
-      void initTcpSocket(int& socketFd, unsigned int port);
+      void initTcpSocket(int& socketFd);
       void executePingThread();
       void executeWorkerThread(int socketFd);
-      void executeSendMessageThread(Message message, Node node);
+      void executeSendMessageThread(Message message, const Node& node);
   };
 }
 #endif // NODE_HPP

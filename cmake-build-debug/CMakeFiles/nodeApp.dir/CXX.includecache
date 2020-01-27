@@ -24,6 +24,20 @@ iostream
 string
 -
 
+../src/include/messageHandler.hpp
+iostream
+-
+string
+-
+vector
+-
+mutex
+-
+node.hpp
+../src/include/node.hpp
+message.hpp
+../src/include/message.hpp
+
 ../src/include/node.hpp
 iostream
 -
@@ -36,49 +50,23 @@ fileHandler.hpp
 message.hpp
 ../src/include/message.hpp
 
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp
-fstream
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp
+sstream
 -
 regex
 -
-fileHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/edge.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/fileHandler.hpp
-string
+chrono
 -
-vector
+cstring
 -
-node.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/node.hpp
-edge.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/edge.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/message.hpp
-iostream
+unistd.h
 -
-string
+sys/socket.h
 -
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/node.hpp
-iostream
+netinet/in.h
 -
-string
+arpa/inet.h
 -
-vector
--
-fileHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/fileHandler.hpp
-message.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/message.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/nodeApp.cpp
-string
--
-fstream
--
-include/node.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/node.hpp
+messageHandler.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.hpp
 

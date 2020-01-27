@@ -14,14 +14,14 @@ namespace Uebung1 {
         private:
             std::string nodeFile;
             std::string graphFile;
-            
+
         public:
             // Constructors
             FileHandler();
             FileHandler(const std::string& fileName);
             FileHandler(const std::string& nodeFile, const std::string& graphFile);
             // Deconstructors
-            
+
             // Inline-Elemtfunctions
             std::string getFileName(){ return nodeFile; }
             void setFileName(std::string nodeFile){ this->nodeFile = nodeFile; }

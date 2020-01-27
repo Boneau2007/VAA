@@ -6,13 +6,13 @@ using namespace std;
 using namespace Uebung1;
 
 Message::Message()
-    : senderId(0), type(MESSAGE_TYPE::APPLICATION), content(""){}
-
-Message::Message(const unsigned int senderId, const MESSAGE_TYPE type)
-    : senderId(senderId), type(type), content(""){}
+    : senderId(0), type(MESSAGE_TYPE::APPLICATION), content(""), originId(0){}
 
 Message::Message(const unsigned int senderId, const MESSAGE_TYPE type, const std::string content)
-    : senderId(senderId), type(type), content(content){}
+        : senderId(senderId), type(type), content(content), originId(senderId){}
+
+Message::Message(const unsigned int senderId, const MESSAGE_TYPE type, const std::string content, const unsigned int originId)
+        : senderId(senderId), type(type), content(content), originId(originId){}
 
 Message::Message(const std::string message){
     smatch matches;
@@ -28,7 +28,7 @@ Message::Message(const std::string message){
 
 string Message::toString(){
     ostringstream ss;
-    ss  << senderId;
+    ss << originId << ";" << senderId;
     type == APPLICATION ? ss << ";app;" : ss << ";ctrl;" ;
     ss << content;
     return ss.str();
