@@ -8,6 +8,8 @@
 #include "node.hpp"
 #include "message.hpp"
 #include "echoHandler.hpp"
+#include "doubleCounting.hpp"
+#include "agreement.hpp"
 
 namespace Uebung1{
     class Node;
@@ -25,13 +27,17 @@ namespace Uebung1{
             EchoHandler* echoHandler;
             DoubleCounting* doubleCounting;
             Agreement* agreement;
+
         public:
             // Constructors
             MessageHandler();
             explicit MessageHandler(Uebung1::Node* node);
 
             // Deconstructors
-            
+        
+            DoubleCounting* getDoubleCounting() { return doubleCounting; }
+            Agreement* getAgreement() { return agreement; }
+        
             // Memberfunctions
             void handleIncommingMessage(Uebung1::Message* msg);
 
