@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="VAA"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nodeApp">
+				<Option output="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/nodeApp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 nodeApp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nodeApp/fast">
+				<Option output="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/nodeApp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 nodeApp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="networkNode">
+				<Option output="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/networkNode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 networkNode"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="networkNode/fast">
+				<Option output="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/networkNode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 networkNode/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="graphGenApp">
+				<Option output="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/graphGenApp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 graphGenApp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="graphGenApp/fast">
+				<Option output="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/graphGenApp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 graphGenApp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik\ Master/3.Semester/VAA\ (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/edge.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/graphGenApp.cpp">
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/agreement.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/config.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/doubleCounting.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/echoHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/edge.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/fileHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/message.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/messageHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/networkApp.hpp">
+			<Option target="networkNode"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/node.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp">
+			<Option target="networkNode"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/nodeApp.cpp">
+			<Option target="nodeApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
-#include "node.cpp"
+#include "node.hpp"
+#include "edge.hpp"
+
 namespace Uebung1{
     
     enum MESSAGE_TYPE {APPLICATION, CONTROL};
@@ -16,14 +18,17 @@ namespace Uebung1{
             MESSAGE_TYPE type;
             std::string content;
             unsigned int originId;
-            std::vector<unsigned int> hopedNodeIdList;
+            std::vector<Edge> hopList;
 
-    public:
+        public:
             // Constructors
             Message();
             Message(std::string content);
+            Message(unsigned int senderId, MESSAGE_TYPE type);
             Message(unsigned int senderId, MESSAGE_TYPE type, std::string content);
             Message(unsigned int senderId, MESSAGE_TYPE type, std::string content, unsigned int originId);
+            Message(unsigned int senderId, MESSAGE_TYPE type, std::string content, unsigned int originId,
+                    std::vector<Edge> hopList);
 
             // Deconstructors
             //virtual ~Message();
@@ -41,10 +46,12 @@ namespace Uebung1{
             unsigned int getOriginId() const { return originId; }
             void setOriginId(unsigned int originId){ this->originId = originId; }
 
-            std::vector<unsigned int> getHopedNodeIdList() const { return hopedNodeIdList; }
-            void setHopedNodeIdList(std::vector<unsigned int> hopedNodeIdList){ this->hopedNodeIdList = hopedNodeIdList; }
+            std::vector<Edge> getHopList() const { return hopList; }
+            void setHopList(std::vector<Edge> hopList){ this->hopList = hopList; }
 
             // Memberfunctions
+            std::string encode();
+            void decode(const std::string& messageAsString);
             std::string toString();
     };
 }

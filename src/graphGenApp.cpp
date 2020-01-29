@@ -17,6 +17,7 @@ int main(int argc, char** argv){
     const string fileName(argv[4]);
     cout << nodeFile << " " << nodeNumbers << " " << edgeNumbers << " " << fileName << endl;
     FileHandler handler(nodeFile);
-    handler.graphgen(fileName, handler.readNodes(nodeNumbers), nodeNumbers, edgeNumbers);
+    handler.readNodes(nodeNumbers);
+    handler.graphgen(fileName, nodeNumbers, edgeNumbers);
     return EXIT_SUCCESS;
 }

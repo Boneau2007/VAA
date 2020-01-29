@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/graphGenApp.dir/src/agreement.cpp.o"
+  "CMakeFiles/graphGenApp.dir/src/config.cpp.o"
+  "CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o"
+  "CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/edge.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o"

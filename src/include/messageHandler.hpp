@@ -10,15 +10,17 @@
 #include "echoHandler.hpp"
 
 namespace Uebung1{
+    class Node;
+    class Message;
+    class EchoHandler;
     class MessageHandler{
 
         private:
-            // Classattributes
-            Uebung1::Node* node{};
-            Uebung1::Message message;
+        // Classattributes
+            Uebung1::Node* node;
             std::mutex forwardMutex;
-            EchoHandler echoHandler;
-        
+            std::mutex echoMutex;
+            EchoHandler* echoHandler;
         public:
             // Constructors
             MessageHandler();
@@ -27,7 +29,8 @@ namespace Uebung1{
             // Deconstructors
             
             // Memberfunctions
-            void handleIncommingMessage(const Uebung1::Message& msg);
+            void handleIncommingMessage(Uebung1::Message* msg);
+
     };
 }
 #endif // MESSAGE_HANDLER_HPP

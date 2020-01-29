@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/nodeApp.dir/src/agreement.cpp.o"
+  "CMakeFiles/nodeApp.dir/src/config.cpp.o"
+  "CMakeFiles/nodeApp.dir/src/doubleCounting.cpp.o"
+  "CMakeFiles/nodeApp.dir/src/echoHandler.cpp.o"
   "CMakeFiles/nodeApp.dir/src/edge.cpp.o"
   "CMakeFiles/nodeApp.dir/src/fileHandler.cpp.o"
   "CMakeFiles/nodeApp.dir/src/message.cpp.o"

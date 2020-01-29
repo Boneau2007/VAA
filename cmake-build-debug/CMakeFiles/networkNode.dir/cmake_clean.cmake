@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/networkNode.dir/src/agreement.cpp.o"
+  "CMakeFiles/networkNode.dir/src/config.cpp.o"
+  "CMakeFiles/networkNode.dir/src/doubleCounting.cpp.o"
+  "CMakeFiles/networkNode.dir/src/echoHandler.cpp.o"
   "CMakeFiles/networkNode.dir/src/edge.cpp.o"
   "CMakeFiles/networkNode.dir/src/fileHandler.cpp.o"
   "CMakeFiles/networkNode.dir/src/message.cpp.o"

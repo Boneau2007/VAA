@@ -3,7 +3,6 @@
 #include <sstream>
 #include <regex>
 #include <thread>         // std::thread
-#include <future>         // std::future
 #include <queue>         // std::queue
 #include <cstring>      // memset
 #include <unistd.h>     // close()
@@ -13,43 +12,41 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-#include "include/node.hpp"
-#include "include/messageHandler.hpp"
+#include <fstream>
+#include "node.hpp"
 
 using namespace std;
 using namespace Uebung1;
 using namespace chrono;
 
-Node::Node() :  id(0), ipAddress(""), port(0), initNodePort(0), 
-                maxSend(0), believerEpsilon(0), recvRumors(0), 
-                hasSend(false){}
+Node::Node() :  id(0), ipAddress(""), port(0), recvRumors(0), hasSend(false){}
 
-Node::Node(const unsigned int id) : id(id), ipAddress(""), port(0), initNodePort(0), 
-                                    maxSend(0), believerEpsilon(0), recvRumors(0), 
-                                    hasSend(false){}
-
-Node::Node(const unsigned int id, const string ipAddress, const unsigned int port)
-    :   id(id), ipAddress(ipAddress), port(port), initNodePort(0), maxSend(0), 
-        believerEpsilon(0), recvRumors(0), hasSend(false){
+Node::Node(const unsigned int id, const string& ipAddress, const unsigned int port)
+    :   id(id), ipAddress(ipAddress), port(port), recvRumors(0), hasSend(false){
 }
 
-Node::Node( const unsigned int id, const string ipAddress, const unsigned int port, const unsigned int initNodePort, 
-            const vector<Node> neighbors, const unsigned int maxSend, const unsigned int believerEpsilon, 
-            const time_t preferedTime,const unsigned int maxStartNumber, const unsigned maxPhilosopherNumber)
-    :   id(id), ipAddress(ipAddress), port(port), neighbors(neighbors), initNodePort(initNodePort),
-        maxSend(maxSend), believerEpsilon(believerEpsilon), recvRumors(0), hasSend(false),
-        preferedTime(preferedTime), maxStartNumber(maxStartNumber),maxPhilosopherNumber(maxPhilosopherNumber), handler(this){
+Node::Node(const unsigned int id, const std::string& configFile, const bool isGraphviz) : id(id),config(configFile){
+    initNode = new Node(0,config.getInitIpAddress(), config.getInitPort());
+    fileHandler = new FileHandler(config.getNodeFileName());
+    doubleCounting = new DoubleCounting(this);
+    messageHandler = new MessageHandler(this);
+    fileHandler->readNodes(config.getMaxNumOfNodes());
+    for(auto & node : fileHandler->getNodeList()){
+        if(node.getId() == id){
+            ipAddress = node.getIpAddress();
+            port = node.getPort();
+            break;
+        }
+    }
+    if(isGraphviz){
+        neighbors = fileHandler->readGraphviz(id, config.getGraphvizFileName());
+    }else{
+        selectNeighbors();
+    }
+    selectTime();
     startHandle();
 }
 
-Node::Node(const Node& node){
-    id = node.id;
-    ipAddress = node.ipAddress;
-    port = node.port;
-    maxSend = node.maxSend;
-    believerEpsilon = node.believerEpsilon;
-    neighbors = node.neighbors;
-}
 
 void Node::startHandle(){
     //  cout << "id " << id <<  " "<< ipAddress << " "<< port << " "<< initNodePort<<  endl;    
@@ -60,7 +57,6 @@ void Node::startHandle(){
     initTcpSocket(listenFd);
     ostringstream ss;
     ss << "Node Id: " << id;
-
     //Send Id to neighbors
     Message message(id, MESSAGE_TYPE::APPLICATION, ss.str());
     for(auto & neighbor : neighbors){
@@ -76,11 +72,11 @@ void Node::startHandle(){
             cout << e.what() << endl;
         }
     }
+}
 
-    //Wait for all threads to be finished
-    for(unsigned int i=0;i < threadPool.size();i++){
-        threadPool.at(i).join();
-    }
+void Node::executeSendMessageThread(Message message, const Node& node){
+    sleep(2);
+    sendMessageToNode(std::move(message), node);
 }
 
 /*
@@ -117,15 +113,22 @@ void Node::sendMessageToNode(Message message, const Node& targetNode){
     }
 }
 
-void Node::sendToNeighbors(Message msg){
+void Node::sendToNeighbors(const Message& msg){
     for(const auto & neighbor : neighbors){
         sendMessageToNode(msg, neighbor);
     }
 }
 
-void Node::executeSendMessageThread(Message message, const Node& node){
-    sleep(2);
-    sendMessageToNode(std::move(message), node);
+void Node::sendToSuperNode(const Message& msg){
+    sendMessageToNode(msg, *initNode);
+}
+
+void Node::sendToNeighborsExceptSource(const Message& msg){
+    for(const auto & neighbor : neighbors){
+        if(neighbor.getId() != msg.getOriginId()){
+            sendMessageToNode(msg , neighbor);
+        }
+    }
 }
 
 void Node::executeWorkerThread(int socketFd) {
@@ -138,8 +141,8 @@ void Node::executeWorkerThread(int socketFd) {
     string msgS(buff);
     Message msg(msgS);
     ss << "[ID:"<< id << "] RECV: " << msg.toString() << " [" << timeS <<"]"  << endl;
-    //cout << ss.str();
-    handler.handleIncommingMessage(msg);
+    cout << ss.str();
+    messageHandler->handleIncommingMessage(&msg);
     close(socketFd);
 }
 
@@ -153,40 +156,73 @@ void Node::executeWorkerThread(int socketFd) {
 void Node::initTcpSocket(int& socketFd){
     struct sockaddr_in serverAddress{};
     int yes = 1;
-	if ((socketFd = socket(AF_INET, SOCK_STREAM, 0)) < 0){
-        throw  runtime_error("Error: on socket create\n"); 
-	}
-    if (setsockopt(socketFd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) == -1) {
-        throw runtime_error("Error: setsockopt\n"); 
+    if ((socketFd = socket(AF_INET, SOCK_STREAM, 0)) < 0){
+        throw  runtime_error("Error: on socket create\n");
     }
-	memset(&serverAddress, 0, sizeof(serverAddress));
-	serverAddress.sin_family = AF_INET;
-	serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
-	serverAddress.sin_port = htons(port);
-	if (bind(socketFd, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) < 0){
-        throw runtime_error("Error: on socket bind\n"); 
-	}
+    if (setsockopt(socketFd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) == -1) {
+        throw runtime_error("Error: setsockopt\n");
+    }
+    memset(&serverAddress, 0, sizeof(serverAddress));
+    serverAddress.sin_family = AF_INET;
+    serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+    serverAddress.sin_port = htons(port);
+    if (bind(socketFd, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) < 0){
+        throw runtime_error("Error: on socket bind\n");
+    }
     if (listen(socketFd, 0) < 0){
-        throw runtime_error("Error: on socket listen\n"); 
-	}
+        throw runtime_error("Error: on socket listen\n");
+    }
 }
 
-//void Node::addEchoNeighborMsg(string nodeEchoMsg){
-//    stringstream ss;
-//    ss << nodeEchoMsg;
-//    char delemiter(';');
-//    string line;
-//    smatch matches;
-//    const regex isNodeString("([0-9]+) ([0-9]+.[0-9]+.[0-9]+.[0-9]+) ([0-9]+)");
-//    for(unsigned int i=0; getline(ss, line, delemiter); i++){
-//        regex_match(line, matches, isNodeString);
-//        Node node(atoi(matches.str(1).c_str()), matches.str(2), atoi(matches.str(3).c_str()));
-//        echoNeighbors.push_back(node);
-//    }
-//}
+bool Node::hasNeighbor(const vector<Node>& nodes, const unsigned int thisId){
+    for(auto & neighbor : nodes){
+        if(neighbor.getId() == thisId){
+            return true;
+        }
+    }
+    return false;
+}
+
+void Node::selectNeighbors(){
+    srand (time(nullptr));
+    for(unsigned int i=0;i < fileHandler->getNodeList().size(); i++){
+        bool foundNeighbor = false;
+        while(!foundNeighbor){
+            unsigned int num = rand()%fileHandler->getNodeList().size();
+            Node randNode = fileHandler->getNodeList().at(num);
+            if(randNode.getId() != id && !hasNeighbor(neighbors, randNode.getId())){
+                neighbors.push_back(randNode);
+                foundNeighbor = true;
+            }
+        }
+    }
+}
+
+
+void Node::selectTime(){
+    vector<time_t> timeList;
+    ifstream fileStream;
+    string line;
+    fileStream.open(config.getTimesFile(), ios::out);
+    if(!fileStream.is_open()){
+        throw  runtime_error("Can't open file");
+    }else{
+        if(fileStream.peek() == ifstream::traits_type::eof()){
+            throw runtime_error("ERROR: Empty file ");
+        }
+        for(unsigned int i=0; getline(fileStream, line); i++){
+            if(line.empty()){
+                continue;
+            }
+            timeList.push_back(stoi(line.c_str()));
+        }
+    }
+    unsigned int num = rand()%timeList.size();
+    preferedTime = timeList.at(num);
+}
 
 string Node::toString() const {
     ostringstream ss;
-    ss  << id <<  " " << ipAddress << " " << port;
+    ss << id << " " << ipAddress << " " << port;
     return ss.str();
 }

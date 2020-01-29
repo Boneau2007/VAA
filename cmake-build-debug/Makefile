@@ -56,16 +56,41 @@ CMAKE_BINARY_DIR = "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +102,27 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/alhuber/clion-2019.3.3/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +157,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named graphGenApp
+# Target rules for targets named nodeApp
 
 # Build rule for target.
-graphGenApp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 graphGenApp
-.PHONY : graphGenApp
+nodeApp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodeApp
+.PHONY : nodeApp
 
 # fast build rule for target.
-graphGenApp/fast:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/build
-.PHONY : graphGenApp/fast
+nodeApp/fast:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/build
+.PHONY : nodeApp/fast
 
 #=============================================================================
 # Target rules for targets named networkNode
@@ -137,17 +183,149 @@ networkNode/fast:
 .PHONY : networkNode/fast
 
 #=============================================================================
-# Target rules for targets named nodeApp
+# Target rules for targets named graphGenApp
 
 # Build rule for target.
-nodeApp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nodeApp
-.PHONY : nodeApp
+graphGenApp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 graphGenApp
+.PHONY : graphGenApp
 
 # fast build rule for target.
-nodeApp/fast:
-	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/build
-.PHONY : nodeApp/fast
+graphGenApp/fast:
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/build
+.PHONY : graphGenApp/fast
+
+src/agreement.o: src/agreement.cpp.o
+
+.PHONY : src/agreement.o
+
+# target to build an object file
+src/agreement.cpp.o:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/agreement.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/agreement.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/agreement.cpp.o
+.PHONY : src/agreement.cpp.o
+
+src/agreement.i: src/agreement.cpp.i
+
+.PHONY : src/agreement.i
+
+# target to preprocess a source file
+src/agreement.cpp.i:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/agreement.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/agreement.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/agreement.cpp.i
+.PHONY : src/agreement.cpp.i
+
+src/agreement.s: src/agreement.cpp.s
+
+.PHONY : src/agreement.s
+
+# target to generate assembly for a file
+src/agreement.cpp.s:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/agreement.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/agreement.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/agreement.cpp.s
+.PHONY : src/agreement.cpp.s
+
+src/config.o: src/config.cpp.o
+
+.PHONY : src/config.o
+
+# target to build an object file
+src/config.cpp.o:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/config.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/config.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/config.cpp.o
+.PHONY : src/config.cpp.o
+
+src/config.i: src/config.cpp.i
+
+.PHONY : src/config.i
+
+# target to preprocess a source file
+src/config.cpp.i:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/config.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/config.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/config.cpp.i
+.PHONY : src/config.cpp.i
+
+src/config.s: src/config.cpp.s
+
+.PHONY : src/config.s
+
+# target to generate assembly for a file
+src/config.cpp.s:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/config.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/config.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/config.cpp.s
+.PHONY : src/config.cpp.s
+
+src/doubleCounting.o: src/doubleCounting.cpp.o
+
+.PHONY : src/doubleCounting.o
+
+# target to build an object file
+src/doubleCounting.cpp.o:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/doubleCounting.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/doubleCounting.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o
+.PHONY : src/doubleCounting.cpp.o
+
+src/doubleCounting.i: src/doubleCounting.cpp.i
+
+.PHONY : src/doubleCounting.i
+
+# target to preprocess a source file
+src/doubleCounting.cpp.i:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/doubleCounting.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/doubleCounting.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.i
+.PHONY : src/doubleCounting.cpp.i
+
+src/doubleCounting.s: src/doubleCounting.cpp.s
+
+.PHONY : src/doubleCounting.s
+
+# target to generate assembly for a file
+src/doubleCounting.cpp.s:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/doubleCounting.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/doubleCounting.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.s
+.PHONY : src/doubleCounting.cpp.s
+
+src/echoHandler.o: src/echoHandler.cpp.o
+
+.PHONY : src/echoHandler.o
+
+# target to build an object file
+src/echoHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/echoHandler.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/echoHandler.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o
+.PHONY : src/echoHandler.cpp.o
+
+src/echoHandler.i: src/echoHandler.cpp.i
+
+.PHONY : src/echoHandler.i
+
+# target to preprocess a source file
+src/echoHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/echoHandler.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/echoHandler.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.i
+.PHONY : src/echoHandler.cpp.i
+
+src/echoHandler.s: src/echoHandler.cpp.s
+
+.PHONY : src/echoHandler.s
+
+# target to generate assembly for a file
+src/echoHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/echoHandler.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/echoHandler.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.s
+.PHONY : src/echoHandler.cpp.s
 
 src/edge.o: src/edge.cpp.o
 
@@ -155,9 +333,9 @@ src/edge.o: src/edge.cpp.o
 
 # target to build an object file
 src/edge.cpp.o:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/edge.cpp.o
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/edge.cpp.o
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/edge.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/edge.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/edge.cpp.o
 .PHONY : src/edge.cpp.o
 
 src/edge.i: src/edge.cpp.i
@@ -166,9 +344,9 @@ src/edge.i: src/edge.cpp.i
 
 # target to preprocess a source file
 src/edge.cpp.i:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/edge.cpp.i
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/edge.cpp.i
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/edge.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/edge.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/edge.cpp.i
 .PHONY : src/edge.cpp.i
 
 src/edge.s: src/edge.cpp.s
@@ -177,9 +355,9 @@ src/edge.s: src/edge.cpp.s
 
 # target to generate assembly for a file
 src/edge.cpp.s:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/edge.cpp.s
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/edge.cpp.s
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/edge.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/edge.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/edge.cpp.s
 .PHONY : src/edge.cpp.s
 
 src/fileHandler.o: src/fileHandler.cpp.o
@@ -188,9 +366,9 @@ src/fileHandler.o: src/fileHandler.cpp.o
 
 # target to build an object file
 src/fileHandler.cpp.o:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/fileHandler.cpp.o
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/fileHandler.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/fileHandler.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o
 .PHONY : src/fileHandler.cpp.o
 
 src/fileHandler.i: src/fileHandler.cpp.i
@@ -199,9 +377,9 @@ src/fileHandler.i: src/fileHandler.cpp.i
 
 # target to preprocess a source file
 src/fileHandler.cpp.i:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.i
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/fileHandler.cpp.i
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/fileHandler.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/fileHandler.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.i
 .PHONY : src/fileHandler.cpp.i
 
 src/fileHandler.s: src/fileHandler.cpp.s
@@ -210,9 +388,9 @@ src/fileHandler.s: src/fileHandler.cpp.s
 
 # target to generate assembly for a file
 src/fileHandler.cpp.s:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.s
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/fileHandler.cpp.s
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/fileHandler.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/fileHandler.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.s
 .PHONY : src/fileHandler.cpp.s
 
 src/graphGenApp.o: src/graphGenApp.cpp.o
@@ -248,9 +426,9 @@ src/message.o: src/message.cpp.o
 
 # target to build an object file
 src/message.cpp.o:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/message.cpp.o
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/message.cpp.o
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/message.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/message.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/message.cpp.o
 .PHONY : src/message.cpp.o
 
 src/message.i: src/message.cpp.i
@@ -259,9 +437,9 @@ src/message.i: src/message.cpp.i
 
 # target to preprocess a source file
 src/message.cpp.i:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/message.cpp.i
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/message.cpp.i
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/message.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/message.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/message.cpp.i
 .PHONY : src/message.cpp.i
 
 src/message.s: src/message.cpp.s
@@ -270,9 +448,9 @@ src/message.s: src/message.cpp.s
 
 # target to generate assembly for a file
 src/message.cpp.s:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/message.cpp.s
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/message.cpp.s
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/message.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/message.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/message.cpp.s
 .PHONY : src/message.cpp.s
 
 src/messageHandler.o: src/messageHandler.cpp.o
@@ -281,9 +459,9 @@ src/messageHandler.o: src/messageHandler.cpp.o
 
 # target to build an object file
 src/messageHandler.cpp.o:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/messageHandler.cpp.o
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/messageHandler.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/messageHandler.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o
 .PHONY : src/messageHandler.cpp.o
 
 src/messageHandler.i: src/messageHandler.cpp.i
@@ -292,9 +470,9 @@ src/messageHandler.i: src/messageHandler.cpp.i
 
 # target to preprocess a source file
 src/messageHandler.cpp.i:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.i
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/messageHandler.cpp.i
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/messageHandler.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/messageHandler.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.i
 .PHONY : src/messageHandler.cpp.i
 
 src/messageHandler.s: src/messageHandler.cpp.s
@@ -303,9 +481,9 @@ src/messageHandler.s: src/messageHandler.cpp.s
 
 # target to generate assembly for a file
 src/messageHandler.cpp.s:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.s
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/messageHandler.cpp.s
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/messageHandler.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/messageHandler.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.s
 .PHONY : src/messageHandler.cpp.s
 
 src/networkApp.o: src/networkApp.cpp.o
@@ -341,9 +519,9 @@ src/node.o: src/node.cpp.o
 
 # target to build an object file
 src/node.cpp.o:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/node.cpp.o
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/node.cpp.o
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/node.cpp.o
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/node.cpp.o
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/node.cpp.o
 .PHONY : src/node.cpp.o
 
 src/node.i: src/node.cpp.i
@@ -352,9 +530,9 @@ src/node.i: src/node.cpp.i
 
 # target to preprocess a source file
 src/node.cpp.i:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/node.cpp.i
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/node.cpp.i
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/node.cpp.i
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/node.cpp.i
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/node.cpp.i
 .PHONY : src/node.cpp.i
 
 src/node.s: src/node.cpp.s
@@ -363,9 +541,9 @@ src/node.s: src/node.cpp.s
 
 # target to generate assembly for a file
 src/node.cpp.s:
-	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/node.cpp.s
-	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/node.cpp.s
 	$(MAKE) -f CMakeFiles/nodeApp.dir/build.make CMakeFiles/nodeApp.dir/src/node.cpp.s
+	$(MAKE) -f CMakeFiles/networkNode.dir/build.make CMakeFiles/networkNode.dir/src/node.cpp.s
+	$(MAKE) -f CMakeFiles/graphGenApp.dir/build.make CMakeFiles/graphGenApp.dir/src/node.cpp.s
 .PHONY : src/node.cpp.s
 
 src/nodeApp.o: src/nodeApp.cpp.o
@@ -401,11 +579,27 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... graphGenApp"
-	@echo "... networkNode"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
 	@echo "... nodeApp"
+	@echo "... networkNode"
+	@echo "... graphGenApp"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... src/agreement.o"
+	@echo "... src/agreement.i"
+	@echo "... src/agreement.s"
+	@echo "... src/config.o"
+	@echo "... src/config.i"
+	@echo "... src/config.s"
+	@echo "... src/doubleCounting.o"
+	@echo "... src/doubleCounting.i"
+	@echo "... src/doubleCounting.s"
+	@echo "... src/echoHandler.o"
+	@echo "... src/echoHandler.i"
+	@echo "... src/echoHandler.s"
 	@echo "... src/edge.o"
 	@echo "... src/edge.i"
 	@echo "... src/edge.s"

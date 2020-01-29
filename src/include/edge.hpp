@@ -14,6 +14,7 @@ namespace Uebung1 {
 
         public:
             // Constructors
+            Edge( unsigned int fromNodeId, unsigned int toNodeId);
             Edge( unsigned int fromNodeId, unsigned int toNodeId, unsigned int value);
 
             // Deconstructors
@@ -31,7 +32,10 @@ namespace Uebung1 {
 
 
             // Memberfunctions
+            void decode(const std::string messageAsString);
+            std::string encode();
             std::string toString() const;
+
     };
 }
 #endif // EDGE_HPP

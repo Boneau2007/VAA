@@ -1,0 +1,20 @@
+initIpAddress 127.0.0.1
+initPort 1111
+
+programName cmake-build-debug/nodeApp
+
+maxNumOfNodes 5
+nodeFileName config/nodeFile.txt
+
+maxRandNumber 5
+graphvizFileName config/graph.dot
+
+timesFile config/times.txt
+
+maxSend 2
+minTrust 2
+
+randElectionNumber 2
+starterNumber 2
+roundNeighborsNumber 4
+maxRoundsNumber 5
