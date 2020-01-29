@@ -13,6 +13,8 @@ namespace Uebung1{
     class Node;
     class Message;
     class EchoHandler;
+    class DoubleCounting;
+    class Agreement;
     class MessageHandler{
 
         private:
@@ -21,6 +23,8 @@ namespace Uebung1{
             std::mutex forwardMutex;
             std::mutex echoMutex;
             EchoHandler* echoHandler;
+            DoubleCounting* doubleCounting;
+            Agreement* agreement;
         public:
             // Constructors
             MessageHandler();
