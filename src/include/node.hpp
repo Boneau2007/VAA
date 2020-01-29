@@ -34,10 +34,8 @@ namespace Uebung1{
         Config config;
         FileHandler* fileHandler;
         MessageHandler* messageHandler;
-        DoubleCounting* doubleCounting;
         Node* initNode;
         Node* coordinator;
-        Agreement* agreement;
     public:
         // Constructors
         Node();
