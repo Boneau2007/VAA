@@ -8,8 +8,6 @@
 #include "fileHandler.hpp"
 #include "message.hpp"
 #include "messageHandler.hpp"
-#include "doubleCounting.hpp"
-#include "agreement.hpp"
 #include "config.hpp"
 
 namespace Uebung1{
@@ -83,33 +81,22 @@ namespace Uebung1{
 
         void setCoordinator(Node* coordinator) { this->coordinator=coordinator; }
         Node* getCoordinator() { return coordinator; }
-        Agreement* getAgreement() { return agreement; }
 
         time_t getPreferedTime(){return preferedTime; }
-
-        DoubleCounting* getDoubleCounting() { return doubleCounting; }
+        
         MessageHandler* getMessageHandler(){ return messageHandler;}
         Config getConfig() { return config; }
         Node* getInitNode(){return initNode; }
         FileHandler* getFileHandler(){return fileHandler; }
         // Memberfunctions
         void startHandle();
-
         void selectNeighbors();
-
         void sendToNeighbors(const Message &msg);
-
         void incrementRecvRumors() { recvRumors++; }
-
         std::string toString() const;
-
         void sendMessageToNode(Message message, const Node &targetNode);
-
         void sendToNeighborsExceptSource(const Uebung1::Message &msg);
-
         void sendToSuperNode(const Message &msg);
-
-        void agreementHandler(Message *pMessage);
 
     private:
 
