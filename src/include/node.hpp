@@ -12,10 +12,8 @@
 
 namespace Uebung1{
     class FileHandler;
-    class Message;class MessageHandler;
-
-    class DoubleCounting;
-    class Agreement;
+    class Message;
+    class MessageHandler;
     class Node {
     private:
         // Classattributes
@@ -37,9 +35,7 @@ namespace Uebung1{
     public:
         // Constructors
         Node();
-
         Node(const unsigned int id, const std::string &ipAddress, const unsigned int port);
-
         Node(const unsigned int id, const std::string& configFile, const bool isGraphviz);
 
         Node(const Node& node) {
@@ -66,11 +62,8 @@ namespace Uebung1{
 
         // Inline-Elementfunctions
         unsigned int getId() const { return id; }
-
         std::string getIpAddress() const { return ipAddress; }
-
         unsigned int getPort() const { return port; }
-
         std::vector<Node> getNeighbors() { return neighbors; }
 
         void setRecvRumors(unsigned int recvRumors) { this->recvRumors=recvRumors; }
@@ -91,25 +84,20 @@ namespace Uebung1{
         // Memberfunctions
         void startHandle();
         void selectNeighbors();
-        void sendToNeighbors(const Message &msg);
         void incrementRecvRumors() { recvRumors++; }
-        std::string toString() const;
+        
         void sendMessageToNode(Message message, const Node &targetNode);
+        void sendToNeighbors(const Message &msg);
         void sendToNeighborsExceptSource(const Uebung1::Message &msg);
         void sendToSuperNode(const Message &msg);
 
+        std::string toString() const;
     private:
-
         void selectTime();
-
         bool hasNeighbor(const std::vector<Node>& neighbors, const unsigned int id);
-
         bool hasNeighbor(const unsigned int id);
-
         void initTcpSocket(int &socketFd);
-
         void executeWorkerThread(int socketFd);
-
         void executeSendMessageThread(Message message, const Node &node);
 
     };
