@@ -8,16 +8,12 @@
 #include "fileHandler.hpp"
 #include "message.hpp"
 #include "messageHandler.hpp"
-#include "doubleCounting.hpp"
-#include "agreement.hpp"
 #include "config.hpp"
 
 namespace Uebung1{
     class FileHandler;
-    class Message;class MessageHandler;
-
-    class DoubleCounting;
-    class Agreement;
+    class Message;
+    class MessageHandler;
     class Node {
     private:
         // Classattributes
@@ -34,16 +30,12 @@ namespace Uebung1{
         Config config;
         FileHandler* fileHandler;
         MessageHandler* messageHandler;
-        DoubleCounting* doubleCounting;
         Node* initNode;
         Node* coordinator;
-        Agreement* agreement;
     public:
         // Constructors
         Node();
-
         Node(const unsigned int id, const std::string &ipAddress, const unsigned int port);
-
         Node(const unsigned int id, const std::string& configFile, const bool isGraphviz);
 
         Node(const Node& node) {
@@ -70,11 +62,8 @@ namespace Uebung1{
 
         // Inline-Elementfunctions
         unsigned int getId() const { return id; }
-
         std::string getIpAddress() const { return ipAddress; }
-
         unsigned int getPort() const { return port; }
-
         std::vector<Node> getNeighbors() { return neighbors; }
 
         void setRecvRumors(unsigned int recvRumors) { this->recvRumors=recvRumors; }
@@ -85,46 +74,30 @@ namespace Uebung1{
 
         void setCoordinator(Node* coordinator) { this->coordinator=coordinator; }
         Node* getCoordinator() { return coordinator; }
-        Agreement* getAgreement() { return agreement; }
 
         time_t getPreferedTime(){return preferedTime; }
-
-        DoubleCounting* getDoubleCounting() { return doubleCounting; }
+        
         MessageHandler* getMessageHandler(){ return messageHandler;}
         Config getConfig() { return config; }
         Node* getInitNode(){return initNode; }
         FileHandler* getFileHandler(){return fileHandler; }
         // Memberfunctions
         void startHandle();
-
         void selectNeighbors();
-
-        void sendToNeighbors(const Message &msg);
-
         void incrementRecvRumors() { recvRumors++; }
-
-        std::string toString() const;
-
+        
         void sendMessageToNode(Message message, const Node &targetNode);
-
+        void sendToNeighbors(const Message &msg);
         void sendToNeighborsExceptSource(const Uebung1::Message &msg);
-
         void sendToSuperNode(const Message &msg);
 
-        void agreementHandler(Message *pMessage);
-
+        std::string toString() const;
     private:
-
         void selectTime();
-
         bool hasNeighbor(const std::vector<Node>& neighbors, const unsigned int id);
-
         bool hasNeighbor(const unsigned int id);
-
         void initTcpSocket(int &socketFd);
-
         void executeWorkerThread(int socketFd);
-
         void executeSendMessageThread(Message message, const Node &node);
 
     };
