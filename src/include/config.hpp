@@ -19,6 +19,7 @@ namespace Uebung1{
         std::string nodeFileName;
         //topologie config
         unsigned int maxRandNumber;
+        unsigned int numberOfEdges;
         std::string graphvizFileName;
         std::string timesFile;
         unsigned int maxSend;
@@ -37,6 +38,7 @@ namespace Uebung1{
         unsigned int getMaxNumOfNodes() const { return maxNumOfNodes; }
         std::string getNodeFileName() const { return nodeFileName; }
         unsigned int getMaxRandNumber() const { return maxRandNumber; }
+        unsigned int getNumberOfEdges() const { return numberOfEdges; }
         std::string getGraphvizFileName() const { return graphvizFileName; }
         std::string getTimesFile() const { return timesFile; }
         unsigned int getMaxSend() const { return maxSend;}

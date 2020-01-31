@@ -6,7 +6,9 @@ programName cmake-build-debug/nodeApp
 maxNumOfNodes 5
 nodeFileName config/nodeFile.txt
 
-maxRandNumber 5
+numberOfEdges 6
+
+maxRandNumber 4
 graphvizFileName config/graph.dot
 
 timesFile config/times.txt

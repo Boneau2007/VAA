@@ -16,6 +16,11 @@ NetworkApp::NetworkApp(string configName, bool useGraphviz)
           node(0, config.getInitIpAddress(), config.getInitPort()),
           fileHandler(config.getNodeFileName()){
     fileHandler.readNodes(config.getMaxNumOfNodes());
+    ostringstream ss;
+    ss << "cmake-build-debug/graphGenApp " << config.getNodeFileName() << " " << config.getMaxNumOfNodes() << " " << config.getNumberOfEdges() <<" " << config.getGraphvizFileName();
+    cout << ss.str()<< endl;
+    system(ss.str().c_str());
+    system("dot -Tpng -O config/graph.dot");
 }
 
 /*

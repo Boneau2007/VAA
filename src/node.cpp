@@ -185,7 +185,7 @@ bool Node::hasNeighbor(const vector<Node>& nodes, const unsigned int thisId){
 
 void Node::selectNeighbors(){
     srand (time(nullptr));
-    for(unsigned int i=0;i < fileHandler->getNodeList().size(); i++){
+    for(unsigned int i=0;i < config.getMaxRandNumber(); i++){
         bool foundNeighbor = false;
         while(!foundNeighbor){
             unsigned int num = rand()%fileHandler->getNodeList().size();

@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../src/include/agreement.hpp
+message.hpp
+../src/include/message.hpp
+node.hpp
+../src/include/node.hpp
+
 ../src/include/config.hpp
 string
 -
@@ -16,6 +22,8 @@ node.hpp
 
 ../src/include/echoHandler.hpp
 vector
+-
+mutex
 -
 message.hpp
 ../src/include/message.hpp
@@ -77,8 +85,14 @@ messageHandler.hpp
 ../src/include/messageHandler.hpp
 doubleCounting.hpp
 ../src/include/doubleCounting.hpp
+agreement.hpp
+../src/include/agreement.hpp
 config.hpp
 ../src/include/config.hpp
+
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp
+agreement.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.hpp
 
 /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp
 istream
@@ -86,6 +100,8 @@ istream
 fstream
 -
 regex
+-
+iostream
 -
 config.hpp
 /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.hpp

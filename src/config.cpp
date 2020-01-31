@@ -44,6 +44,8 @@ Config::Config(string fileName) : fileName(fileName)
                     nodeFileName = matches.str(2);
                 }else if (matches.str(1) == "maxRandNumber"){
                     maxRandNumber = stoi(matches.str(2));
+                }else if (matches.str(1) == "numberOfEdges"){
+                    numberOfEdges = stoi(matches.str(2));
                 }else if (matches.str(1) == "graphvizFileName"){
                     graphvizFileName = matches.str(2);
                 }else if (matches.str(1) == "timesFile"){
