@@ -57,87 +57,139 @@ include CMakeFiles/graphGenApp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/graphGenApp.dir/flags.make
 
-CMakeFiles/graphGenApp.dir/src/config.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/config.cpp.o: ../src/config.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/graphGenApp.dir/src/config.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/config.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp"
+CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.o: ../src/Handler/configHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp"
 
-CMakeFiles/graphGenApp.dir/src/config.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/config.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp" > CMakeFiles/graphGenApp.dir/src/config.cpp.i
+CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp" > CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/config.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/config.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp" -o CMakeFiles/graphGenApp.dir/src/config.cpp.s
+CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/edge.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/edge.cpp.o: ../src/edge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graphGenApp.dir/src/edge.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/edge.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/edge.cpp"
+CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.o: ../src/Graph/edge.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp"
 
-CMakeFiles/graphGenApp.dir/src/edge.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/edge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/edge.cpp" > CMakeFiles/graphGenApp.dir/src/edge.cpp.i
+CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp" > CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/edge.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/edge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/edge.cpp" -o CMakeFiles/graphGenApp.dir/src/edge.cpp.s
+CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp" -o CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/message.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/message.cpp.o: ../src/message.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graphGenApp.dir/src/message.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/message.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.cpp"
+CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o: ../src/Messages/message.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.cpp"
 
-CMakeFiles/graphGenApp.dir/src/message.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/message.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.cpp" > CMakeFiles/graphGenApp.dir/src/message.cpp.i
+CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.cpp" > CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/message.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/message.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.cpp" -o CMakeFiles/graphGenApp.dir/src/message.cpp.s
+CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.cpp" -o CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/agreement.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/agreement.cpp.o: ../src/agreement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graphGenApp.dir/src/agreement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/agreement.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp"
+CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o: ../src/Messages/accountMessage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.cpp"
 
-CMakeFiles/graphGenApp.dir/src/agreement.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/agreement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp" > CMakeFiles/graphGenApp.dir/src/agreement.cpp.i
+CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.cpp" > CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/agreement.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/agreement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp" -o CMakeFiles/graphGenApp.dir/src/agreement.cpp.s
+CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.cpp" -o CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/node.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/node.cpp.o: ../src/node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/graphGenApp.dir/src/node.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/node.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.cpp"
+CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/echoMessage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp"
 
-CMakeFiles/graphGenApp.dir/src/node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.cpp" > CMakeFiles/graphGenApp.dir/src/node.cpp.i
+CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp" > CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.cpp" -o CMakeFiles/graphGenApp.dir/src/node.cpp.s
+CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp" -o CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o: ../src/fileHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp"
+CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Messages/orderedBlockedMessage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp"
 
-CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp" > CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.i
+CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp" > CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.s
+CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp" -o CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.s
+
+CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/goldmanEdgeChasingHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp"
+
+CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp" > CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.i
+
+CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s
+
+CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.o: ../src/Application/agreement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp"
+
+CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp" > CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.i
+
+CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp" -o CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.s
+
+CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.o: ../src/Graph/node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp"
+
+CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp" > CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.i
+
+CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp" -o CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.s
+
+CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/fileHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp"
+
+CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp" > CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.i
+
+CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.s
 
 CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
 CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o: ../src/graphGenApp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/graphGenApp.cpp"
 
 CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.i: cmake_force
@@ -148,74 +200,97 @@ CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/graphGenApp.cpp" -o CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o: ../src/echoHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.cpp"
+CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/echoHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp"
 
-CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.cpp" > CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.i
+CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp" > CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.s
+CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o: ../src/doubleCounting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.cpp"
+CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/accountHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp"
 
-CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.cpp" > CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.i
+CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp" > CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.cpp" -o CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.s
+CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.s
 
-CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
-CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o: ../src/messageHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp"
+CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.o: ../src/Application/doubleCounting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp"
 
-CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp" > CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.i
+CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp" > CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.i
 
-CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.s
+CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp" -o CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.s
+
+CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o: CMakeFiles/graphGenApp.dir/flags.make
+CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/messageHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp"
+
+CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp" > CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.i
+
+CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp" -o CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.s
 
 # Object files for target graphGenApp
 graphGenApp_OBJECTS = \
-"CMakeFiles/graphGenApp.dir/src/config.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/edge.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/message.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/agreement.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/node.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.o" \
 "CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o" \
-"CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o"
+"CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.o" \
+"CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o"
 
 # External object files for target graphGenApp
 graphGenApp_EXTERNAL_OBJECTS =
 
-graphGenApp: CMakeFiles/graphGenApp.dir/src/config.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/edge.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/message.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/agreement.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/node.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/fileHandler.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Handler/configHandler.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Graph/edge.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Application/agreement.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Graph/node.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Handler/fileHandler.cpp.o
 graphGenApp: CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/echoHandler.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/doubleCounting.cpp.o
-graphGenApp: CMakeFiles/graphGenApp.dir/src/messageHandler.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Handler/echoHandler.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Handler/accountHandler.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Application/doubleCounting.cpp.o
+graphGenApp: CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o
 graphGenApp: CMakeFiles/graphGenApp.dir/build.make
 graphGenApp: CMakeFiles/graphGenApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable graphGenApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable graphGenApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphGenApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

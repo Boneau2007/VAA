@@ -6,7 +6,7 @@
 #include <unistd.h> // C
 #include <fcntl.h> // C
 #include "networkApp.hpp"
-#include "fileHandler.hpp"
+#include "Handler/fileHandler.hpp"
 
 using namespace std;
 using namespace Uebung1;
@@ -59,7 +59,7 @@ void NetworkApp::executeListingThread(){
 }
 
 /*
- * This function exectues what should be done by the incomming message content
+ * This function exectues what should be done by the incomming message command
  */
 void NetworkApp::executeWorkerThread(int socketFd){
     char buff[256];
@@ -83,7 +83,7 @@ void NetworkApp::executeWorkerThread(int socketFd){
         unbelieveingNodes++;
         lock.unlock();
     }else{
-        cout << "Unknown Cotrol content: " << message.getContent() << endl;
+        cout << "Unknown Cotrol command: " << message.getContent() << endl;
     }
     if(believeingNodes+unbelieveingNodes == fileHandler.getNodeList().size()){
         cout << "Believing Nodes : " << believeingNodes << endl;

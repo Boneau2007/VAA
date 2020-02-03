@@ -1,9 +1,9 @@
 #include <string>
 #include <fstream>  // ifstream()
-#include "include/node.hpp"
+#include "Graph/node.hpp"
 
 using namespace std;
-using namespace Uebung1;
+using namespace Graph;
 
 int main(int argc, char** argv){
     if(argc != 4){

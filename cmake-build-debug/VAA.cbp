@@ -222,32 +222,147 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/edge.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/IMessage.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -255,71 +370,11 @@
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/graphGenApp.cpp">
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/agreement.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/config.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/doubleCounting.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/echoHandler.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/edge.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/fileHandler.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/message.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/messageHandler.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/networkApp.hpp">
-			<Option target="networkNode"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include/node.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.cpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp">
 			<Option target="networkNode"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.cpp">
-			<Option target="nodeApp"/>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.hpp">
 			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
 		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/nodeApp.cpp">
 			<Option target="nodeApp"/>
