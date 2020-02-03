@@ -1,7 +1,7 @@
 #include <regex>
 #include <istream>
 #include <utility>
-#include "message.hpp"
+#include "Include/message.hpp"
 
 using namespace std;
 using namespace Messages;
@@ -10,12 +10,13 @@ Message::Message() {
     setSenderId(0);
     setMessageType(MESSAGE_TYPE::APPLICATION);
     setCommand("");
+    originId = 0;
+    time = 0;
 }
 
-Message::Message(const unsigned int senderId, MESSAGE_TYPE type) {
+Message::Message(const unsigned int senderId, MESSAGE_TYPE type) : Message() {
     setSenderId(senderId);
     setMessageType(type);
-    setCommand("");
 }
 
 Message::Message(const unsigned int senderId, const MESSAGE_TYPE type, string content) : Message(senderId, type) {
@@ -23,9 +24,9 @@ Message::Message(const unsigned int senderId, const MESSAGE_TYPE type, string co
 }
 
 
-Message::Message(const string& content){
+Message::Message(const string& content) : Message() {
     smatch matches;
-    const regex isMessageRegex(R"((([0-9]+);(app|ctrl);(.*);)");
+    const regex isMessageRegex(R"(([0-9]+);(app|ctrl);(.*);)");
     if(regex_match(content, matches, isMessageRegex)){
         senderId = stoi(matches.str(1));
         matches.str(2)=="app" ? setMessageType(APPLICATION) : setMessageType(CONTROL);

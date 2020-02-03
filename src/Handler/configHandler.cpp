@@ -6,7 +6,7 @@
 #include <fstream>
 #include <regex>
 #include <iostream>
-#include "configHandler.hpp"
+#include "Include/configHandler.hpp"
 
 using namespace std;
 using namespace Handler;
@@ -14,8 +14,7 @@ ConfigHandler::ConfigHandler() : initIpAddress(""), initPort(0), programName("")
                                  maxRandNumber(0), graphvizFileName(""), timesFile(""), maxSend(0), minTrust(0),
                                  starterNumber(0), roundNeighborsNumber(0), maxRoundsNumber(0) {}
 
-ConfigHandler::ConfigHandler(string fileName) : fileName(fileName)
-{
+ConfigHandler::ConfigHandler(string fileName) : fileName(fileName) {
     string line;
     smatch matches;
     ifstream fileStream;

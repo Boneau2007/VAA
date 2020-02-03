@@ -1,6 +1,6 @@
 #include <string>
 #include <fstream>  // ifstream()
-#include "Graph/node.hpp"
+#include "Graph/Include/node.hpp"
 
 using namespace std;
 using namespace Graph;

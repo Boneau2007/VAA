@@ -6,15 +6,15 @@
 #include <unistd.h> // C
 #include <fcntl.h> // C
 #include "networkApp.hpp"
-#include "Handler/fileHandler.hpp"
+#include "Handler/Include/fileHandler.hpp"
 
 using namespace std;
-using namespace Uebung1;
+using namespace Handler;
 
 NetworkApp::NetworkApp(string configName, bool useGraphviz)
         : configName(configName), useGraphviz(useGraphviz), config(configName),
-          node(0, config.getInitIpAddress(), config.getInitPort()),
-          fileHandler(config.getNodeFileName()){
+          fileHandler(config.getNodeFileName()),
+          node(0, config.getInitIpAddress(), config.getInitPort()){
     fileHandler.readNodes(config.getMaxNumOfNodes());
     ostringstream ss;
     ss << "cmake-build-debug/graphGenApp " << config.getNodeFileName() << " " << config.getMaxNumOfNodes() << " " << config.getNumberOfEdges() <<" " << config.getGraphvizFileName();
@@ -53,9 +53,9 @@ void NetworkApp::executeListingThread(){
             cout << e.what() << endl;
         }
     }
-    for(unsigned int i=0; i < threadPool.size();i++){
-        threadPool.at(i).join();
-    }
+    //for(unsigned int i=0; i < threadPool.size();i++){
+    //    threadPool.at(i).join();
+    //}
 }
 
 /*
@@ -69,32 +69,32 @@ void NetworkApp::executeWorkerThread(int socketFd){
             cerr << e.what() << endl;
     }
     string sBuff(buff);
-    Message message(sBuff);
-    if(message.getContent().find("done")){
-        unique_lock<mutex> lock(doneMutex);
-        doneNumber++;
-        lock.unlock();
-    }else if(message.getContent().find("true")){
-        unique_lock<mutex> lock(believeMutex);
-        believeingNodes++;
-        lock.unlock();
-    }else if(message.getContent().find("false")){
-        unique_lock<mutex> lock(unbelieveMutex);
-        unbelieveingNodes++;
-        lock.unlock();
-    }else{
-        cout << "Unknown Cotrol command: " << message.getContent() << endl;
-    }
+    //Message message(sBuff);
+    //if(message.getContent().find("done")){
+    //    unique_lock<mutex> lock(doneMutex);
+    //    doneNumber++;
+    //    lock.unlock();
+    //}else if(message.getContent().find("true")){
+    //    unique_lock<mutex> lock(believeMutex);
+    //    believeingNodes++;
+    //    lock.unlock();
+    //}else if(message.getContent().find("false")){
+    //    unique_lock<mutex> lock(unbelieveMutex);
+    //    unbelieveingNodes++;
+    //    lock.unlock();
+    //}else{
+    //    cout << "Unknown Cotrol command: " << message.getContent() << endl;
+    //}
     if(believeingNodes+unbelieveingNodes == fileHandler.getNodeList().size()){
         cout << "Believing Nodes : " << believeingNodes << endl;
         cout << "Unbelieving Nodes : " << unbelieveingNodes << endl;
         reset();
     }
     if(doneNumber == fileHandler.getNodeList().size()){
-        Message message2(0U, MESSAGE_TYPE::CONTROL, "evaluate");
-        for(auto & i : fileHandler.getNodeList()){
-            node.sendMessageToNode(message2, i);
-        }
+        //Message message2(0U, MESSAGE_TYPE::CONTROL, "evaluate");
+        //for(auto & i : fileHandler.getNodeList()){
+        //    node.sendMessageToNode(message2, i);
+        //}
     }
 }
 
@@ -133,16 +133,16 @@ void NetworkApp::start(){
             sleep(2);
             cout << messageDialog();
             cin >> command;
-            Message message(0, MESSAGE_TYPE::CONTROL);
+            Messages::IMessage* message = new Messages::Message(0, Messages::MESSAGE_TYPE::CONTROL);
 
             if(command == 0){
-                message.setContent("end");
+                message->setCommand("end");
                 for(auto & i : fileHandler.getNodeList()){
                     node.sendMessageToNode(message, i);
                 }
                 _Exit(EXIT_SUCCESS);
             }else if(command == 3){
-                message.setContent("election");
+                message->setCommand("election");
                 srand (time(nullptr));
                 //unsigned int num = rand()%nodeList.size()+1;
                 //Get a random subset of the nodeList with max num NodeIds
@@ -167,19 +167,17 @@ void NetworkApp::start(){
                     break;
                 }
             }
-            Node currentNode = fileHandler.getNodeList().at(i);
+            Graph::Node currentNode = fileHandler.getNodeList().at(i);
             if(command == 1){
-                message.setContent("initiator");
+                message->setCommand("initiator");
                 node.sendMessageToNode(message, currentNode);
-
             }else if(command == 2){
-                message.setContent("rumor");
+                message->setCommand("init rumor");
                 node.sendMessageToNode(message, currentNode);
 
             }else if(command == 4){
-                message.setContent("end");
+                message->setCommand("end");
                 node.sendMessageToNode(message, currentNode);
-
             }else{
                 cout << "Unknown command" << endl;
             }

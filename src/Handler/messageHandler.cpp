@@ -1,88 +1,97 @@
 #include <sstream>
-#include "messageHandler.hpp"
+#include "Include/messageHandler.hpp"
 
 using namespace std;
-using namespace Uebung1;
+using namespace Handler;
 using namespace chrono;
 
 MessageHandler::MessageHandler()= default;
 
-MessageHandler::MessageHandler(Node* node)
+MessageHandler::MessageHandler(Graph::Node* node)
     : node(node){
     echoHandler = new EchoHandler(false, node, node->getConfig().getMaxSend());
     accountHandler = new AccountHandler(node);
-    goldmanEdgeChasingHandler = new GoldmanEdgeChasingHandler(node);
+    goldmanEdgeChasingHandler = new Handler::GoldmanEdgeChasingHandler(node);
 }
 
 /*
  * This function handles all incomming messages
  */
-void MessageHandler::handleIncommingMessage(Message* msg){
-    string content = msg->getContent();
-    if(msg->getMessageType() == APPLICATION){
-        if(content == "rumor"){
-            unique_lock<mutex> lock(forwardMutex);
-            if(node->getRecvRumors() == 0){
-                node->incrementRecvRumors();
-                // cout << "Done " << node->getId() << "And RECV " << node->getRecvRumors() << endl;
+void MessageHandler::handleIncommingMessage(const string& msg, const time_t time){
+    if(msg.find("ctrl") != string::npos){
+        if(msg.find("end") != string::npos ||
+           msg.find("election") != string::npos ||
+           msg.find("initiator") != string::npos||
+           msg.find("init rumor") != string::npos) {
+            Messages::Message message(msg);
+            if (msg.find("rumor") != string::npos) {
+                unique_lock<mutex> lock(forwardMutex);
+                //TODO rumorHandler = new RumorHandler();
+                //if (node->getRecvRumors() == 0) {
+                //    node->incrementRecvRumors();
+                //    for (unsigned int i = 0; i < node->getNeighbors().size(); i++) {
+                //        if (node->getNeighbors().at(i).getId() != message.getSenderId()) {
+                //            Messages::Message rumorMsg(node->getId(), Messages::MESSAGE_TYPE::APPLICATION, "rumor");
+                //            node->sendMessageToNode(&rumorMsg, node->getNeighbors().at(i));
+                //        }
+                //    }
+                //    Messages::Message doneMsg(node->getId(), Messages::MESSAGE_TYPE::CONTROL, "done");
+                //    node->sendMessageToNode(&doneMsg, *(node->getInitNode()));
+                //    node->setHasSend(true);
+                //}
+                //node->incrementRecvRumors();
+                lock.unlock();
+            }else if(msg.find("initiator") != string::npos) {
+                //ss << "Neighbor Id: " << node->getId();
+                //node->sendToNeighbors(Message(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str()));
+                //TODO: EIn Rumor ist APP und eins CTRL
+            }else if(msg.find("rumor") != string::npos) {
+                // cout << "Done " << node->getId() << "And RECV " << node->getRecvRumors() <<  "And BOOl " << node->getHasSend() << endl;
                 for(unsigned int i=0;i< node->getNeighbors().size();i++){
-                    if(node->getNeighbors().at(i).getId() != msg->getSenderId()){
-                        node->sendMessageToNode(Message (node->getId(), MESSAGE_TYPE::APPLICATION,
-                                "rumor") , node->getNeighbors().at(i));
-                    }
+                    //node->sendMessageToNode(Message(node->getId(), MESSAGE_TYPE::APPLICATION,"rumor") , node->getNeighbors().at(i));
                 }
-                node->sendMessageToNode(Message (node->getId(), MESSAGE_TYPE::CONTROL, "done"), *(node->getInitNode()));
-                node->setHasSend(true);
+                //Message message2(node->getId(), MESSAGE_TYPE::CONTROL, "done");
+                //node->sendMessageToNode(message2, *(node->getInitNode()));
+                //node->setRecvRumors(node->getConfig().getMinTrust());
+                //node->sendToNeighbors(Message(node->getId(), MESSAGE_TYPE::APPLICATION, "rumor"));
+            }else if(msg.find("election") != string::npos) {
+                echoHandler = new EchoHandler(true, node, node->getConfig().getMaxSend());
+            }else if(msg.find("obpl") != string::npos) {
+                unique_lock<mutex> lock(goldmanMutex);
+                //goldmanEdgeChasingHandler->handleIncommingMessages(msg);
+                lock.unlock();
+            }else if(msg.find("evaluate") != string::npos){
+                string believeS;
+                node->getRecvRumors() >= node->getConfig().getMinTrust() ?  believeS = "true" : believeS = "false";
+                node->setRecvRumors(0);
+                node->setHasSend(false);
+                //node->sendMessageToNode(Message (node->getId(), MESSAGE_TYPE::CONTROL, believeS), *(node->getInitNode()));
+            }else if(msg.find("end") != string::npos){
+                cout << "End Node " << node->getId() << endl;
+                exit(EXIT_SUCCESS);
             }
-            node->incrementRecvRumors();
-            lock.unlock();
-        }else if(content.find("echo") != string::npos ||
-                 content.find("explorer") != string::npos){
-            unique_lock<mutex> lock(echoMutex);
-            echoHandler->handleIncommingMessages(msg);
-            lock.unlock();
-        }else if(content=="vote"){
-            //TODO:
-        }else if(content.find("send balance") != string::npos ||
-                 content.find("balance request") != string::npos ||
-                 content.find("balance response") != string::npos ||
-                 content.find("request") != string::npos ||
-                 content.find("reply") != string::npos ||
-                 content.find("release") != string::npos){
-            unique_lock<mutex> lock(accountMutex);
-            accountHandler->handleIncommingMessages(msg);
-            lock.unlock();
         }
     }else{
-        ostringstream ss;
-        if(content == "initiator") {
-            ss << "Neighbor Id: " << node->getId();
-            node->sendToNeighbors(Message(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str()));
-        }else if(content == "rumor") {
-            // cout << "Done " << node->getId() << "And RECV " << node->getRecvRumors() <<  "And BOOl " << node->getHasSend() << endl;
-            for(unsigned int i=0;i< node->getNeighbors().size();i++){
-                node->sendMessageToNode(Message(node->getId(), MESSAGE_TYPE::APPLICATION,
-                "rumor") , node->getNeighbors().at(i));
-            }
-            Message message2(node->getId(), MESSAGE_TYPE::CONTROL, "done");
-            node->sendMessageToNode(message2, *(node->getInitNode()));
-            node->setRecvRumors(node->getConfig().getMinTrust());
-            node->sendToNeighbors(Message(node->getId(), MESSAGE_TYPE::APPLICATION, "rumor"));
-        }else if(content == "election") {
-            echoHandler = new EchoHandler(true, node, node->getConfig().getMaxSend());
-        }else if(content.find("obpl") != string::npos) {
-            unique_lock<mutex> lock(goldmanMutex);
-            goldmanEdgeChasingHandler->handleIncommingMessages(msg);
+        if(msg.find("Node Id: ") != string::npos){
+            Messages::Message message(msg);
+            cout << "Recv: [ " << message.getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
+        }else if(msg.find("balance send") != string::npos ||
+                 msg.find("balance request") != string::npos ||
+                 msg.find("balance response") != string::npos ||
+                 msg.find("request") != string::npos ||
+                 msg.find("reply") != string::npos ||
+                 msg.find("release") != string::npos){
+            unique_lock<mutex> lock(accountMutex);
+            accountHandler->handleIncommingMessage(msg, time);
             lock.unlock();
-        }else if(content == "evaluate"){
-            string believeS;
-            node->getRecvRumors() >= node->getConfig().getMinTrust() ?  believeS = "true" : believeS = "false";
-            node->setRecvRumors(0);
-            node->setHasSend(false);
-            node->sendMessageToNode(Message (node->getId(), MESSAGE_TYPE::CONTROL, believeS), *(node->getInitNode()));
-        }else if(content == "end"){
-            cout << "End Node " << node->getId() << endl;
-            exit(EXIT_SUCCESS);
+        }
+        if(msg.find("echo") != string::npos || msg.find("explorer") != string::npos){
+            unique_lock<mutex> lock(echoMutex);
+            //TODO: ADD Message for handling
+            //echoHandler->handleIncommingMessages(msg);
+            lock.unlock();
+        }else if(msg.find("vote") != string::npos){
+            //TODO:
         }
     }
 }

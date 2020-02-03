@@ -1,7 +1,7 @@
 #include <fstream>  // ifstream()
 #include <regex>    // regex()
 #include <utility>
-#include "fileHandler.hpp"
+#include "Include/fileHandler.hpp"
 
 using namespace std;
 using namespace Handler;
@@ -36,7 +36,7 @@ void FileHandler::readNodes(const unsigned int maxNodesToRead){
                 continue;
             }else if(regex_match(line, matches, isNodeLineRegex)){
                 //cout << matches.str(1) << " " << matches.str(2)  << " " << matches.str(3) << endl;
-                nodeList.emplace_back(Node(stoi(matches.str(1)), matches.str(2), (unsigned  int)stoi(matches.str(3))));
+                nodeList.emplace_back(Graph::Node(stoi(matches.str(1)), matches.str(2), (unsigned  int)stoi(matches.str(3))));
             }else{
                 throw runtime_error("ERROR: No matching node line");
             }
@@ -49,12 +49,12 @@ void FileHandler::readNodes(const unsigned int maxNodesToRead){
 /*
  * This function parses a graphviz file and sets the neighbors to the given Id
  */
-vector<Node> FileHandler::readGraphviz(const unsigned int id, const std::string& graphFile){
+vector<Graph::Node> FileHandler::readGraphviz(const unsigned int id, const std::string& graphFile){
     ifstream fileStream;
     string::size_type sz;
     string line;
     smatch matches;
-    vector<Node> neighborList;
+    vector<Graph::Node> neighborList;
     const regex nameLine(R"(graph ([a-zA-z]+) \{)");
     const regex graphvizNodeLine(R"(([0-9]+) -- ([0-9]+);)");
     const regex endLine(R"(})");
@@ -92,7 +92,7 @@ vector<Node> FileHandler::readGraphviz(const unsigned int id, const std::string&
 /*
  * This function helps to find a Node in the nodeList with a given id
  */
-Node FileHandler::getNodeFromFile(const unsigned int id){
+Graph::Node FileHandler::getNodeFromFile(const unsigned int id){
     for(auto & i : nodeList){
         if(i.getId() == id){
             return i;

@@ -57,9 +57,22 @@ include CMakeFiles/nodeApp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/nodeApp.dir/flags.make
 
+CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o: CMakeFiles/nodeApp.dir/flags.make
+CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o: ../src/Messages/forwardMessage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp"
+
+CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp" > CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.i
+
+CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp" -o CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.s
+
 CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o: ../src/Handler/configHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp"
 
 CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.i: cmake_force
@@ -72,7 +85,7 @@ CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o: ../src/Graph/edge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp"
 
 CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.i: cmake_force
@@ -85,7 +98,7 @@ CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o: ../src/Messages/message.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.cpp"
 
 CMakeFiles/nodeApp.dir/src/Messages/message.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/nodeApp.dir/src/Messages/message.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.o: ../src/Messages/accountMessage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.cpp"
 
 CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/echoMessage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp"
 
 CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Messages/orderedBlockedMessage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp"
 
 CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/fileHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp"
 
 CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/nodeApp.dir/src/Handler/fileHandler.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/messageHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp"
 
 CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/accountHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp"
 
 CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/nodeApp.dir/src/Handler/accountHandler.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/echoHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp"
 
 CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.i: cmake_force
@@ -189,7 +202,7 @@ CMakeFiles/nodeApp.dir/src/Handler/echoHandler.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/goldmanEdgeChasingHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp"
 
 CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.i: cmake_force
@@ -202,7 +215,7 @@ CMakeFiles/nodeApp.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.o: ../src/Application/doubleCounting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp"
 
 CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.i: cmake_force
@@ -215,7 +228,7 @@ CMakeFiles/nodeApp.dir/src/Application/doubleCounting.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.o: ../src/Application/agreement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp"
 
 CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.i: cmake_force
@@ -228,7 +241,7 @@ CMakeFiles/nodeApp.dir/src/Application/agreement.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/Graph/node.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/Graph/node.cpp.o: ../src/Graph/node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/nodeApp.dir/src/Graph/node.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/nodeApp.dir/src/Graph/node.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/Graph/node.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp"
 
 CMakeFiles/nodeApp.dir/src/Graph/node.cpp.i: cmake_force
@@ -241,7 +254,7 @@ CMakeFiles/nodeApp.dir/src/Graph/node.cpp.s: cmake_force
 
 CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o: CMakeFiles/nodeApp.dir/flags.make
 CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o: ../src/nodeApp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/nodeApp.cpp"
 
 CMakeFiles/nodeApp.dir/src/nodeApp.cpp.i: cmake_force
@@ -254,6 +267,7 @@ CMakeFiles/nodeApp.dir/src/nodeApp.cpp.s: cmake_force
 
 # Object files for target nodeApp
 nodeApp_OBJECTS = \
+"CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o" \
 "CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o" \
 "CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o" \
 "CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o" \
@@ -273,6 +287,7 @@ nodeApp_OBJECTS = \
 # External object files for target nodeApp
 nodeApp_EXTERNAL_OBJECTS =
 
+nodeApp: CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o
 nodeApp: CMakeFiles/nodeApp.dir/src/Handler/configHandler.cpp.o
 nodeApp: CMakeFiles/nodeApp.dir/src/Graph/edge.cpp.o
 nodeApp: CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o
@@ -290,7 +305,7 @@ nodeApp: CMakeFiles/nodeApp.dir/src/Graph/node.cpp.o
 nodeApp: CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o
 nodeApp: CMakeFiles/nodeApp.dir/build.make
 nodeApp: CMakeFiles/nodeApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable nodeApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable nodeApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nodeApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

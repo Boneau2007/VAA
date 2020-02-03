@@ -6,51 +6,47 @@
 #include <vector>
 #include <thread>
 #include <mutex>
-#include "Handler/configHandler.hpp"
-#include "Handler/messageHandler.hpp"
+#include "Handler/Include/configHandler.hpp"
+#include "Handler/Include/messageHandler.hpp"
 
 #define BUFF_SIZE 256
 #define MAX_WORKER 128
+class NetworkApp{
 
-namespace Uebung1{
+    private:
+        std::mutex doneMutex;
+        std::mutex believeMutex;
+        std::mutex unbelieveMutex;
+        const std::vector<std::string> menueList = {"Terminate all nodes", "Initiat node", "Tell a rumor", "Start philosopher meeting", "Terminate node"};
+        unsigned int doneNumber = 0;
+        unsigned int believeingNodes = 0;
+        unsigned int unbelieveingNodes = 0;
 
-    class NetworkApp{
+        // Classattributes
+        std::string configName;
+        bool useGraphviz;
+        Handler::ConfigHandler config;
+        Handler::FileHandler fileHandler;
+        Graph::Node node;
 
-        private:
-            std::mutex doneMutex;
-            std::mutex believeMutex;
-            std::mutex unbelieveMutex;
-            const std::vector<std::string> menueList = {"Terminate all nodes", "Initiat node", "Tell a rumor", "Start philosopher meeting", "Terminate node"};
-            unsigned int doneNumber = 0;
-            unsigned int believeingNodes = 0;
-            unsigned int unbelieveingNodes = 0;
+    public:
+        // Constructors
+        NetworkApp(std::string  configName, bool useGraphviz);
 
-            // Classattributes
-            std::string configName;
-            bool useGraphviz;
-            Config config;
-            Uebung1::Node node;
-            FileHandler fileHandler;
+        // Deconstructors
 
-        public:
-            // Constructors
-            NetworkApp(std::string  configName, bool useGraphviz);
-            
-            // Deconstructors
-
-            // Inline-Elemtfunctions
+        // Inline-Elemtfunctions
 
 
-            void start();
-            std::string messageDialog();
-            void executeListingThread();   
+        void start();
+        std::string messageDialog();
+        void executeListingThread();
 
-        private:
-            static bool contains(const std::vector<unsigned int>& list, unsigned int number);
-            std::vector<unsigned int> getRandNodeIdList(unsigned int maxNumber);
-            void reset();
-            void executeWorkerThread(int socketFd);
-            static void initTcpSocket(int& socketFd, unsigned int port);
-    };
-}
+    private:
+        static bool contains(const std::vector<unsigned int>& list, unsigned int number);
+        std::vector<unsigned int> getRandNodeIdList(unsigned int maxNumber);
+        void reset();
+        void executeWorkerThread(int socketFd);
+        static void initTcpSocket(int& socketFd, unsigned int port);
+};
 #endif // NODEAPP_HPP

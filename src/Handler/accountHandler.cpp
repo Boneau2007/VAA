@@ -4,66 +4,64 @@
 
 #include <string>
 #include <sstream>
-#include "accountHandler.hpp"
+#include "Include/accountHandler.hpp"
 
 using namespace Handler;
 using namespace Messages;
 using namespace Graph;
 using namespace std;
+using namespace Messages;
 using namespace chrono;
 
 AccountHandler::AccountHandler() : node(nullptr), balance(0), percent(0) {}
 
-AccountHandler::AccountHandler(Node* node) : node(node), percent(0){
+AccountHandler::AccountHandler(Graph::Node* node) : node(node), percent(0){
     srand(time(nullptr));
     balance = rand()%100000;
 }
 
-void AccountHandler::handleIncommingMessages(Message* message){
-    string content = message->getContent();
-    //incomming excercise messages
-    if(content.find("send balance") != string::npos) {
-        string line;
-        stringstream ss(content);
-        getline(ss, line, ';'); //send balance
-
-        getline(ss, line, ';'); //recvBalance
-        unsigned int recvBalance = stoi(line);
-        getline(ss, line, ';'); //recvPercent
-        unsigned  int recvPercent = stoi(line);
-
-        if(recvBalance >= balance){
-            balance += recvBalance*recvPercent*0.01;
-        }else{
-            balance -= balance*recvPercent*0.01;
+void AccountHandler::handleIncommingMessage(const std::string& msg, const time_t time){
+    if( msg.find("balance send") != string::npos || msg.find("balance response") != string::npos) {
+        IMessage* sendResponseMsg = new AccountMessage(msg);
+        if(sendResponseMsg->getCommand() == "balance send"){
+            unsigned int recvBalance = sendResponseMsg->getBalance();
+            unsigned int recvPercent = sendResponseMsg->getPercent();
+            if(recvBalance >= balance){
+                balance += recvBalance*recvPercent*0.01;
+            }else{
+                balance -= balance*recvPercent*0.01;
+            }
+            IMessage* releaseMsg = new Message(sendResponseMsg->getSenderId(), APPLICATION, "release");
+            node->sendMessageToNode(releaseMsg,node->getFileHandler()->getNodeFromFile(sendResponseMsg->getSenderId()));
+        }else if(sendResponseMsg->getCommand() == "balance response"){
+            unsigned int recvBalance = sendResponseMsg->getBalance();
+            unsigned int recvPercent = sendResponseMsg->getPercent();
+            if(recvBalance >= balance){
+                balance += recvBalance*recvPercent*0.01;
+            }else{
+                balance -= balance*recvPercent*0.01;
+            }
         }
-        Message acknowledgementMsg(message->getSenderId(),APPLICATION,"release");
-        node->sendMessageToNode(acknowledgementMsg,node->getFileHandler()->getNodeFromFile(message->getSenderId()));
-    }else if(content.find("balance request") != string::npos){
+
+    }else if(msg.find("balance request") != string::npos || msg.find("release") != string::npos ){
+        IMessage* requestReleaseMessage = new Message(msg);
+        if(requestReleaseMessage->getCommand() == "balance request"){
+            IMessage*  balanceResponseMsg = new AccountMessage(node->getId(), APPLICATION, "balance response", balance, percent);
+        }else if(requestReleaseMessage->getCommand() == "release"){
+
+        }
         ostringstream ss;
         ss << "balance response;" << balance;
-        Message responseMessage(node->getId(),APPLICATION, ss.str());
-        node->sendMessageToNode(responseMessage, node->getFileHandler()->getNodeFromFile(message->getSenderId()));
-    }else if(content.find("balance response") != string::npos){
-        string line;
-        stringstream ss(content);
-        getline(ss, line, ';'); //balance response
-        getline(ss, line, ';'); //recvBalance
-        unsigned int recvBalance = stoi(line); //Get balance and percent
-        if(recvBalance >= balance){
-            balance += recvBalance*percent*0.01;
-        }else{
-            balance -= balance*percent*0.01;
-        }
-        node->setWaitAck(false);
+        //Message responseMessage(node->getId(),APPLICATION, ss.str());
+        //node->sendMessageToNode(responseMessage, node->getFileHandler()->getNodeFromFile(message->getSenderId()));
     }
     //incomming Lamport Alg. messages
     if(content.find("request") != string::npos){
         ostringstream ss;
         ss << "reply;" << message->getTimestamp();
-        requestQueue.insert(pair<Message, vector<unsigned int>>(*message, {}));
-        Message replyMsg(message->getSenderId(),APPLICATION,ss.str(), system_clock::to_time_t(system_clock::now()));
-        node->sendMessageToNode(replyMsg,node->getFileHandler()->getNodeFromFile(message->getSenderId()));
+        //requestQueue.insert(pair<Message, vector<unsigned int>>(*message, {}));
+        //Message replyMsg(message->getSenderId(),APPLICATION,ss.str(), system_clock::to_time_t(system_clock::now()));
+        //node->sendMessageToNode(replyMsg,node->getFileHandler()->getNodeFromFile(message->getSenderId()));
     }else if(content.find("reply") != string::npos){
         string line;
         stringstream ss(content);
@@ -83,8 +81,8 @@ void AccountHandler::handleIncommingMessages(Message* message){
     }
 }
 
-void AccountHandler::pushMessageToQueue(const Message& message){
-    requestQueue.insert(pair<Message, vector<unsigned int>>(message, {}));
+void AccountHandler::pushMessageToQueue(const Messages::AccountMessage& message){
+    requestQueue.insert(pair<Messages::AccountMessage, vector<unsigned int>>(message, {}));
 }
 
 void AccountHandler::removeFromMessageQueue(unsigned int id){
@@ -141,7 +139,7 @@ std::vector<unsigned int> AccountHandler::getBlockingNodeIdList() {
     //Is some message time greater as this time? If true then is not lowest, therefore we send false
     while(iterator != requestQueue.end()){
         if(iterator->first.getTimestamp() > referedTime){
-            ids.emplace_back(iterator->first.getOriginId());
+            ids.emplace_back(iterator->first.getSenderId());
         }
     }
     return ids;

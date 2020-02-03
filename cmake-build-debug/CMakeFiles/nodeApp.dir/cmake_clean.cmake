@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/nodeApp.dir/src/Handler/messageHandler.cpp.o"
   "CMakeFiles/nodeApp.dir/src/Messages/accountMessage.cpp.o"
   "CMakeFiles/nodeApp.dir/src/Messages/echoMessage.cpp.o"
+  "CMakeFiles/nodeApp.dir/src/Messages/forwardMessage.cpp.o"
   "CMakeFiles/nodeApp.dir/src/Messages/message.cpp.o"
   "CMakeFiles/nodeApp.dir/src/Messages/orderedBlockedMessage.cpp.o"
   "CMakeFiles/nodeApp.dir/src/nodeApp.cpp.o"

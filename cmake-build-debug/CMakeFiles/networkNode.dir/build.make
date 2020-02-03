@@ -57,22 +57,9 @@ include CMakeFiles/networkNode.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/networkNode.dir/flags.make
 
-CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
-CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o: ../src/Handler/configHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp"
-
-CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp" > CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.i
-
-CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.s
-
 CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o: ../src/Graph/edge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp"
 
 CMakeFiles/networkNode.dir/src/Graph/edge.cpp.i: cmake_force
@@ -83,18 +70,31 @@ CMakeFiles/networkNode.dir/src/Graph/edge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Graph/edge.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.cpp" -o CMakeFiles/networkNode.dir/src/Graph/edge.cpp.s
 
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/fileHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp"
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: CMakeFiles/networkNode.dir/flags.make
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Graph/node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/networkNode.dir/src/Graph/node.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Graph/node.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp"
 
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp" > CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.i
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Graph/node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp" > CMakeFiles/networkNode.dir/src/Graph/node.cpp.i
 
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.s
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Graph/node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp" -o CMakeFiles/networkNode.dir/src/Graph/node.cpp.s
+
+CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: CMakeFiles/networkNode.dir/flags.make
+CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: ../src/Messages/forwardMessage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp"
+
+CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp" > CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.i
+
+CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp" -o CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.s
 
 CMakeFiles/networkNode.dir/src/Messages/message.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/Messages/message.cpp.o: ../src/Messages/message.cpp
@@ -148,9 +148,35 @@ CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp" -o CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.s
 
+CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
+CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o: ../src/Handler/configHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp"
+
+CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp" > CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.i
+
+CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.s
+
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/fileHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp"
+
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp" > CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.i
+
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.s
+
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/echoHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp"
 
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.i: cmake_force
@@ -163,7 +189,7 @@ CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.s: cmake_force
 
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/accountHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp"
 
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.i: cmake_force
@@ -174,22 +200,9 @@ CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.s
 
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: CMakeFiles/networkNode.dir/flags.make
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Application/doubleCounting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp"
-
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp" > CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.i
-
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp" -o CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.s
-
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/goldmanEdgeChasingHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp"
 
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.i: cmake_force
@@ -199,19 +212,6 @@ CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.i: cmake_fo
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.s
-
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: CMakeFiles/networkNode.dir/flags.make
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Application/agreement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp"
-
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Application/agreement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp" > CMakeFiles/networkNode.dir/src/Application/agreement.cpp.i
-
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Application/agreement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp" -o CMakeFiles/networkNode.dir/src/Application/agreement.cpp.s
 
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/messageHandler.cpp
@@ -226,9 +226,35 @@ CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp" -o CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.s
 
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: CMakeFiles/networkNode.dir/flags.make
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Application/doubleCounting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp"
+
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp" > CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.i
+
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp" -o CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.s
+
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: CMakeFiles/networkNode.dir/flags.make
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Application/agreement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp"
+
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Application/agreement.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp" > CMakeFiles/networkNode.dir/src/Application/agreement.cpp.i
+
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Application/agreement.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp" -o CMakeFiles/networkNode.dir/src/Application/agreement.cpp.s
+
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: CMakeFiles/networkNode.dir/flags.make
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/networkApp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/networkNode.dir/src/networkApp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/networkNode.dir/src/networkApp.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/networkApp.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp"
 
 CMakeFiles/networkNode.dir/src/networkApp.cpp.i: cmake_force
@@ -239,58 +265,47 @@ CMakeFiles/networkNode.dir/src/networkApp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/networkApp.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp" -o CMakeFiles/networkNode.dir/src/networkApp.cpp.s
 
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: CMakeFiles/networkNode.dir/flags.make
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Graph/node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/networkNode.dir/src/Graph/node.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/networkNode.dir/src/Graph/node.cpp.o -c "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp"
-
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/networkNode.dir/src/Graph/node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp" > CMakeFiles/networkNode.dir/src/Graph/node.cpp.i
-
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/networkNode.dir/src/Graph/node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp" -o CMakeFiles/networkNode.dir/src/Graph/node.cpp.s
-
 # Object files for target networkNode
 networkNode_OBJECTS = \
-"CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o" \
-"CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o" \
+"CMakeFiles/networkNode.dir/src/Graph/node.cpp.o" \
+"CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Messages/message.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o" \
+"CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o" \
+"CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o" \
-"CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o" \
-"CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o" \
 "CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o" \
-"CMakeFiles/networkNode.dir/src/networkApp.cpp.o" \
-"CMakeFiles/networkNode.dir/src/Graph/node.cpp.o"
+"CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o" \
+"CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o" \
+"CMakeFiles/networkNode.dir/src/networkApp.cpp.o"
 
 # External object files for target networkNode
 networkNode_EXTERNAL_OBJECTS =
 
-networkNode: CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Graph/edge.cpp.o
-networkNode: CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o
+networkNode: CMakeFiles/networkNode.dir/src/Graph/node.cpp.o
+networkNode: CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Messages/message.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o
+networkNode: CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o
+networkNode: CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o
-networkNode: CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o
-networkNode: CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o
+networkNode: CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o
+networkNode: CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o
 networkNode: CMakeFiles/networkNode.dir/src/networkApp.cpp.o
-networkNode: CMakeFiles/networkNode.dir/src/Graph/node.cpp.o
 networkNode: CMakeFiles/networkNode.dir/build.make
 networkNode: CMakeFiles/networkNode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable networkNode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable networkNode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/networkNode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

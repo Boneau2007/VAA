@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphGenApp.dir/src/Handler/messageHandler.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/Messages/accountMessage.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/Messages/echoMessage.cpp.o"
+  "CMakeFiles/graphGenApp.dir/src/Messages/forwardMessage.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/Messages/message.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/Messages/orderedBlockedMessage.cpp.o"
   "CMakeFiles/graphGenApp.dir/src/graphGenApp.cpp.o"

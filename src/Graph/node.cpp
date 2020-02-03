@@ -13,28 +13,27 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <fstream>
-#include "node.hpp"
+#include "Include/node.hpp"
 
 using namespace std;
 using namespace Graph;
 using namespace Handler;
 using namespace chrono;
 
-Node::Node() :  id(0), ipAddress(""), port(0), recvRumors(0), hasSend(false),
-                config(""), preferedTime(0), fileHandler(nullptr), messageHandler(nullptr),
+Graph::Node::Node() :  id(0), ipAddress(""), port(0), recvRumors(0), hasSend(false), preferedTime(0), fileHandler(nullptr), messageHandler(nullptr),
                 coordinator(nullptr), initNode(nullptr), waitAck(false){}
 
-Node::Node(const unsigned int id, string  ipAddress, const unsigned int port)
-    :   id(id), ipAddress(std::move(ipAddress)), port(port), recvRumors(0), hasSend(false),
-        config(""), preferedTime(0), fileHandler(nullptr), messageHandler(nullptr),
-        coordinator(nullptr), initNode(nullptr), waitAck(false){
+Graph::Node::Node(const unsigned int id, string  ipAddress, const unsigned int port) {
+    this->id = id;
+    this->ipAddress = std::move(ipAddress);
+    this->port = port;
 }
 
-Node::Node( const unsigned int id, const std::string& configFile, const bool isGraphviz) : id(id), recvRumors(0),
-            hasSend(false), config(configFile), preferedTime(0), coordinator(nullptr), waitAck(false){
+Graph::Node::Node( const unsigned int id, const std::string& configFile, const bool isGraphviz) : config(configFile){
+    this->id = id;
     initNode = new Node(0,config.getInitIpAddress(), config.getInitPort());
-    fileHandler = new FileHandler(config.getNodeFileName());
-    messageHandler = new MessageHandler(this);
+    fileHandler = new Handler::FileHandler(config.getNodeFileName());
+    messageHandler = new Handler::MessageHandler(this);
     fileHandler->readNodes(config.getMaxNumOfNodes());
     for(auto & node : fileHandler->getNodeList()){
         if(node.getId() == id){
@@ -53,8 +52,7 @@ Node::Node( const unsigned int id, const std::string& configFile, const bool isG
 }
 
 
-void Node::startHandle(){
-    //  cout << "id " << id <<  " "<< ipAddress << " "<< port << " "<< initNodePort<<  endl;    
+void Graph::Node::startHandle(){
     struct sockaddr_in address{};
 	int addrLenght = sizeof(address);
     vector<thread> threadPool;
@@ -62,13 +60,16 @@ void Node::startHandle(){
     initTcpSocket(listenFd);
     ostringstream ss;
     ss << "Node Id: " << id;
+
     //Send Id to neighbors
-    Message message(id, MESSAGE_TYPE::APPLICATION, ss.str());
+    Messages::IMessage* message = new Messages::Message(id, Messages::MESSAGE_TYPE::APPLICATION, ss.str());
     for(auto & neighbor : neighbors){
         threadPool.emplace_back(&Node::executeSendMessageThread, this, message, neighbor);
     }
+    sleep(3);
+    // 3.Uebung
     threadPool.emplace_back(&Node::executeAccountAlgorithmThread, this);
-    //Listen on socket and accept incomming connections
+
     while(true){
         try{
             int worker = accept(listenFd,(struct sockaddr *)&address, (socklen_t *)&addrLenght);
@@ -79,17 +80,18 @@ void Node::startHandle(){
     }
 }
 
-void Node::executeSendMessageThread(Message message, const Node& node){
+void Graph::Node::executeSendMessageThread(Messages::IMessage* message, const Node& node){
     sleep(2);
-    sendMessageToNode(std::move(message), node);
+    sendMessageToNode(message, node);
 }
 
 /*
  * This function creates communication sockets and writes data to the host
  */
-void Node::sendMessageToNode(Message message, const Node& targetNode){
+void Graph::Node::sendMessageToNode(Messages::IMessage* message, const Node& targetNode){
     int sock;
     struct sockaddr_in server{};
+    string command = message->getCommand();
     try{
         if((sock = socket(AF_INET, SOCK_STREAM, 0)) == -1){
             throw runtime_error("ERROR: Unable to create socket");
@@ -102,53 +104,48 @@ void Node::sendMessageToNode(Message message, const Node& targetNode){
         if(connect(sock, (struct sockaddr*)&server, sizeof(server)) == -1){
             throw runtime_error("ERROR: Unable to connect");
         }
-        time_t time = system_clock::to_time_t(system_clock::now());
-        if(write(sock, message.toString().c_str(), message.toString().size()) == -1){
-            throw runtime_error("ERROR: Unable to write");
+        //time_t time = system_clock::to_time_t(system_clock::now());
+        //TODO: Wenn Nachricht Command enthält bestimmte nachrichten, dann ist Message
+        if( command.find("Node Id: ") != string::npos ||
+            command.find("end") != string::npos ||
+            command.find("election") != string::npos ||
+            command.find("initiator") != string::npos||
+            command.find("rumor") != string::npos){
+            Messages::Message* msg = dynamic_cast<Messages::Message*>(message);
+            if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
+                throw runtime_error("ERROR: Unable to write");
+            }
         }
         close(sock);
-        string timeS(asctime(localtime(&time)));
-        timeS.pop_back();
-        ostringstream ss;
-        ss << "[ID:" << id << "] SEND: " << message.toString() << " [" << timeS << "]" << endl;
-        //std::cout << ss.str();
     }
     catch(const exception& e){
         cerr << e.what() << endl;
     }
 }
 
-void Node::sendToNeighbors(const Message& msg){
+void Graph::Node::sendToNeighbors(Messages::IMessage* msg){
     for(const auto & neighbor : neighbors){
         sendMessageToNode(msg, neighbor);
     }
 }
 
-void Node::sendToNeighborsExceptSource(const Message& msg){
+void Graph::Node::sendToNeighborsExceptSource(Messages::IMessage* msg){
     for(const auto & neighbor : neighbors){
-        if(neighbor.getId() != msg.getOriginId()){
+        if(neighbor.getId() != msg->getOriginId()){
             sendMessageToNode(msg , neighbor);
         }
     }
 }
 
-void Node::executeWorkerThread(int socketFd) {
-    ostringstream ss;
+void Graph::Node::executeWorkerThread(int socketFd) {
     char buff[256] = {'\0'};
     read(socketFd, buff, 256);
-    time_t time = system_clock::to_time_t(system_clock::now());
-    string timeS(asctime(localtime(&time)));
-    timeS.pop_back();
-    string msgS(buff);
-    Message msg(msgS);
-    ss << "[ID:"<< id << "] RECV: " << msg.toString() << " [" << timeS <<"]"  << endl;
-    cout << ss.str();
-    messageHandler->handleIncommingMessage(&msg);
+    messageHandler->handleIncommingMessage(string(buff), system_clock::to_time_t(system_clock::now()));
     close(socketFd);
 }
 
 
-void Node::executeAccountAlgorithmThread() {
+void Graph::Node::executeAccountAlgorithmThread() {
     unsigned int randIndex = -1;
     srand(time(nullptr));
     while(true){
@@ -175,7 +172,7 @@ void Node::executeAccountAlgorithmThread() {
  * @param		port		Portnumber
  * @result		Results an EXIT_FAILURE or EXIT_SUCCESS
  */
-void Node::initTcpSocket(int& socketFd){
+void Graph::Node::initTcpSocket(int& socketFd){
     struct sockaddr_in serverAddress{};
     int yes = 1;
     if ((socketFd = socket(AF_INET, SOCK_STREAM, 0)) < 0){
@@ -196,7 +193,7 @@ void Node::initTcpSocket(int& socketFd){
     }
 }
 
-bool Node::hasNeighbor(const vector<Node>& nodes, const unsigned int thisId){
+bool Graph::Node::hasNeighbor(const vector<Graph::Node>& nodes, const unsigned int thisId){
     for(auto & neighbor : nodes){
         if(neighbor.getId() == thisId){
             return true;
@@ -205,7 +202,7 @@ bool Node::hasNeighbor(const vector<Node>& nodes, const unsigned int thisId){
     return false;
 }
 
-void Node::selectNeighbors(){
+void Graph::Node::selectNeighbors(){
     srand (time(nullptr));
     for(unsigned int i=0;i < config.getMaxRandNumber(); i++){
         bool foundNeighbor = false;
@@ -221,7 +218,7 @@ void Node::selectNeighbors(){
 }
 
 
-void Node::selectTime(){
+void Graph::Node::selectTime(){
     vector<time_t> timeList;
     ifstream fileStream;
     string line;
@@ -243,40 +240,40 @@ void Node::selectTime(){
     preferedTime = timeList.at(num);
 }
 
-void Node::acquireLock(unsigned int waitTillTime, unsigned int randIndex) {
+void Graph::Node::acquireLock(unsigned int waitTillTime, unsigned int randIndex) {
     bool sendObpl = true;
-    Message lockMsg(id, APPLICATION, "request", system_clock::to_time_t(system_clock::now()));
-    for(const auto& node : fileHandler->getNodeList()){
-        sendMessageToNode(lockMsg, node);
-    } // TODO: Ersetze durch Flooding Alg.
-    messageHandler->getAccountHandler()->pushMessageToQueue(lockMsg);
-    while(!(messageHandler->getAccountHandler()->isLowestTimestamp() &&
-            messageHandler->getAccountHandler()->receivedReplyFromAll())){
-        if(system_clock::to_time_t(system_clock::now()) >= waitTillTime && sendObpl){
-            messageHandler->getGoldmanEdgeChasingHandler()->initiateOBPL(messageHandler->getAccountHandler()->getBlockingNodeIdList());
-            sendObpl = false;
-        }
-    }
+    Messages::IMessage* lockMsg = new Messages::AccountMessage(id, APPLICATION, "request", system_clock::to_time_t(system_clock::now()));
+    //for(const auto& node : fileHandler->getNodeList()){
+    //    sendMessageToNode(lockMsg, node);
+    //} // TODO: Ersetze durch Flooding Alg.
+    //messageHandler->getAccountHandler()->pushMessageToQueue(lockMsg);
+    //while(!(messageHandler->getAccountHandler()->isLowestTimestamp() &&
+    //        messageHandler->getAccountHandler()->receivedReplyFromAll())){
+    //    if(system_clock::to_time_t(system_clock::now()) >= waitTillTime && sendObpl){
+    //        messageHandler->getGoldmanEdgeChasingHandler()->initiateOBPL(messageHandler->getAccountHandler()->getBlockingNodeIdList());
+    //        sendObpl = false;
+    //    }
+    //}
 }
-void Node::loseLock(){
+void Graph::Node::loseLock(){
     messageHandler->getAccountHandler()->removeFromMessageQueue(id);
-    Message releaseMsg(id, APPLICATION, "release", system_clock::to_time_t(system_clock::now()));
-    for(const auto& node : fileHandler->getNodeList()){
-        sendMessageToNode(releaseMsg, node);
-    }
+    //Message releaseMsg(id, APPLICATION, "release", system_clock::to_time_t(system_clock::now()));
+    //for(const auto& node : fileHandler->getNodeList()){
+    //    sendMessageToNode(releaseMsg, node);
+    //}
 }
 
-void Node::criticalSection(unsigned int randIndex){
+void Graph::Node::criticalSection(unsigned int randIndex){
     // 4. Wähle zufälligen Prozentsatz
     messageHandler->getAccountHandler()->setPercent(rand()%100);
     // 5. Sende den eigenen Kontostand und Prozentsatz
     ostringstream ss;
     ss << "send balance" << messageHandler->getAccountHandler()->getBalanceAmount() << ";" << messageHandler->getAccountHandler()->getPercent() ;
-    Message message(id,APPLICATION,ss.str());
-    sendMessageToNode(message, fileHandler->getNodeList().at(randIndex));
-    // 6. Request Balance
-    Message requestMessage(id,APPLICATION,"balance request");
-    sendMessageToNode(requestMessage, fileHandler->getNodeList().at(randIndex));
+    //Message message(id,APPLICATION,ss.str());
+    //sendMessageToNode(message, fileHandler->getNodeList().at(randIndex));
+    //// 6. Request Balance
+    //Message requestMessage(id,APPLICATION,"balance request");
+    //sendMessageToNode(requestMessage, fileHandler->getNodeList().at(randIndex));
     waitAck = true;
     // 9. Warte auf ACK und gib waitAck frei
     while(waitAck){

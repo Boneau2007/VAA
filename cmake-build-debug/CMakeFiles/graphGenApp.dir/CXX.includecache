@@ -6,55 +6,79 @@
 
 #IncludeRegexTransform: 
 
-../src/include/agreement.hpp
-message.hpp
-../src/include/message.hpp
+../src/Application/Include/agreement.hpp
+IMessage.hpp
+../src/Application/Include/IMessage.hpp
 node.hpp
-../src/include/node.hpp
+../src/Application/Include/node.hpp
 
-../src/include/config.hpp
+../src/Application/Include/doubleCounting.hpp
+../../Graph/Include/node.hpp
+../src/Graph/Include/node.hpp
+
+../src/Graph/Include/edge.hpp
+
+../src/Graph/Include/node.hpp
+iostream
+-
+string
+-
+vector
+-
+fileHandler.hpp
+../src/Graph/Include/fileHandler.hpp
+IMessage.hpp
+../src/Graph/Include/IMessage.hpp
+messageHandler.hpp
+../src/Graph/Include/messageHandler.hpp
+configHandler.hpp
+../src/Graph/Include/configHandler.hpp
+
+../src/Handler/Include/accountHandler.hpp
+vector
+-
+map
+-
+node.hpp
+../src/Handler/Include/node.hpp
+accountMessage.hpp
+../src/Handler/Include/accountMessage.hpp
+
+../src/Handler/Include/configHandler.hpp
 string
 -
 
-../src/include/doubleCounting.hpp
-node.hpp
-../src/include/node.hpp
-
-../src/include/echoHandler.hpp
+../src/Handler/Include/echoHandler.hpp
 vector
 -
 mutex
 -
-message.hpp
-../src/include/message.hpp
+../../Messages/Include/echoMessage.hpp
+../src/Messages/Include/echoMessage.hpp
 node.hpp
-../src/include/node.hpp
+../src/Handler/Include/node.hpp
 edge.hpp
-../src/include/edge.hpp
+../src/Handler/Include/edge.hpp
 
-../src/include/edge.hpp
-
-../src/include/fileHandler.hpp
+../src/Handler/Include/fileHandler.hpp
 string
 -
 vector
 -
 node.hpp
-../src/include/node.hpp
+../src/Handler/Include/node.hpp
 edge.hpp
-../src/include/edge.hpp
+../src/Handler/Include/edge.hpp
 
-../src/include/message.hpp
-iostream
--
-string
+../src/Handler/Include/goldmanEdgeChasingHandler.hpp
+vector
 -
 node.hpp
-../src/include/node.hpp
-edge.hpp
-../src/include/edge.hpp
+../src/Handler/Include/node.hpp
+orderedBlockedMessage.hpp
+../src/Handler/Include/orderedBlockedMessage.hpp
 
-../src/include/messageHandler.hpp
+../src/Handler/Include/messageHandler.hpp
 iostream
 -
 string
@@ -64,13 +88,71 @@ vector
 mutex
 -
 node.hpp
-../src/include/node.hpp
-message.hpp
-../src/include/message.hpp
+../src/Handler/Include/node.hpp
+../../Messages/Include/IMessage.hpp
+../src/Messages/Include/IMessage.hpp
 echoHandler.hpp
-../src/include/echoHandler.hpp
+../src/Handler/Include/echoHandler.hpp
+doubleCounting.hpp
+../src/Handler/Include/doubleCounting.hpp
+agreement.hpp
+../src/Handler/Include/agreement.hpp
+accountHandler.hpp
+../src/Handler/Include/accountHandler.hpp
+goldmanEdgeChasingHandler.hpp
+../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 
-../src/include/node.hpp
+../src/Messages/Include/IMessage.hpp
+string
+-
+vector
+-
+map
+-
+ctime
+-
+edge.hpp
+../src/Messages/Include/edge.hpp
+
+../src/Messages/Include/accountMessage.hpp
+ctime
+-
+string
+-
+message.hpp
+../src/Messages/Include/message.hpp
+
+../src/Messages/Include/echoMessage.hpp
+vector
+-
+string
+-
+edge.hpp
+../src/Messages/Include/edge.hpp
+forwardMessage.hpp
+../src/Messages/Include/forwardMessage.hpp
+
+../src/Messages/Include/forwardMessage.hpp
+string
+-
+message.hpp
+../src/Messages/Include/message.hpp
+
+../src/Messages/Include/message.hpp
+string
+-
+IMessage.hpp
+../src/Messages/Include/IMessage.hpp
+
+../src/Messages/Include/orderedBlockedMessage.hpp
+vector
+-
+string
+-
+message.hpp
+../src/Messages/Include/message.hpp
+
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/node.hpp
 iostream
 -
 string
@@ -78,83 +160,15 @@ string
 vector
 -
 fileHandler.hpp
-../src/include/fileHandler.hpp
-message.hpp
-../src/include/message.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/fileHandler.hpp
+IMessage.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/IMessage.hpp
 messageHandler.hpp
-../src/include/messageHandler.hpp
-doubleCounting.hpp
-../src/include/doubleCounting.hpp
-agreement.hpp
-../src/include/agreement.hpp
-config.hpp
-../src/include/config.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/messageHandler.hpp
+configHandler.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/configHandler.hpp
 
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.cpp
-agreement.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/agreement.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.cpp
-istream
--
-fstream
--
-regex
--
-iostream
--
-config.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/config.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.cpp
-doubleCounting.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/doubleCounting.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.cpp
-unistd.h
--
-thread
--
-echoHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/echoHandler.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.cpp
-fstream
--
-regex
--
-utility
--
-fileHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/graphGenApp.cpp
-iostream
--
-sstream
--
-fileHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/fileHandler.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.cpp
-regex
--
-sstream
--
-istream
--
-utility
--
-message.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/message.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.cpp
-sstream
--
-messageHandler.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/messageHandler.hpp
-
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.cpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp
 sstream
 -
 regex
@@ -181,6 +195,22 @@ sys/types.h
 -
 fstream
 -
-node.hpp
-/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/node.hpp
+Include/node.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/node.hpp
+
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/configHandler.hpp
+string
+-
+
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp
+istream
+-
+fstream
+-
+regex
+-
+iostream
+-
+Include/configHandler.hpp
+/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/configHandler.hpp
 

@@ -2,12 +2,14 @@
 // Created by alhuber on 02.02.20.
 //
 
-#include "orderedBlockedMessage.hpp"
+#include "Include/orderedBlockedMessage.hpp"
 
-Messages::OrderedBlockedMessage::OrderedBlockedMessage() {
+using namespace Messages;
+
+OrderedBlockedMessage::OrderedBlockedMessage() {
 
 }
 
-Messages::OrderedBlockedMessage::OrderedBlockedMessage(std::string orderedBlockedMessageString) {
+OrderedBlockedMessage::OrderedBlockedMessage(std::string orderedBlockedMessageString) {
 
 }

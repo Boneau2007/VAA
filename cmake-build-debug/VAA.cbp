@@ -54,7 +54,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -78,7 +81,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -102,7 +108,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -126,7 +135,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -150,7 +162,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -174,7 +189,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include"/>
+					<Add directory="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -222,12 +240,17 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include/agreement.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.hpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include/doubleCounting.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -237,7 +260,12 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.hpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/edge.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/node.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -247,17 +275,37 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/edge.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.hpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/accountHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/configHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/echoHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/fileHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/goldmanEdgeChasingHandler.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/messageHandler.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -267,17 +315,7 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.cpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/configHandler.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -287,17 +325,7 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -307,22 +335,37 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.hpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/IMessage.hpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/accountMessage.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/echoMessage.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/forwardMessage.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp">
+			<Option target="nodeApp"/>
+			<Option target="networkNode"/>
+			<Option target="graphGenApp"/>
+		</Unit>
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/orderedBlockedMessage.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -332,17 +375,12 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.hpp">
+		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
@@ -352,17 +390,7 @@
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>
 		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.hpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
 		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp">
-			<Option target="nodeApp"/>
-			<Option target="networkNode"/>
-			<Option target="graphGenApp"/>
-		</Unit>
-		<Unit filename="/home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.hpp">
 			<Option target="nodeApp"/>
 			<Option target="networkNode"/>
 			<Option target="graphGenApp"/>

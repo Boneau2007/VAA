@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o"
   "CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o"
   "CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o"
+  "CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o"
   "CMakeFiles/networkNode.dir/src/Messages/message.cpp.o"
   "CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o"
   "CMakeFiles/networkNode.dir/src/networkApp.cpp.o"
