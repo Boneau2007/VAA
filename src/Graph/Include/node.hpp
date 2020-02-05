@@ -41,6 +41,8 @@ namespace Graph{
         Node* coordinator{};
 
         bool waitAck{};
+        bool hasDeadlock;
+        unsigned int lockId;
     public:
         // Constructors
         Node();
@@ -76,6 +78,7 @@ namespace Graph{
         Node* getInitNode(){return initNode; }
 
         unsigned int getId() const { return id; }
+        unsigned int getLockId() const { return lockId; }
         std::string getIpAddress() const { return ipAddress; }
         unsigned int getPort() const { return port; }
         std::vector<Node> getNeighbors() { return neighbors; }
@@ -86,6 +89,7 @@ namespace Graph{
         void setHasSend(bool hasSend){ this->hasSend = hasSend;}
         void setCoordinator(Node* coordinator) { this->coordinator=coordinator; }
         void setWaitAck(bool waitAck){this->waitAck = waitAck;}
+        void setHasDeadlock(bool hasDeadlock){this->hasDeadlock = hasDeadlock;}
 
         // Memberfunctions
         void startHandle();

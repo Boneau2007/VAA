@@ -13,11 +13,11 @@ Handler::LockHandler::LockHandler(Graph::Node *node) : node(node) {}
 void Handler::LockHandler::handleIncommingMessage(const std::string &msg, const time_t time) {
     if(msg.find("lock request") != string::npos){
         IMessage* lockMsg = new LockMessage(msg);
-        cout << "Recv: [ " << lockMsg->getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
+        cout << "ID: " << node->getId() << " recv [" << dynamic_cast<LockMessage*>(lockMsg)->toString() <<"] from " << lockMsg->getSenderId()<< endl;
         if(node->putMessageToLocalRequestQueue(*lockMsg)){
             //Sende die Nachricht an alle Nachbarn weiter
             IMessage* forwardMsg = new LockMessage(node->getId(), APPLICATION, "lock request", lockMsg->getLockId(), lockMsg->getOriginId(),
-                    lockMsg->getRecvLocalClock());
+                    lockMsg->getLocalClock());
             node->sendToNeighborsExceptSource(forwardMsg);
             IMessage* lockAckMsg = new LockAckMessage(  node->getId(), APPLICATION, "lock ack", lockMsg->getLockId(),
                     node->getId(), node->getLocalClock().getTime(),
@@ -26,12 +26,12 @@ void Handler::LockHandler::handleIncommingMessage(const std::string &msg, const 
         }
     }else if(msg.find("lock ack") != string::npos){
         IMessage* lockAckMsg = new LockAckMessage(msg);
-        cout << "Recv: [ " << lockAckMsg->getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
+        cout << "ID: " << node->getId() << " recv [" << dynamic_cast<LockAckMessage*>(lockAckMsg)->toString() <<"] from " << lockAckMsg->getSenderId()<< endl;
         node->putLockAckToLocalRequestQueue(*lockAckMsg);
 
-    } else if (msg.find("lock release") != string::npos){
+    }else if (msg.find("lock release") != string::npos){
         IMessage* releasekMsg = new LockMessage(msg);
-        cout << "Recv: [ " << releasekMsg->getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
+        cout << "ID: " << node->getId() << " recv [" << dynamic_cast<LockMessage*>(releasekMsg)->toString() <<"] from " << releasekMsg->getSenderId()<< endl;
         node->popMessageFromLocalRequestQueue(*releasekMsg);
     }
 }

@@ -18,6 +18,7 @@ AccountHandler::AccountHandler() : node(nullptr), balance(0), percent(0) {}
 AccountHandler::AccountHandler(Graph::Node* node) : node(node), percent(0){
     srand(time(nullptr));
     balance = rand()%100000;
+    cout << this->node->getId() << " Initiate rand balance: " << balance << endl;
 }
 
 void AccountHandler::handleIncommingMessage(const std::string& msg, const time_t time){
@@ -44,19 +45,14 @@ void AccountHandler::handleIncommingMessage(const std::string& msg, const time_t
             }
         }
 
-    }else if(msg.find("balance request") != string::npos || msg.find("release") != string::npos ){
-        IMessage* requestReleaseMessage = new Message(msg);
-        cout << "Recv: [ " << requestReleaseMessage->getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
-        if(requestReleaseMessage->getCommand() == "balance request"){
+    }else if(msg.find("balance request") != string::npos){
+        IMessage* requestMsg = new Message(msg);
+        cout << "Recv: [ " << requestMsg->getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
+        if(requestMsg->getCommand() == "balance request"){
             IMessage*  balanceResponseMsg = new AccountMessage(node->getId(), APPLICATION, "balance response", balance, percent);
-            node->sendMessageToNode(balanceResponseMsg, node->getFileHandler()->getNodeFromFile(requestReleaseMessage->getSenderId()));
-        }else if(requestReleaseMessage->getCommand() == "lock release") {
-            //TODO: Release recource
+            node->sendMessageToNode(balanceResponseMsg, node->getFileHandler()->getNodeFromFile(requestMsg->getSenderId()));
         }
+    }else if(msg.find("release") != string::npos){
+        node->setWaitAck(false);
     }
 }
-
-void AccountHandler::pushMessageToQueue(const Messages::AccountMessage& message){
-    requestQueue.insert(pair<Messages::AccountMessage, vector<unsigned int>>(message, {}));
-}
-

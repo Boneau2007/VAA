@@ -20,7 +20,7 @@ using namespace Messages;
 using namespace chrono;
 
 Graph::Node::Node() :  id(0), ipAddress(""), port(0), recvRumors(0), hasSend(false), preferedTime(0), fileHandler(nullptr), messageHandler(nullptr),
-                coordinator(nullptr), initNode(nullptr), waitAck(false){}
+                coordinator(nullptr), initNode(nullptr), waitAck(false), hasDeadlock(false){}
 
 Graph::Node::Node(const unsigned int id, string  ipAddress, const unsigned int port) : Node() {
     this->id = id;
@@ -64,7 +64,7 @@ void Graph::Node::startHandle(){
     //}
     sleep(3);
     // 3.Uebung
-    //threadPool.emplace_back(&Node::executeAccountAlgorithmThread, this);
+    threadPool.emplace_back(&Node::executeAccountAlgorithmThread, this);
 
     while(true){
         try{
@@ -108,8 +108,10 @@ void Graph::Node::sendMessageToNode(IMessage* message, const Node& targetNode){
             command.find("end") != string::npos ||
             command.find("election") != string::npos ||
             command.find("initiator") != string::npos||
-            command.find("rumor") != string::npos){
+            command.find("rumor") != string::npos ||
+            command.find("release") != string::npos){
             auto* msg = dynamic_cast<Message*>(message);
+            cout << "ID: " << id << " sende [" << msg->toString() <<"] to " << targetNode.getId()<< endl;
             if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
                 throw runtime_error("ERROR: Unable to write");
             }
@@ -117,6 +119,7 @@ void Graph::Node::sendMessageToNode(IMessage* message, const Node& targetNode){
         }else if(command.find("lock request") != string::npos ||
                  command.find("lock release") != string::npos){
             auto* msg = dynamic_cast<LockMessage*>(message);
+            cout << "ID: " << id << " sende [" << msg->toString() <<"] to " << targetNode.getId()<< endl;
             if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
                 throw runtime_error("ERROR: Unable to write lock- request or relase Message");
             }
@@ -127,12 +130,14 @@ void Graph::Node::sendMessageToNode(IMessage* message, const Node& targetNode){
             }
         }else if(command.find("lock ack") != string::npos){
             auto* msg = dynamic_cast<LockAckMessage*>(message);
+            cout << "ID: " << id << " sende [" << msg->toString() <<"] to " << targetNode.getId()<< endl;
             if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
                 throw runtime_error("ERROR: Unable to write lock ack Message");
             }
         }else if(command.find("balance send") != string::npos ||
                  command.find("balance response") != string::npos){
             auto* msg = dynamic_cast<AccountMessage*>(message);
+            cout << "ID: " << id << " sende [" << msg->toString() <<"] to " << targetNode.getId()<< endl;
             if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
                 throw runtime_error("ERROR: Unable to write");
             }
@@ -167,7 +172,7 @@ void Graph::Node::executeWorkerThread(int socketFd) {
 
 
 void Graph::Node::executeAccountAlgorithmThread() {
-    unsigned int randIndex = -1;
+    unsigned int randIndex = 0;
     srand(time(nullptr));
     while(true){
         // 1. Warte zufällige Zeit 0 - 3
@@ -257,18 +262,17 @@ void Graph::Node::selectTime(){
 }
 
 void Graph::Node::acquireLock(unsigned int waitTillTime, unsigned int randIndex) {
-    cout << "AcquireLock" << endl;
-    unsigned int lockId = fileHandler->getNodeList().at(randIndex).getId();
+    lockId = fileHandler->getNodeList().at(randIndex).getId();
     unsigned int originId = id;
     unsigned int senderId = id;
     unsigned int localClockTime = localClock.getTime();
-    bool sendObpl = false;
+    bool sendObpl = false; //TODO: Setze auf false
     IMessage* lockMsg = new LockMessage(senderId, APPLICATION, "lock request", lockId, originId, localClockTime);
     sendToNeighbors(lockMsg);
     //Speichere die Requestnachricht in die richtige lokale Request queue ein, auf welche zugegriffen werden soll
     for(auto& i : localRequestQueueList){
         if(i.first == lockId){
-            //Speichere den Request in die queue
+            cout << "Put <" << lockMsg->getLockId() << "," << lockMsg->getLocalClock()<<"> to Q" << i.first <<  " at "<< id << endl;
             i.second.insert(pair<IMessage, vector<unsigned int>>(*lockMsg,{}));
         }
     }
@@ -276,9 +280,12 @@ void Graph::Node::acquireLock(unsigned int waitTillTime, unsigned int randIndex)
         if(system_clock::to_time_t(system_clock::now()) >= waitTillTime && !sendObpl){
             cout << "Wait max is reached" << endl;
             IMessage* obplMsg = new OrderedBlockedMessage(id, CONTROL, "obpl");
-            dynamic_cast<OrderedBlockedMessage*>(obplMsg)->addObpId(lockId);
+            dynamic_cast<OrderedBlockedMessage*>(obplMsg)->addObpId(id);
             sendMessageToNode(obplMsg, fileHandler->getNodeFromFile(lockId));
             sendObpl = true;
+        }
+        if(hasDeadlock){
+            //TODO: break and handle resources
         }
     }
 }
@@ -301,37 +308,37 @@ void Graph::Node::loseLock(unsigned int randIndex){
 }
 
 void Graph::Node::criticalSection(unsigned int randIndex){
-    // 4. Wähle zufälligen Prozentsatz
-    messageHandler->getAccountHandler()->setPercent(rand()%100);
-    // 5. Sende den eigenen Kontostand und Prozentsatz
-    ostringstream ss;
-    ss << "send balance" << messageHandler->getAccountHandler()->getBalanceAmount() << ";" << messageHandler->getAccountHandler()->getPercent() ;
-    //Message message(id,APPLICATION,ss.str());
-    //sendMessageToNode(message, fileHandler->getNodeList().at(randIndex));
-    //// 6. Request Balance
-    //Message requestMessage(id,APPLICATION,"balance request");
-    //sendMessageToNode(requestMessage, fileHandler->getNodeList().at(randIndex));
     waitAck = true;
-    // 9. Warte auf ACK und gib waitAck frei
+    messageHandler->getAccountHandler()->setPercent(rand()%100);
+    cout << "Choose rand percentage is " << messageHandler->getAccountHandler()->getPercent() << endl;
+
+    IMessage* sendMsg = new AccountMessage(id, APPLICATION, "balance request", messageHandler->getAccountHandler()->getBalanceAmount(),messageHandler->getAccountHandler()->getPercent());
+    cout << "ID:" << id << " send " << dynamic_cast<AccountMessage*>(sendMsg)->toString() << endl;
+    sendMessageToNode(sendMsg, fileHandler->getNodeList().at(randIndex));
+
+    IMessage* requestMsg = new Message(id, APPLICATION, "balance request");
+    cout << "ID:" << id << " send " << dynamic_cast<Message*>(requestMsg)->toString() << endl;
+    sendMessageToNode(requestMsg, fileHandler->getNodeList().at(randIndex));
+
     while(waitAck){
         sleep(1);
     }
 }
 
-bool Graph::Node::putMessageToLocalRequestQueue(const IMessage& message) {
-    //Prüfe ob dieselbe Nachricht für die jeweilige Queue auch schon von einem anderen Knoten kam und wenn ja, mache füge nicht ein
+bool Graph::Node::putMessageToLocalRequestQueue(const IMessage& message){
     for(auto& queueId : localRequestQueueList){
         if(queueId.first == message.getLockId()){
-            for(auto& i : queueId.second){
-                if(i.first.getOriginId() == message.getOriginId()){
+            auto it = queueId.second.begin();
+            for(; it!= queueId.second.end();it++){
+                if(it->first.getOriginId() == message.getOriginId()){
                     return false;
                 }
             }
         }
     }
-    //Finde die passende Queue erneut
     for(auto& queueId : localRequestQueueList){
         if(queueId.first == message.getLockId()){
+            cout << "Put <" << message.getOriginId() << "," <<  message.getLocalClock()<<"> to Q" << queueId.first <<  " at "<< id << endl;
             queueId.second.insert(pair<IMessage, vector<unsigned int>>(message, {}));
         }
     }
@@ -355,16 +362,16 @@ void Graph::Node::putLockAckToLocalRequestQueue(const IMessage& message){
 }
 
 
-void Graph::Node::popMessageFromLocalRequestQueue(const Messages::IMessage &message) {
+void Graph::Node::popMessageFromLocalRequestQueue(const Messages::IMessage &message){
     //Jede queue in der in der localRequestQueueList zeigt an ob für die jeweilige Ressource(Hier eine Node[nodeId])einen Request hat
     for(auto& queueId : localRequestQueueList){
         //Finde die zur lockId zugehörige Request Queue Qn,k
         if(queueId.first == message.getLockId()){
-            //Finde das Lock in der spezifischen queue
-            for(auto& i : queueId.second){
-                //Wenn du das Lock mit der nodeId gefunden hast, lösche es
-                if(i.first.getOriginId() == message.getOriginId()){
-                    queueId.second.erase(i);
+            auto it = queueId.second.begin();
+            for(; it!= queueId.second.end();it++){
+                if(it->first.getOriginId() == message.getOriginId()){
+                    cout << "Pop Message from local queue" << endl;
+                    queueId.second.erase(it);
                 }
             }
         }

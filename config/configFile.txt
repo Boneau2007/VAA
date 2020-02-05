@@ -3,10 +3,10 @@ initPort 1111
 
 programName cmake-build-debug/nodeApp
 
-maxNumOfNodes 5
+maxNumOfNodes 4
 nodeFileName config/nodeFile.txt
 
-numberOfEdges 6
+numberOfEdges 5
 
 maxRandNumber 4
 graphvizFileName config/graph.dot

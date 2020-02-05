@@ -63,7 +63,8 @@ void Handler::MessageHandler::handleIncommingMessage(const string& msg, const ti
             cout << "Recv: [ " << message.getCommand() << " ] at ID:" << node->getId() << " LC:" << node->getLocalClock().getTime() << endl;
         }else if(msg.find("balance send") != string::npos ||
                  msg.find("balance request") != string::npos ||
-                 msg.find("balance response") != string::npos){
+                 msg.find("balance response") != string::npos||
+                 msg.find("release") != string::npos){
             unique_lock<mutex> lock(accountMutex);
             accountHandler->handleIncommingMessage(msg, time);
             lock.unlock();

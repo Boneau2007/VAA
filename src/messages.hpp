@@ -68,7 +68,7 @@ namespace Messages{
                 : Message(senderId, messageType, command){
             this->lockId = lockId;
             this->originId = originId;
-            this->recvLocalClock = recvLocalClock;
+            this->localClock = localClock;
         }
 
         explicit LockMessage(const std::string& content) : Message(){
@@ -181,6 +181,11 @@ namespace Messages{
         LockAckMessage( unsigned int senderId, MESSAGE_TYPE type, const std::string& command, unsigned int lockId,
                         unsigned int id, unsigned int localClock, unsigned int originId,  unsigned int recvLocalClock)
                         : Message(senderId, type, command){
+            this->lockId = lockId;
+            this->senderId = id;
+            this->localClock = localClock;
+            this->originId = originId;
+            this->recvLocalClock = recvLocalClock;
         }
 
         explicit LockAckMessage(const std::string& accountMsgAsString) : Message(){
