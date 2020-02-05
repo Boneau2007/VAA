@@ -9,14 +9,12 @@ CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Inclu
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Application/Include/agreement.hpp
 CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o: ../src/Application/agreement.cpp
 
@@ -28,14 +26,12 @@ CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Application/Include/doubleCounting.hpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Application/doubleCounting.cpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o: ../src/Graph/Include/node.hpp
@@ -51,15 +47,12 @@ CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/accountH
 CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
-CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Graph/Include/node.hpp
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Graph/node.cpp.o: ../src/Graph/node.cpp
 
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Application/Include/agreement.hpp
@@ -70,14 +63,12 @@ CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Incl
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/Include/accountHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o: ../src/Handler/accountHandler.cpp
 
@@ -92,16 +83,14 @@ CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Handler/echoHandler.cpp
-CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o: ../src/Messages/Include/message.hpp
 
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Application/Include/agreement.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Application/Include/doubleCounting.hpp
@@ -111,16 +100,29 @@ CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o: ../src/Handler/fileHandler.cpp
+
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Application/Include/agreement.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Application/Include/doubleCounting.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Graph/Include/edge.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Graph/Include/node.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/accountHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/configHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/floodHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/messages.hpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o: ../src/Handler/floodHandler.cpp
 
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Application/Include/agreement.hpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Application/Include/doubleCounting.hpp
@@ -130,14 +132,12 @@ CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/H
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o: ../src/Handler/goldmanEdgeChasingHandler.cpp
 
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Application/Include/agreement.hpp
@@ -147,48 +147,15 @@ CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Graph/Includ
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/fileHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/accountHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/echoHandler.hpp
+CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/Include/messageHandler.hpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Handler/messageHandler.cpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-
-CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o: ../src/Graph/Include/edge.hpp
-CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o: ../src/Messages/accountMessage.cpp
-
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o: ../src/Graph/Include/edge.hpp
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o: ../src/Messages/echoMessage.cpp
-
-CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: ../src/Graph/Include/edge.hpp
-CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: ../src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o: ../src/Messages/forwardMessage.cpp
-
-CMakeFiles/networkNode.dir/src/Messages/message.cpp.o: ../src/Graph/Include/edge.hpp
-CMakeFiles/networkNode.dir/src/Messages/message.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/message.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Messages/message.cpp.o: ../src/Messages/message.cpp
-
-CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Graph/Include/edge.hpp
-CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o: ../src/Messages/orderedBlockedMessage.cpp
 
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Application/Include/agreement.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Application/Include/doubleCounting.hpp
@@ -197,19 +164,16 @@ CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Graph/Include/node.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/fileHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/accountMessage.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/message.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/orderedBlockedMessage.hpp
+CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/IMessage.hpp
+CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/lamportClock.hpp
+CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/messages.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/accountHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/configHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/echoHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/fileHandler.hpp
+CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/floodHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Handler/Include/messageHandler.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/IMessage.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/echoMessage.hpp
-CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/Messages/Include/forwardMessage.hpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/networkApp.cpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o: ../src/networkApp.hpp
 

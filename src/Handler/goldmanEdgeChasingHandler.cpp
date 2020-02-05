@@ -5,26 +5,17 @@
 #include "goldmanEdgeChasingHandler.hpp"
 
 using namespace Handler;
+using namespace Messages;
 using namespace std;
 
 GoldmanEdgeChasingHandler::GoldmanEdgeChasingHandler() : node(nullptr){}
 
 GoldmanEdgeChasingHandler::GoldmanEdgeChasingHandler(Graph::Node *node) : node(node){}
 
-void GoldmanEdgeChasingHandler::handleIncommingMessages(Messages::OrderedBlockedMessage* message) {
-    string content = message->getCommand();
-    if (content.find("obpl") != string::npos) {
-
+void GoldmanEdgeChasingHandler::handleIncommingMessages(const std::string &obplMsgAsString, time_t time) {
+    IMessage* obplMsg = new OrderedBlockedMessage(obplMsgAsString);
+    for(unsigned int obpl : obplMsg->getOrderedBlockedProcessList()){
+        
     }
 }
 
-void GoldmanEdgeChasingHandler::sendExtendOBPL() {
-
-}
-
-void GoldmanEdgeChasingHandler::initiateOBPL(vector<unsigned int> nodeIdList) {
-    //Message obplMessage(node->getId(),CONTROL,"obpl");
-    //for(auto id : nodeIdList){
-    //    node->sendMessageToNode(obplMessage, node->getFileHandler()->getNodeFromFile(id));
-    //}
-}

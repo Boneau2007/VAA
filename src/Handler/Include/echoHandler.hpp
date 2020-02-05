@@ -7,10 +7,9 @@
 
 #include <vector>
 #include <mutex>
-#include "../../Messages/Include/echoMessage.hpp"
 #include "node.hpp"
 #include "edge.hpp"
-
+#include "messages.hpp"
 namespace Graph{
     class Node;
 }
@@ -46,11 +45,11 @@ namespace Handler{
         std::vector<Graph::Edge> getSpanningTreeList(){ return spanningTreeList; }
 
         // Memberfunctions
-        void forwardExplorer(Messages::EchoMessage* message);
-        void sendEcho();
-        void executeStartElection();
-        void sendStartDoubleCounting();
-        void handleIncommingMessages(Messages::EchoMessage* message);
+       //void forwardExplorer(Messages::EchoMessage* message);
+       //void sendEcho();
+       //void executeStartElection();
+       //void sendStartDoubleCounting();
+       //void handleIncommingMessages(Messages::EchoMessage* message);
     };
 }
 

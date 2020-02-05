@@ -13,17 +13,16 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <fstream>
-#include "Include/node.hpp"
+#include "node.hpp"
 
 using namespace std;
-using namespace Graph;
-using namespace Handler;
+using namespace Messages;
 using namespace chrono;
 
 Graph::Node::Node() :  id(0), ipAddress(""), port(0), recvRumors(0), hasSend(false), preferedTime(0), fileHandler(nullptr), messageHandler(nullptr),
                 coordinator(nullptr), initNode(nullptr), waitAck(false){}
 
-Graph::Node::Node(const unsigned int id, string  ipAddress, const unsigned int port) {
+Graph::Node::Node(const unsigned int id, string  ipAddress, const unsigned int port) : Node() {
     this->id = id;
     this->ipAddress = std::move(ipAddress);
     this->port = port;
@@ -35,11 +34,11 @@ Graph::Node::Node( const unsigned int id, const std::string& configFile, const b
     fileHandler = new Handler::FileHandler(config.getNodeFileName());
     messageHandler = new Handler::MessageHandler(this);
     fileHandler->readNodes(config.getMaxNumOfNodes());
-    for(auto & node : fileHandler->getNodeList()){
-        if(node.getId() == id){
-            ipAddress = node.getIpAddress();
-            port = node.getPort();
-            break;
+    for(auto& i : fileHandler->getNodeList()){
+        localRequestQueueList.insert(pair<unsigned int, map<Messages::IMessage, std::vector<unsigned int>>>(i.getId(),{}));
+        if(i.getId() == id){
+            ipAddress = i.getIpAddress();
+            port = i.getPort();
         }
     }
     if(isGraphviz){
@@ -58,17 +57,14 @@ void Graph::Node::startHandle(){
     vector<thread> threadPool;
     int listenFd = -1;
     initTcpSocket(listenFd);
-    ostringstream ss;
-    ss << "Node Id: " << id;
 
     //Send Id to neighbors
-    Messages::IMessage* message = new Messages::Message(id, Messages::MESSAGE_TYPE::APPLICATION, ss.str());
-    for(auto & neighbor : neighbors){
-        threadPool.emplace_back(&Node::executeSendMessageThread, this, message, neighbor);
-    }
+    //for(Graph::Node& neighbor : neighbors){
+    //    threadPool.emplace_back(&Node::executeSendMessageThread, this, neighbor);
+    //}
     sleep(3);
     // 3.Uebung
-    threadPool.emplace_back(&Node::executeAccountAlgorithmThread, this);
+    //threadPool.emplace_back(&Node::executeAccountAlgorithmThread, this);
 
     while(true){
         try{
@@ -80,7 +76,10 @@ void Graph::Node::startHandle(){
     }
 }
 
-void Graph::Node::executeSendMessageThread(Messages::IMessage* message, const Node& node){
+void Graph::Node::executeSendMessageThread(const Node& node){
+    ostringstream ss;
+    ss << "Node Id: " << id;
+    IMessage* message = new Message(id, MESSAGE_TYPE::APPLICATION, ss.str());
     sleep(2);
     sendMessageToNode(message, node);
 }
@@ -88,7 +87,7 @@ void Graph::Node::executeSendMessageThread(Messages::IMessage* message, const No
 /*
  * This function creates communication sockets and writes data to the host
  */
-void Graph::Node::sendMessageToNode(Messages::IMessage* message, const Node& targetNode){
+void Graph::Node::sendMessageToNode(IMessage* message, const Node& targetNode){
     int sock;
     struct sockaddr_in server{};
     string command = message->getCommand();
@@ -101,17 +100,39 @@ void Graph::Node::sendMessageToNode(Messages::IMessage* message, const Node& tar
         if(inet_pton(AF_INET, targetNode.getIpAddress().c_str(),&server.sin_addr) == -1){
             throw runtime_error( "ERROR: Invalid Addess");
         }
+        localClock.sendEvent();
         if(connect(sock, (struct sockaddr*)&server, sizeof(server)) == -1){
             throw runtime_error("ERROR: Unable to connect");
         }
-        //time_t time = system_clock::to_time_t(system_clock::now());
-        //TODO: Wenn Nachricht Command enthält bestimmte nachrichten, dann ist Message
         if( command.find("Node Id: ") != string::npos ||
             command.find("end") != string::npos ||
             command.find("election") != string::npos ||
             command.find("initiator") != string::npos||
             command.find("rumor") != string::npos){
-            Messages::Message* msg = dynamic_cast<Messages::Message*>(message);
+            auto* msg = dynamic_cast<Message*>(message);
+            if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
+                throw runtime_error("ERROR: Unable to write");
+            }
+
+        }else if(command.find("lock request") != string::npos ||
+                 command.find("lock release") != string::npos){
+            auto* msg = dynamic_cast<LockMessage*>(message);
+            if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
+                throw runtime_error("ERROR: Unable to write lock- request or relase Message");
+            }
+        }else if(command.find("obpl") != string::npos){
+            auto* msg = dynamic_cast<OrderedBlockedMessage*>(message);
+            if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
+                throw runtime_error("ERROR: Unable to write obpl Message");
+            }
+        }else if(command.find("lock ack") != string::npos){
+            auto* msg = dynamic_cast<LockAckMessage*>(message);
+            if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
+                throw runtime_error("ERROR: Unable to write lock ack Message");
+            }
+        }else if(command.find("balance send") != string::npos ||
+                 command.find("balance response") != string::npos){
+            auto* msg = dynamic_cast<AccountMessage*>(message);
             if(write(sock, msg->toString().c_str(), msg->toString().size()) == -1){
                 throw runtime_error("ERROR: Unable to write");
             }
@@ -123,13 +144,13 @@ void Graph::Node::sendMessageToNode(Messages::IMessage* message, const Node& tar
     }
 }
 
-void Graph::Node::sendToNeighbors(Messages::IMessage* msg){
+void Graph::Node::sendToNeighbors(IMessage* msg){
     for(const auto & neighbor : neighbors){
         sendMessageToNode(msg, neighbor);
     }
 }
 
-void Graph::Node::sendToNeighborsExceptSource(Messages::IMessage* msg){
+void Graph::Node::sendToNeighborsExceptSource(IMessage* msg){
     for(const auto & neighbor : neighbors){
         if(neighbor.getId() != msg->getOriginId()){
             sendMessageToNode(msg , neighbor);
@@ -157,11 +178,10 @@ void Graph::Node::executeAccountAlgorithmThread() {
             randIndex = rand()%fileHandler->getNodeList().size();
         }
         // 3. Bekomme ein Lock
-        //TODO: make wating time nodeList size dependend
         acquireLock(system_clock::to_time_t(system_clock::now())+id, randIndex);
         criticalSection(randIndex);
         // 10. Gebe lock frei
-        loseLock();
+        loseLock(randIndex);
     }
 }
 
@@ -192,7 +212,6 @@ void Graph::Node::initTcpSocket(int& socketFd){
         throw runtime_error("Error: on socket listen\n");
     }
 }
-
 bool Graph::Node::hasNeighbor(const vector<Graph::Node>& nodes, const unsigned int thisId){
     for(auto & neighbor : nodes){
         if(neighbor.getId() == thisId){
@@ -201,7 +220,6 @@ bool Graph::Node::hasNeighbor(const vector<Graph::Node>& nodes, const unsigned i
     }
     return false;
 }
-
 void Graph::Node::selectNeighbors(){
     srand (time(nullptr));
     for(unsigned int i=0;i < config.getMaxRandNumber(); i++){
@@ -216,8 +234,6 @@ void Graph::Node::selectNeighbors(){
         }
     }
 }
-
-
 void Graph::Node::selectTime(){
     vector<time_t> timeList;
     ifstream fileStream;
@@ -233,7 +249,7 @@ void Graph::Node::selectTime(){
             if(line.empty()){
                 continue;
             }
-            timeList.push_back(stoi(line.c_str()));
+            timeList.push_back(stoi(line));
         }
     }
     unsigned int num = rand()%timeList.size();
@@ -241,26 +257,47 @@ void Graph::Node::selectTime(){
 }
 
 void Graph::Node::acquireLock(unsigned int waitTillTime, unsigned int randIndex) {
-    bool sendObpl = true;
-    Messages::IMessage* lockMsg = new Messages::AccountMessage(id, APPLICATION, "request", system_clock::to_time_t(system_clock::now()));
-    //for(const auto& node : fileHandler->getNodeList()){
-    //    sendMessageToNode(lockMsg, node);
-    //} // TODO: Ersetze durch Flooding Alg.
-    //messageHandler->getAccountHandler()->pushMessageToQueue(lockMsg);
-    //while(!(messageHandler->getAccountHandler()->isLowestTimestamp() &&
-    //        messageHandler->getAccountHandler()->receivedReplyFromAll())){
-    //    if(system_clock::to_time_t(system_clock::now()) >= waitTillTime && sendObpl){
-    //        messageHandler->getGoldmanEdgeChasingHandler()->initiateOBPL(messageHandler->getAccountHandler()->getBlockingNodeIdList());
-    //        sendObpl = false;
-    //    }
-    //}
+    cout << "AcquireLock" << endl;
+    unsigned int lockId = fileHandler->getNodeList().at(randIndex).getId();
+    unsigned int originId = id;
+    unsigned int senderId = id;
+    unsigned int localClockTime = localClock.getTime();
+    bool sendObpl = false;
+    IMessage* lockMsg = new LockMessage(senderId, APPLICATION, "lock request", lockId, originId, localClockTime);
+    sendToNeighbors(lockMsg);
+    //Speichere die Requestnachricht in die richtige lokale Request queue ein, auf welche zugegriffen werden soll
+    for(auto& i : localRequestQueueList){
+        if(i.first == lockId){
+            //Speichere den Request in die queue
+            i.second.insert(pair<IMessage, vector<unsigned int>>(*lockMsg,{}));
+        }
+    }
+    while(!(isLowestTimestamp(randIndex) && receivedReplyFromAll(randIndex))){
+        if(system_clock::to_time_t(system_clock::now()) >= waitTillTime && !sendObpl){
+            cout << "Wait max is reached" << endl;
+            IMessage* obplMsg = new OrderedBlockedMessage(id, CONTROL, "obpl");
+            dynamic_cast<OrderedBlockedMessage*>(obplMsg)->addObpId(lockId);
+            sendMessageToNode(obplMsg, fileHandler->getNodeFromFile(lockId));
+            sendObpl = true;
+        }
+    }
 }
-void Graph::Node::loseLock(){
-    messageHandler->getAccountHandler()->removeFromMessageQueue(id);
-    //Message releaseMsg(id, APPLICATION, "release", system_clock::to_time_t(system_clock::now()));
-    //for(const auto& node : fileHandler->getNodeList()){
-    //    sendMessageToNode(releaseMsg, node);
-    //}
+void Graph::Node::loseLock(unsigned int randIndex){
+    unsigned int lockId = fileHandler->getNodeList().at(randIndex).getId();
+    unsigned int originId = id;
+    unsigned int senderId = id;
+    unsigned int localClockTime = 0;
+    for(auto& queueId : localRequestQueueList){
+        if(queueId.first == lockId){
+            for(auto& i : queueId.second){
+                if(i.first.getOriginId() == originId){
+                    localClockTime = i.first.getLocalClock();
+                }
+            }
+        }
+    }
+    IMessage* releaseMsg = new LockMessage(id, APPLICATION, "release",  lockId, originId, localClockTime);
+    sendToNeighbors(releaseMsg);
 }
 
 void Graph::Node::criticalSection(unsigned int randIndex){
@@ -280,3 +317,95 @@ void Graph::Node::criticalSection(unsigned int randIndex){
         sleep(1);
     }
 }
+
+bool Graph::Node::putMessageToLocalRequestQueue(const IMessage& message) {
+    //Prüfe ob dieselbe Nachricht für die jeweilige Queue auch schon von einem anderen Knoten kam und wenn ja, mache füge nicht ein
+    for(auto& queueId : localRequestQueueList){
+        if(queueId.first == message.getLockId()){
+            for(auto& i : queueId.second){
+                if(i.first.getOriginId() == message.getOriginId()){
+                    return false;
+                }
+            }
+        }
+    }
+    //Finde die passende Queue erneut
+    for(auto& queueId : localRequestQueueList){
+        if(queueId.first == message.getLockId()){
+            queueId.second.insert(pair<IMessage, vector<unsigned int>>(message, {}));
+        }
+    }
+    return true;
+}
+
+void Graph::Node::putLockAckToLocalRequestQueue(const IMessage& message){
+    //Jede queue in der in der localRequestQueueList zeigt an ob für die jeweilige Ressource(Hier eine Node[nodeId])einen Request hat
+    for(auto& queueId : localRequestQueueList){
+        //Finde die zur lockId zugehörige Request Queue Qn,k
+        if(queueId.first == message.getLockId()){
+            //Finde das eigene Lock in der spezifischen queue
+            for(auto& i : queueId.second){
+                //Wenn du dein eigenes Lock mit deiner nodeId gefunden hast, füge die nodeId der Node ein, von der die acknoledge nachricht kam
+                if(i.first.getOriginId() == message.getOriginId()){
+                    i.second.emplace_back(message.getSenderId());
+                }
+            }
+        }
+    }
+}
+
+
+void Graph::Node::popMessageFromLocalRequestQueue(const Messages::IMessage &message) {
+    //Jede queue in der in der localRequestQueueList zeigt an ob für die jeweilige Ressource(Hier eine Node[nodeId])einen Request hat
+    for(auto& queueId : localRequestQueueList){
+        //Finde die zur lockId zugehörige Request Queue Qn,k
+        if(queueId.first == message.getLockId()){
+            //Finde das Lock in der spezifischen queue
+            for(auto& i : queueId.second){
+                //Wenn du das Lock mit der nodeId gefunden hast, lösche es
+                if(i.first.getOriginId() == message.getOriginId()){
+                    queueId.second.erase(i);
+                }
+            }
+        }
+    }
+}
+
+bool Graph::Node::receivedReplyFromAll(unsigned int randIndex){
+    for(auto& queueId : localRequestQueueList){
+        //Finde die zur lockId zugehörige Request Queue Qn,k
+        if(queueId.first == fileHandler->getNodeList().at(randIndex).getId()){
+            //Finde das eigene Lock in der spezifischen queue
+            for(auto& i : queueId.second){
+                if(i.first.getOriginId() == this->id){
+                    //Wurde von jedem ein ack gesendet?
+                    return i.second.size() == fileHandler->getNodeList().size() - 1;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool Graph::Node::isLowestTimestamp(unsigned int randIndex){
+    for(auto& queueId : localRequestQueueList){
+        //Finde die zur lockId zugehörige Request Queue Qn,k
+        if(queueId.first == fileHandler->getNodeList().at(randIndex).getId()){
+            //Finde das eigene Lock in der spezifischen queue
+            unsigned int ownTime = 0;
+            for(auto& i : queueId.second){
+                if(i.first.getOriginId() == this->id){
+                    ownTime = i.first.getLocalClock();
+                    break;
+                }
+            }
+            for(auto& i : queueId.second){
+                if(i.first.getLocalClock() > ownTime){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+

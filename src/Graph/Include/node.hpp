@@ -5,19 +5,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "fileHandler.hpp"
 #include "IMessage.hpp"
+#include "messages.hpp"
 #include "messageHandler.hpp"
+#include "fileHandler.hpp"
 #include "configHandler.hpp"
+#include "lamportClock.hpp"
 
 namespace Handler{
     class FileHandler;
     class MessageHandler;
 }
-
-//namespace Messages{
-//    class Messages::IMessage ;
-//}
 
 namespace Graph{
     class Node {
@@ -26,20 +24,23 @@ namespace Graph{
         unsigned int id;
         std::string ipAddress;
         unsigned int port;
+        //one request queue per node, identified by id
+        std::map<unsigned  int, std::map<Messages::IMessage, std::vector<unsigned int>>> localRequestQueueList;
+        LamportClock localClock;
 
-        unsigned int recvRumors;
-        bool hasSend;
+        unsigned int recvRumors{};
+        bool hasSend{};
 
         std::vector<Node> neighbors;
-        time_t preferedTime;
+        time_t preferedTime{};
 
         Handler::ConfigHandler config;
         Handler::FileHandler* fileHandler;
         Handler::MessageHandler* messageHandler;
         Node* initNode;
-        Node* coordinator;
+        Node* coordinator{};
 
-        bool waitAck;
+        bool waitAck{};
     public:
         // Constructors
         Node();
@@ -69,35 +70,36 @@ namespace Graph{
         // Deconstructors
 
         // Inline-Elementfunctions
+
+        Handler::ConfigHandler getConfig() { return config; }
+        Handler::FileHandler* getFileHandler(){return fileHandler; }
+        Node* getInitNode(){return initNode; }
+
         unsigned int getId() const { return id; }
         std::string getIpAddress() const { return ipAddress; }
         unsigned int getPort() const { return port; }
         std::vector<Node> getNeighbors() { return neighbors; }
+        unsigned int getRecvRumors() const { return recvRumors; }
+        LamportClock getLocalClock() const {return localClock;}
 
         void setRecvRumors(unsigned int recvRumors) { this->recvRumors=recvRumors; }
-        unsigned int getRecvRumors() const { return recvRumors; }
-
         void setHasSend(bool hasSend){ this->hasSend = hasSend;}
-        //bool getHasSend() { return hasSend; }
-
         void setCoordinator(Node* coordinator) { this->coordinator=coordinator; }
-        //Node* getCoordinator() { return coordinator; }
-
-        //time_t getPreferedTime(){return preferedTime; }
         void setWaitAck(bool waitAck){this->waitAck = waitAck;}
-        //MessageHandler* getMessageHandler(){ return messageHandler;}
-        Handler::ConfigHandler getConfig() { return config; }
-        Node* getInitNode(){return initNode; }
-        Handler::FileHandler* getFileHandler(){return fileHandler; }
 
         // Memberfunctions
         void startHandle();
         void selectNeighbors();
         void incrementRecvRumors() { recvRumors++; }
-        
+
         void sendMessageToNode(Messages::IMessage* message, const Node &targetNode);
         void sendToNeighbors(Messages::IMessage* msg);
         void sendToNeighborsExceptSource(Messages::IMessage* msg);
+        bool putMessageToLocalRequestQueue(const Messages::IMessage& message);
+        void putLockAckToLocalRequestQueue(const Messages::IMessage& message);
+        bool receivedReplyFromAll(unsigned int randIndex);
+        bool isLowestTimestamp(unsigned int randIndex);
+        void popMessageFromLocalRequestQueue(const Messages::IMessage& message);
 
     private:
         void selectTime();
@@ -107,13 +109,12 @@ namespace Graph{
         //Account functions
         void acquireLock(unsigned int waitTillTime, unsigned int randIndex);
         void criticalSection(unsigned int randIndex);
-        void loseLock();
+        void loseLock(unsigned int randIndex);
 
         //Thread execution
         void executeWorkerThread(int socketFd);
-        void executeSendMessageThread(Messages::IMessage* message, const Node &node);
+        void executeSendMessageThread(const Node &node);
         void executeAccountAlgorithmThread();
-
     };
 }
 #endif // NODE_HPP

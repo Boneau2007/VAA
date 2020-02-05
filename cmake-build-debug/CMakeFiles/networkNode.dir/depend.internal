@@ -10,14 +10,12 @@ CMakeFiles/networkNode.dir/src/Application/agreement.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/echoMessage.hpp
- ../src/Messages/Include/forwardMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include/agreement.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/agreement.cpp
 CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o
@@ -29,14 +27,12 @@ CMakeFiles/networkNode.dir/src/Application/doubleCounting.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/echoMessage.hpp
- ../src/Messages/Include/forwardMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/Include/doubleCounting.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Application/doubleCounting.cpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/node.hpp
@@ -52,15 +48,12 @@ CMakeFiles/networkNode.dir/src/Graph/node.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/echoMessage.hpp
- ../src/Messages/Include/forwardMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/Include/node.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Graph/node.cpp
 CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o
  ../src/Application/Include/agreement.hpp
@@ -71,14 +64,12 @@ CMakeFiles/networkNode.dir/src/Handler/accountHandler.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/echoMessage.hpp
- ../src/Messages/Include/forwardMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/accountHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/accountHandler.cpp
 CMakeFiles/networkNode.dir/src/Handler/configHandler.cpp.o
@@ -93,16 +84,14 @@ CMakeFiles/networkNode.dir/src/Handler/echoHandler.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/echoHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/echoHandler.cpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/echoMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/forwardMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp
 CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o
  ../src/Application/Include/agreement.hpp
  ../src/Application/Include/doubleCounting.hpp
@@ -112,16 +101,29 @@ CMakeFiles/networkNode.dir/src/Handler/fileHandler.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/echoMessage.hpp
- ../src/Messages/Include/forwardMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/fileHandler.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/fileHandler.cpp
+CMakeFiles/networkNode.dir/src/Handler/floodHandler.cpp.o
+ ../src/Application/Include/agreement.hpp
+ ../src/Application/Include/doubleCounting.hpp
+ ../src/Graph/Include/edge.hpp
+ ../src/Graph/Include/node.hpp
+ ../src/Handler/Include/accountHandler.hpp
+ ../src/Handler/Include/configHandler.hpp
+ ../src/Handler/Include/echoHandler.hpp
+ ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
+ ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
+ ../src/Handler/Include/messageHandler.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
+ /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/floodHandler.cpp
 CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o
  ../src/Application/Include/agreement.hpp
  ../src/Application/Include/doubleCounting.hpp
@@ -131,14 +133,12 @@ CMakeFiles/networkNode.dir/src/Handler/goldmanEdgeChasingHandler.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/echoHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
+ ../src/Handler/Include/floodHandler.hpp
  ../src/Handler/Include/goldmanEdgeChasingHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/echoMessage.hpp
- ../src/Messages/Include/forwardMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/goldmanEdgeChasingHandler.cpp
 CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o
  ../src/Application/Include/agreement.hpp
@@ -148,48 +148,15 @@ CMakeFiles/networkNode.dir/src/Handler/messageHandler.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/accountHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/echoHandler.hpp
+ /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/floodHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/goldmanEdgeChasingHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/messageHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/messageHandler.cpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/echoMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/forwardMessage.hpp
-CMakeFiles/networkNode.dir/src/Messages/accountMessage.cpp.o
- ../src/Graph/Include/edge.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/accountMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/accountMessage.cpp
-CMakeFiles/networkNode.dir/src/Messages/echoMessage.cpp.o
- ../src/Graph/Include/edge.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/echoMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/forwardMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/echoMessage.cpp
-CMakeFiles/networkNode.dir/src/Messages/forwardMessage.cpp.o
- ../src/Graph/Include/edge.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/forwardMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/forwardMessage.cpp
-CMakeFiles/networkNode.dir/src/Messages/message.cpp.o
- ../src/Graph/Include/edge.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/message.cpp
-CMakeFiles/networkNode.dir/src/Messages/orderedBlockedMessage.cpp.o
- ../src/Graph/Include/edge.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/message.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/orderedBlockedMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/orderedBlockedMessage.cpp
 CMakeFiles/networkNode.dir/src/networkApp.cpp.o
  ../src/Application/Include/agreement.hpp
  ../src/Application/Include/doubleCounting.hpp
@@ -198,18 +165,15 @@ CMakeFiles/networkNode.dir/src/networkApp.cpp.o
  ../src/Handler/Include/configHandler.hpp
  ../src/Handler/Include/fileHandler.hpp
  ../src/Handler/Include/messageHandler.hpp
- ../src/Messages/Include/IMessage.hpp
- ../src/Messages/Include/accountMessage.hpp
- ../src/Messages/Include/message.hpp
- ../src/Messages/Include/orderedBlockedMessage.hpp
+ ../src/IMessage.hpp
+ ../src/lamportClock.hpp
+ ../src/messages.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/accountHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/configHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/echoHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/fileHandler.hpp
+ /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/floodHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/goldmanEdgeChasingHandler.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Handler/Include/messageHandler.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/IMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/echoMessage.hpp
- /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/Messages/Include/forwardMessage.hpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.cpp
  /home/alhuber/Schreibtisch/HTWSaar/Kommunikationsinformatik Master/3.Semester/VAA (1.Semester)/Uebungen/1.Uebung/repo/VAA/src/networkApp.hpp

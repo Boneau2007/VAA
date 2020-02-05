@@ -24,77 +24,78 @@ EchoHandler::EchoHandler(const bool initiator, Graph::Node* thisNode, const unsi
 }
 
 // message -> OriginalId ; senderId ; ... ; explorer|echo
-void EchoHandler::handleIncommingMessages(Messages::EchoMessage* message){
-    if(color != COLOR::GREEN){
-        if(message->getOriginId() > maxNodeId){
-            resultCount=1;
-            maxNodeId = message->getOriginId();
-            virtualParentId = message->getSenderId();
-            if(resultCount == thisNode->getNeighbors().size() && color != COLOR::GREEN){
-                color = COLOR::GREEN;
-                sendEcho();
-            }else{
-                color = COLOR::RED;
-                forwardExplorer(message);
-            }
-            spanningTreeList.clear();
-        }else if(message->getOriginId() == maxNodeId) {
-            resultCount++;
-            if (message->getCommand() == "echo") {
-                for (auto i : message->getHopList()) {
-                    spanningTreeList.push_back(i);
-                }
-            }
-            if (color == COLOR::WHITE) {
-                forwardExplorer(message);
-                //virtualParentId = message->getSenderId();
-            }
-            if(resultCount == thisNode->getNeighbors().size() && color != COLOR::GREEN){
-                color = COLOR::GREEN;
-                if(thisNode->getId() == message->getOriginId()){
-                    thisNode->setCoordinator(thisNode);
-                    sleep(1);
-                    thisNode->getFileHandler()->getNodeList();
-                    //unused
-                    //message msg(thisNode->getId(), MESSAGE_TYPE::CONTROL, "election won");
-                    //thisNode->sendToSuperNode(msg);
-                    vector<Graph::Node> allNodesList = thisNode->getFileHandler()->getNodeList();
-                    for(unsigned int i=0; i < maxStartNumber; i++) {
-                        unsigned int num = rand() % allNodesList.size();
-                        //thisNode->sendMessageToNode(Message(thisNode->getId(), MESSAGE_TYPE::APPLICATION, "vote"), allNodesList.at(num));
-                        //allNodesList.erase(allNodesList.begin()+num);
-                    }
-                    //thisNode->getDoubleCounting().start();
-                }else{
-                    sendEcho();
-                }
-            }
-        }
-    }
-}
-
-void EchoHandler::forwardExplorer(Messages::EchoMessage* message){
-    //thisNode->sendToNeighborsExceptSource(Message(thisNode->getId(), MESSAGE_TYPE::APPLICATION, "explorer", virtualParentId));
-}
-
-void EchoHandler::sendEcho(){
-    unsigned int i=0;
-    for(;i < thisNode->getNeighbors().size();i++){
-        if(thisNode->getNeighbors().at(i).getId() == virtualParentId){
-            break;
-        }
-
-    }
-    spanningTreeList.emplace_back(thisNode->getId(), virtualParentId);
-    //Message msg(thisNode->getId(),MESSAGE_TYPE::APPLICATION, "echo", maxNodeId, getSpanningTreeList());
-    //thisNode->sendMessageToNode(msg, thisNode->getNeighbors().at(i));
-}
-
-void EchoHandler::sendStartDoubleCounting(){
-    vector<Graph::Node> allNodesList = thisNode->getFileHandler()->getNodeList();
-    for(unsigned int i=0; i < maxStartNumber; i++) {
-        unsigned int num = rand() % allNodesList.size();
-        //thisNode->sendMessageToNode(Message(thisNode->getId(), MESSAGE_TYPE::APPLICATION, "vote"), allNodesList.at(num));
-        //allNodesList.erase(allNodesList.begin()+num);
-    }
-}
+//void EchoHandler::handleIncommingMessages(Messages::EchoMessage* message){
+//    if(color != COLOR::GREEN){
+//        if(message->getOriginId() > maxNodeId){
+//            resultCount=1;
+//            maxNodeId = message->getOriginId();
+//            virtualParentId = message->getSenderId();
+//            if(resultCount == thisNode->getNeighbors().size() && color != COLOR::GREEN){
+//                color = COLOR::GREEN;
+//                sendEcho();
+//            }else{
+//                color = COLOR::RED;
+//                forwardExplorer(message);
+//            }
+//            spanningTreeList.clear();
+//        }else if(message->getOriginId() == maxNodeId) {
+//            resultCount++;
+//            if (message->getCommand() == "echo") {
+//                for (auto i : message->getHopList()) {
+//                    spanningTreeList.push_back(i);
+//                }
+//            }
+//            if (color == COLOR::WHITE) {
+//                forwardExplorer(message);
+//                //virtualParentId = message->getSenderId();
+//            }
+//            if(resultCount == thisNode->getNeighbors().size() && color != COLOR::GREEN){
+//                color = COLOR::GREEN;
+//                if(thisNode->getId() == message->getOriginId()){
+//                    thisNode->setCoordinator(thisNode);
+//                    sleep(1);
+//                    thisNode->getFileHandler()->getNodeList();
+//                    //unused
+//                    //message msg(thisNode->getId(), MESSAGE_TYPE::CONTROL, "election won");
+//                    //thisNode->sendToSuperNode(msg);
+//                    vector<Graph::Node> allNodesList = thisNode->getFileHandler()->getNodeList();
+//                    for(unsigned int i=0; i < maxStartNumber; i++) {
+//                        unsigned int num = rand() % allNodesList.size();
+//                        //thisNode->sendMessageToNode(Message(thisNode->getId(), MESSAGE_TYPE::APPLICATION, "vote"), allNodesList.at(num));
+//                        //allNodesList.erase(allNodesList.begin()+num);
+//                    }
+//                    //thisNode->getDoubleCounting().start();
+//                }else{
+//                    sendEcho();
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//void EchoHandler::forwardExplorer(Messages::EchoMessage* message){
+//    //thisNode->sendToNeighborsExceptSource(Message(thisNode->getId(), MESSAGE_TYPE::APPLICATION, "explorer", virtualParentId));
+//}
+//
+//void EchoHandler::sendEcho(){
+//    unsigned int i=0;
+//    for(;i < thisNode->getNeighbors().size();i++){
+//        if(thisNode->getNeighbors().at(i).getId() == virtualParentId){
+//            break;
+//        }
+//
+//    }
+//    spanningTreeList.emplace_back(thisNode->getId(), virtualParentId);
+//    //Message msg(thisNode->getId(),MESSAGE_TYPE::APPLICATION, "echo", maxNodeId, getSpanningTreeList());
+//    //thisNode->sendMessageToNode(msg, thisNode->getNeighbors().at(i));
+//}
+//
+//void EchoHandler::sendStartDoubleCounting(){
+//    vector<Graph::Node> allNodesList = thisNode->getFileHandler()->getNodeList();
+//    for(unsigned int i=0; i < maxStartNumber; i++) {
+//        unsigned int num = rand() % allNodesList.size();
+//        //thisNode->sendMessageToNode(Message(thisNode->getId(), MESSAGE_TYPE::APPLICATION, "vote"), allNodesList.at(num));
+//        //allNodesList.erase(allNodesList.begin()+num);
+//    }
+//}
+//

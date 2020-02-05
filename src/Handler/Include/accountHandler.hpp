@@ -8,7 +8,7 @@
 #include <vector>
 #include <map>
 #include "node.hpp"
-#include "accountMessage.hpp"
+#include "messages.hpp"
 
 namespace Graph{
     class Node;
@@ -38,9 +38,6 @@ namespace Handler{
             //Memberfunctions
             void handleIncommingMessage(const std::string& msg, const time_t time);
             void pushMessageToQueue(const Messages::AccountMessage& message);
-            void removeFromMessageQueue(unsigned int id);
-            bool receivedReplyFromAll();
-            bool isLowestTimestamp();
             std::vector<unsigned int> getBlockingNodeIdList();
     };
 }

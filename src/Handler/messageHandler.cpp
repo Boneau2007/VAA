@@ -2,22 +2,22 @@
 #include "Include/messageHandler.hpp"
 
 using namespace std;
-using namespace Handler;
 using namespace chrono;
 
-MessageHandler::MessageHandler()= default;
+Handler::MessageHandler::MessageHandler()= default;
 
-MessageHandler::MessageHandler(Graph::Node* node)
+Handler::MessageHandler::MessageHandler(Graph::Node* node)
     : node(node){
-    echoHandler = new EchoHandler(false, node, node->getConfig().getMaxSend());
-    accountHandler = new AccountHandler(node);
+    echoHandler = new Handler::EchoHandler(false, node, node->getConfig().getMaxSend());
+    accountHandler = new Handler::AccountHandler(node);
     goldmanEdgeChasingHandler = new Handler::GoldmanEdgeChasingHandler(node);
+    lockHandler = new Handler::LockHandler(node);
 }
 
 /*
  * This function handles all incomming messages
  */
-void MessageHandler::handleIncommingMessage(const string& msg, const time_t time){
+void Handler::MessageHandler::handleIncommingMessage(const string& msg, const time_t time){
     if(msg.find("ctrl") != string::npos){
         if(msg.find("end") != string::npos ||
            msg.find("election") != string::npos ||
@@ -26,27 +26,13 @@ void MessageHandler::handleIncommingMessage(const string& msg, const time_t time
             Messages::Message message(msg);
             if (msg.find("rumor") != string::npos) {
                 unique_lock<mutex> lock(forwardMutex);
-                //TODO rumorHandler = new RumorHandler();
-                //if (node->getRecvRumors() == 0) {
-                //    node->incrementRecvRumors();
-                //    for (unsigned int i = 0; i < node->getNeighbors().size(); i++) {
-                //        if (node->getNeighbors().at(i).getId() != message.getSenderId()) {
-                //            Messages::Message rumorMsg(node->getId(), Messages::MESSAGE_TYPE::APPLICATION, "rumor");
-                //            node->sendMessageToNode(&rumorMsg, node->getNeighbors().at(i));
-                //        }
-                //    }
-                //    Messages::Message doneMsg(node->getId(), Messages::MESSAGE_TYPE::CONTROL, "done");
-                //    node->sendMessageToNode(&doneMsg, *(node->getInitNode()));
-                //    node->setHasSend(true);
-                //}
-                //node->incrementRecvRumors();
+                //TODO: Rumor Handler
                 lock.unlock();
             }else if(msg.find("initiator") != string::npos) {
                 //ss << "Neighbor Id: " << node->getId();
                 //node->sendToNeighbors(Message(node->getId(), MESSAGE_TYPE::APPLICATION, ss.str()));
                 //TODO: EIn Rumor ist APP und eins CTRL
             }else if(msg.find("rumor") != string::npos) {
-                // cout << "Done " << node->getId() << "And RECV " << node->getRecvRumors() <<  "And BOOl " << node->getHasSend() << endl;
                 for(unsigned int i=0;i< node->getNeighbors().size();i++){
                     //node->sendMessageToNode(Message(node->getId(), MESSAGE_TYPE::APPLICATION,"rumor") , node->getNeighbors().at(i));
                 }
@@ -58,7 +44,7 @@ void MessageHandler::handleIncommingMessage(const string& msg, const time_t time
                 echoHandler = new EchoHandler(true, node, node->getConfig().getMaxSend());
             }else if(msg.find("obpl") != string::npos) {
                 unique_lock<mutex> lock(goldmanMutex);
-                //goldmanEdgeChasingHandler->handleIncommingMessages(msg);
+                goldmanEdgeChasingHandler->handleIncommingMessages(msg, time);
                 lock.unlock();
             }else if(msg.find("evaluate") != string::npos){
                 string believeS;
@@ -74,25 +60,28 @@ void MessageHandler::handleIncommingMessage(const string& msg, const time_t time
     }else{
         if(msg.find("Node Id: ") != string::npos){
             Messages::Message message(msg);
-            cout << "Recv: [ " << message.getCommand() << " ] at ID:" << node->getId() << " " << time << endl;
+            cout << "Recv: [ " << message.getCommand() << " ] at ID:" << node->getId() << " LC:" << node->getLocalClock().getTime() << endl;
         }else if(msg.find("balance send") != string::npos ||
                  msg.find("balance request") != string::npos ||
-                 msg.find("balance response") != string::npos ||
-                 msg.find("request") != string::npos ||
-                 msg.find("reply") != string::npos ||
-                 msg.find("release") != string::npos){
+                 msg.find("balance response") != string::npos){
             unique_lock<mutex> lock(accountMutex);
             accountHandler->handleIncommingMessage(msg, time);
             lock.unlock();
-        }
-        if(msg.find("echo") != string::npos || msg.find("explorer") != string::npos){
-            unique_lock<mutex> lock(echoMutex);
-            //TODO: ADD Message for handling
-            //echoHandler->handleIncommingMessages(msg);
+        }else if(msg.find("lock request") != string::npos ||
+                msg.find("lock ack") != string::npos ||
+                msg.find("lock release") != string::npos){
+            unique_lock<mutex> lock(lockMutex);
+            lockHandler->handleIncommingMessage(msg, time);
             lock.unlock();
-        }else if(msg.find("vote") != string::npos){
-            //TODO:
         }
+        //if(msg.find("echo") != string::npos || msg.find("explorer") != string::npos){
+        //    unique_lock<mutex> lock(echoMutex);
+        //    //TODO: ADD Message for handling
+        //    //echoHandler->handleIncommingMessages(msg);
+        //    lock.unlock();
+        //}else if(msg.find("vote") != string::npos){
+        //    //TODO:
+        //}
     }
 }
 

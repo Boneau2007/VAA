@@ -5,9 +5,11 @@
 #ifndef VAA_GOLDMANEDGECHASINGHANDLER_HPP
 #define VAA_GOLDMANEDGECHASINGHANDLER_HPP
 
+#include <ctime>
+#include <string>
 #include <vector>
 #include "node.hpp"
-#include "orderedBlockedMessage.hpp"
+#include "messages.hpp"
 namespace Graph{
     class Node;
 }
@@ -21,13 +23,8 @@ namespace Handler{
         GoldmanEdgeChasingHandler();
         explicit GoldmanEdgeChasingHandler(Graph::Node *node);
 
-        //Inline-Memberfunction
         //Memberfunctions
-        void handleIncommingMessages(Messages::OrderedBlockedMessage* message);
-
-        void initiateOBPL(std::vector<unsigned int> nodeIdList);
-
-        void sendExtendOBPL();
+        void handleIncommingMessages(const std::string& message, time_t time);
     };
 
 }
